@@ -2,7 +2,7 @@ import { Link } from 'waku';
 
 export const Header = () => {
 	return (
-		<header className="px-4 py-2 -mx-px sticky top-0 w-full font-mono text-sm backdrop-blur-sm">
+		<header className="px-4 py-2 -mx-px sticky top-0 w-full font-mono text-sm bg-white">
 			<nav>
 				<ul className="flex items-center gap-2">
 					<li className="mr-auto">
