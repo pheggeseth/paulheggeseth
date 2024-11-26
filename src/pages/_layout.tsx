@@ -13,7 +13,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 			<meta name="description" content={data.description} />
 			{/* <link rel="icon" type="image/png" href={data.icon} /> */}
 			<Header />
-			<main className="px-4 flex-auto">{children}</main>
+			<main className="px-4 flex-shrink-0 flex-grow">{children}</main>
 			<Footer />
 		</div>
 	);
