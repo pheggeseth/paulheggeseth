@@ -9,7 +9,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 	const data = await getData();
 
 	return (
-		<div id="root-layout" className="flex flex-col">
+		<div id="root-layout" className="mx-auto flex flex-col font-serif">
 			<meta name="description" content={data.description} />
 			{/* <link rel="icon" type="image/png" href={data.icon} /> */}
 			<Header />

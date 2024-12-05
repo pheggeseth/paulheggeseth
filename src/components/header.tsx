@@ -11,7 +11,7 @@ export const Header = () => {
 						</h2>
 					</li>
 					<li>
-						<Link to="/about">say('hi')</Link>
+						<Link to="/about">say('hi');</Link>
 					</li>
 				</ul>
 			</nav>
