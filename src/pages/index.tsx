@@ -1,3 +1,5 @@
+import type { GetConfig } from '../types';
+
 export default async function Index() {
 	return (
 		<>
@@ -7,8 +9,8 @@ export default async function Index() {
 	);
 }
 
-export const getConfig = async () => {
+export const getConfig: GetConfig = async () => {
 	return {
 		render: 'static',
-	} as const;
+	};
 };

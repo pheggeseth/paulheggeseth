@@ -1,3 +1,5 @@
+import type { GetConfig } from '../types';
+
 export default async function About() {
 	return (
 		<>
@@ -22,8 +24,8 @@ export default async function About() {
 	);
 }
 
-export const getConfig = async () => {
+export const getConfig: GetConfig = async () => {
 	return {
 		render: 'static',
-	} as const;
+	};
 };

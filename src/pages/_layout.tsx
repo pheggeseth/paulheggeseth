@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Link } from 'waku';
+import type { GetConfig } from '../types';
 import '../styles.css';
 
 type RootLayoutProps = { children: ReactNode };
@@ -30,8 +31,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 	);
 }
 
-export const getConfig = async () => {
+export const getConfig: GetConfig = async () => {
 	return {
 		render: 'static',
-	} as const;
+	};
 };
