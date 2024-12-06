@@ -1,13 +1,24 @@
-export default async function AboutPage() {
+export default async function About() {
 	return (
-		<div>
+		<>
 			<title>Hi</title>
-			<h1 className="text-4xl font-bold tracking-tight mb-2">Hi! I'm Paul.</h1>
-			<p className="mb-3">
-				I write code. During the day, I do it as a Senior Frontend Engineer at
-				LaunchDarkly.
-			</p>
-		</div>
+			<header>
+				<h1>Hi,</h1>
+			</header>
+			<section>
+				<header>
+					<h2>I'm Paul,</h2>
+				</header>
+				<p>I write code for humans.</p>
+				<p>At work, I do it as a Senior Software Engineer at LaunchDarkly.</p>
+			</section>
+			<section>
+				<header>
+					<h2>and this is my website.</h2>
+				</header>
+				<p>It is very much a work in progress!</p>
+			</section>
+		</>
 	);
 }
 

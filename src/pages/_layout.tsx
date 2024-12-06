@@ -1,32 +1,34 @@
 import type { ReactNode } from 'react';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
+import { Link } from 'waku';
 import '../styles.css';
 
 type RootLayoutProps = { children: ReactNode };
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-	const data = await getData();
-
 	return (
-		<div id="root-layout" className="mx-auto flex flex-col font-serif">
-			<meta name="description" content={data.description} />
-			{/* <link rel="icon" type="image/png" href={data.icon} /> */}
-			<Header />
-			<main className="px-4 flex-shrink-0 flex-grow">{children}</main>
-			<Footer />
-		</div>
+		<>
+			<meta name="description" content="Paul Heggeseth's blog" />
+			<div id="layout">
+				<header>
+					<nav>
+						<ul>
+							<li>
+								<h2>
+									<Link to="/">paulheggeseth.codes()_</Link>
+								</h2>
+							</li>
+							<li>
+								<Link to="/about">say('hi');</Link>
+							</li>
+						</ul>
+					</nav>
+				</header>
+				<main>{children}</main>
+				<footer>footer content will go here</footer>
+			</div>
+		</>
 	);
 }
-
-const getData = async () => {
-	const data = {
-		description: 'Paul Heggeseth codes',
-		// icon: '/images/favicon.png',
-	};
-
-	return data;
-};
 
 export const getConfig = async () => {
 	return {

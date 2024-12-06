@@ -1,9 +1,9 @@
-export default async function HomePage() {
+export default async function Index() {
 	return (
-		<div>
+		<>
 			<title>paulheggeseth.codes()</title>
-			<p>Hello, world.</p>
-		</div>
+			<p>articles will go here</p>
+		</>
 	);
 }
 
