@@ -1,6 +1,6 @@
 import type { GetConfig } from '../types';
 
-export default async function About() {
+export default function About() {
 	return (
 		<>
 			<title>Hi</title>

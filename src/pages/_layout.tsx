@@ -5,7 +5,7 @@ import '../styles.css';
 
 type RootLayoutProps = { children: ReactNode };
 
-export default async function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<>
 			<meta name="description" content="Paul Heggeseth's blog" />
@@ -25,7 +25,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 					</nav>
 				</header>
 				<main>{children}</main>
-				<footer>footer content will go here</footer>
+				<footer>
+					<div>Copyright &copy; {new Date().getFullYear()} Paul Heggeseth</div>
+				</footer>
 			</div>
 		</>
 	);
