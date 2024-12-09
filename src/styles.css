@@ -69,7 +69,6 @@ body,
 		grid-column: 1 / -1;
 		display: grid;
 		grid-template-columns: subgrid;
-		border-block-end: 1px solid;
 
 		& > nav {
 			grid-column: 2;
@@ -95,7 +94,7 @@ body,
 
 	& > main {
 		grid-column: 2;
-		margin-block-start: var(--size-48);
+		margin-block-start: var(--size-64);
 	}
 
 	& > footer {
