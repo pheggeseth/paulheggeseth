@@ -7,9 +7,17 @@ export default function Index() {
 			<article>
 				<header>
 					<h1>The current article will go here</h1>
-					<p>Publication date</p>
 				</header>
-				<p>It's content will go here</p>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
 			</article>
 			<nav style={{ marginBlockStart: 'var(--size-48)' }}>
 				<h2>Past articles will go here</h2>
