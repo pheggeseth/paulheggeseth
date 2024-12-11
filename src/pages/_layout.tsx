@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				</header>
 				<main>{children}</main>
 				<footer>
-					<div>Copyright &copy; {new Date().getFullYear()} Paul Heggeseth</div>
+					<div>Copyright {new Date().getFullYear()} Paul Heggeseth</div>
 				</footer>
 			</div>
 		</>
