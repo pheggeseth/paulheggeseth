@@ -74,6 +74,8 @@ body,
 	grid-template-columns: auto minmax(auto, var(--size-720)) auto;
 	grid-template-rows: auto 1fr auto;
 	column-gap: var(--size-16);
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-subtle) transparent;
 
 	& > :is(header, footer) {
 		padding-block: var(--size-8);
