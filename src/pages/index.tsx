@@ -7,7 +7,38 @@ export default function Index() {
 			<article>
 				<header>
 					<h1>The current article will go here</h1>
+					<p>December 24th, 2015</p>
 				</header>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
 				<p>
 					It's content will go here. This would be the first paragraph that you
 					read. It will contain some information. This would be the first
