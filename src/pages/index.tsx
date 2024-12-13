@@ -1,55 +1,55 @@
+import { BlogPost } from '../components/blog-post';
 import type { GetConfig } from '../types';
 
 export default function Index() {
 	return (
 		<>
+			<BlogPost
+				title="The current article will go here"
+				publicationDate={new Date('2015-12-20').valueOf()}
+			>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
+				<p>
+					It's content will go here. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information. This would
+					be the first paragraph that you read. It will contain some
+					information. This would be the first paragraph that you read. It will
+					contain some information. This would be the first paragraph that you
+					read. It will contain some information. This would be the first
+					paragraph that you read. It will contain some information.
+				</p>
+			</BlogPost>
 			<title>paulheggeseth.codes()</title>
-			<article>
-				<header>
-					<h1>The current article will go here</h1>
-					<p>December 24th, 2015</p>
-				</header>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-			</article>
 			<nav style={{ marginBlockStart: 'var(--size-48)' }}>
 				<h2>Past articles will go here</h2>
 				<ol>
@@ -75,6 +75,6 @@ export default function Index() {
 
 export const getConfig: GetConfig = async () => {
 	return {
-		render: 'static',
+		render: 'dynamic',
 	};
 };

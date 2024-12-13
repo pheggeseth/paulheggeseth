@@ -51,7 +51,7 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--color-surface: whitesmoke;
+	--color-surface: white;
 	--color-body: black;
 	--color-subtle: dimgray;
 	--font-size-body: var(--size-14);
@@ -78,6 +78,7 @@ body,
 	scrollbar-color: var(--color-subtle) transparent;
 
 	& > :is(header, footer) {
+		color: var(--color-subtle);
 		padding-block: var(--size-8);
 	}
 
@@ -115,33 +116,14 @@ body,
 	& > main {
 		grid-column: 2;
 		margin-block-start: var(--size-64);
-
-		& article {
-			margin-block-end: var(--size-64);
-
-			& > header {
-				margin-block-end: var(--size-24);
-
-				& p {
-					color: var(--color-subtle);
-					font-family: var(--font-family-code);
-					font-size: var(--font-size-body);
-				}
-			}
-
-			& p {
-				& + & {
-					margin-block-start: var(--size-24);
-				}
-			}
-		}
 	}
 
 	& > footer {
 		font-family: var(--font-family-code);
 		font-size: var(--font-size-body);
 		grid-column: 1 / -1;
-		border-block-start: 1px solid;
+		border-block-start: 1px solid var(--color-subtle);
+		margin-block-start: var(--size-128);
 
 		display: grid;
 		grid-template-columns: subgrid;
