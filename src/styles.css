@@ -51,7 +51,7 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--color-surface: white;
+	--color-surface: whitesmoke;
 	--color-body: black;
 	--color-subtle: dimgray;
 	--font-size-body: var(--size-14);
