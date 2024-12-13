@@ -18,6 +18,7 @@ const getDay = (date: Date) =>
  *
  * such as `November 22nd, 1985`
  */
-export function formatDate(date: Date) {
-	return `${new Intl.DateTimeFormat('en-us', { month: 'long' }).format(date)} ${getDay(date)}, ${date.getUTCFullYear()}`;
+export function formatDate(date: Date | number) {
+	const d = typeof date === 'number' ? new Date(date) : date;
+	return `${new Intl.DateTimeFormat('en-us', { month: 'long' }).format(d)} ${getDay(d)}, ${d.getUTCFullYear()}`;
 }

@@ -70,6 +70,7 @@ body,
 }
 
 #layout {
+	position: relative; /* helps visually hidden elements not impact scrolling */
 	overflow: auto;
 	display: grid;
 	grid-template-columns: auto minmax(auto, var(--size-640)) auto;
@@ -170,5 +171,3 @@ ol,
 ul {
 	list-style: none;
 }
-
-

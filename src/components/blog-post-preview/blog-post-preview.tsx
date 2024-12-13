@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { formatDate } from '../../utils/dates';
+import { BlogPostDate } from '../blog-post-date';
 import './blog-post-preview.css';
 
 export function BlogPostPreview({
@@ -13,7 +13,9 @@ export function BlogPostPreview({
 				<h2>{title}</h2>
 			</header>
 			<p>{children}</p>
-			<footer>{formatDate(new Date(publicationDate))}</footer>
+			<footer>
+				<BlogPostDate published={publicationDate} />
+			</footer>
 		</article>
 	);
 }

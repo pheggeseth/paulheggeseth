@@ -10,9 +10,6 @@ article.blog-post-preview {
 	}
 
 	& > footer {
-		color: var(--color-subtle);
-		font-family: var(--font-family-code);
-		font-size: var(--font-size-body);
 		margin-block-start: var(--size-8);
 	}
 }
