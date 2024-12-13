@@ -15,11 +15,13 @@ export function BlogPost({
 		<>
 			<title>{title}</title>
 			<article className="blog-post">
+				<div className="bookend start">{'<thoughts>'}</div>
 				<header>
 					<h1>{title}</h1>
 					<BlogPostDate published={publicationDate} />
 				</header>
 				{children}
+				<div className="bookend end">{'</thoughts>'}</div>
 			</article>
 		</>
 	);

@@ -5,6 +5,21 @@ article.blog-post {
 		margin-block-end: var(--size-24);
 	}
 
+	& > .bookend {
+		color: var(--color-subtle);
+		font-family: var(--font-family-code);
+		font-size: var(--font-size-subtle);
+		text-align: center;
+
+		&.start {
+			margin-block: var(--size-48) var(--size-24);
+		}
+
+		&.end {
+			margin-block: var(--size-24) var(--size-48);
+		}
+	}
+
 	& p {
 		& + & {
 			margin-block-start: var(--size-24);

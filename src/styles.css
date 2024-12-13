@@ -117,7 +117,6 @@ body,
 
 	& > main {
 		grid-column: 2;
-		margin-block-start: var(--size-64);
 	}
 
 	& > footer {
