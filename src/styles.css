@@ -54,6 +54,7 @@
 	--color-surface: whitesmoke;
 	--color-body: black;
 	--color-subtle: dimgray;
+	--font-size-subtle: var(--size-12);
 	--font-size-body: var(--size-14);
 	--font-family-heading: 'Figtree', sans-serif;
 	--font-family-body: 'Merriweather', serif;

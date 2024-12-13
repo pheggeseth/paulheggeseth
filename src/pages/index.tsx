@@ -50,22 +50,50 @@ export default function Index() {
 				</p>
 			</BlogPost>
 			<title>paulheggeseth.codes()</title>
-			<nav style={{ marginBlockStart: 'var(--size-48)' }}>
-				<h2>Past articles will go here</h2>
+			<nav>
+				<h2 style={{ marginBlockEnd: 'var(--size-24)' }}>Recent articles</h2>
 				<ol>
 					<li>
-						<ol>
-							<h3>November 2024</h3>
-							<li>
-								<article>
-									<header>
-										<h3>The title of a past article</h3>
-									</header>
-									<p>The beginning of the past article's content</p>
-									<footer>publication date</footer>
-								</article>
-							</li>
-						</ol>
+						<article style={{ marginBlockEnd: 'var(--size-16)' }}>
+							<header style={{ marginBlockEnd: 'var(--size-2)' }}>
+								<h3>
+									<a href="/">The title of a past article {'->'}</a>
+								</h3>
+							</header>
+							<p>The beginning of the past article's content</p>
+							<footer
+								style={{
+									fontFamily: 'var(--font-family-code)',
+									textAlign: 'end',
+									fontSize: 'var(--font-size-subtle)',
+									color: 'var(--color-subtle)',
+									marginBlockStart: 'var(--size-8)',
+								}}
+							>
+								November 22nd, 2024
+							</footer>
+						</article>
+					</li>
+					<li>
+						<article style={{ marginBlockEnd: 'var(--size-16)' }}>
+							<header style={{ marginBlockEnd: 'var(--size-2)' }}>
+								<h3>
+									<a href="/">The title of a past article {'->'}</a>
+								</h3>
+							</header>
+							<p>The beginning of the past article's content</p>
+							<footer
+								style={{
+									fontFamily: 'var(--font-family-code)',
+									textAlign: 'end',
+									fontSize: 'var(--font-size-subtle)',
+									color: 'var(--color-subtle)',
+									marginBlockStart: 'var(--size-8)',
+								}}
+							>
+								November 22nd, 2024
+							</footer>
+						</article>
 					</li>
 				</ol>
 			</nav>

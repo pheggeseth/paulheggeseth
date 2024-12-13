@@ -18,7 +18,7 @@ export function BlogPost({
 			<article className="blog-post">
 				<header>
 					<h1>{title}</h1>
-					<p>Posted on {formatDate(new Date(publicationDate))}</p>
+					<p>{formatDate(new Date(publicationDate))} (updated)</p>
 				</header>
 				{children}
 			</article>
