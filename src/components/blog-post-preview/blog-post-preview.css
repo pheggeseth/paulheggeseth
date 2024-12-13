@@ -1,0 +1,18 @@
+article.blog-post-preview {
+	margin-block-end: var(--size-32);
+
+	& > header {
+		margin-block-end: var(--size-2);
+
+		& > h2 {
+			font-size: var(--size-18);
+		}
+	}
+
+	& > footer {
+		color: var(--color-subtle);
+		font-family: var(--font-family-code);
+		font-size: var(--font-size-body);
+		margin-block-start: var(--size-8);
+	}
+}

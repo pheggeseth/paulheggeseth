@@ -11,6 +11,13 @@ const ordinalMap = {
 const getDay = (date: Date) =>
 	`${date.getUTCDate()}${ordinalMap[thing.select(date.getUTCDate())]}`;
 
+/**
+ * Returns a `Date` in this format:
+ *
+ * `${month} ${day}${ordinal}, ${year}`
+ *
+ * such as `November 22nd, 1985`
+ */
 export function formatDate(date: Date) {
 	return `${new Intl.DateTimeFormat('en-us', { month: 'long' }).format(date)} ${getDay(date)}, ${date.getUTCFullYear()}`;
 }

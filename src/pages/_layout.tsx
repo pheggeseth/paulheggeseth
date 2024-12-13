@@ -14,9 +14,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
 					<nav>
 						<ul>
 							<li>
-								<h2>
+								<h1>
 									<Link to="/">paulheggeseth.codes()_</Link>
-								</h2>
+								</h1>
 							</li>
 							<li>
 								<Link to="/about">say('hi');</Link>

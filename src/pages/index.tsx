@@ -1,4 +1,5 @@
 import { BlogPost } from '../components/blog-post';
+import { BlogPostList } from '../components/blog-post-list';
 import type { GetConfig } from '../types';
 
 export default function Index() {
@@ -50,53 +51,33 @@ export default function Index() {
 				</p>
 			</BlogPost>
 			<title>paulheggeseth.codes()</title>
-			<nav>
-				<h2 style={{ marginBlockEnd: 'var(--size-24)' }}>Recent articles</h2>
-				<ol>
-					<li>
-						<article style={{ marginBlockEnd: 'var(--size-16)' }}>
-							<header style={{ marginBlockEnd: 'var(--size-2)' }}>
-								<h3>
-									<a href="/">The title of a past article {'->'}</a>
-								</h3>
-							</header>
-							<p>The beginning of the past article's content</p>
-							<footer
-								style={{
-									fontFamily: 'var(--font-family-code)',
-									textAlign: 'end',
-									fontSize: 'var(--font-size-subtle)',
-									color: 'var(--color-subtle)',
-									marginBlockStart: 'var(--size-8)',
-								}}
-							>
-								November 22nd, 2024
-							</footer>
-						</article>
-					</li>
-					<li>
-						<article style={{ marginBlockEnd: 'var(--size-16)' }}>
-							<header style={{ marginBlockEnd: 'var(--size-2)' }}>
-								<h3>
-									<a href="/">The title of a past article {'->'}</a>
-								</h3>
-							</header>
-							<p>The beginning of the past article's content</p>
-							<footer
-								style={{
-									fontFamily: 'var(--font-family-code)',
-									textAlign: 'end',
-									fontSize: 'var(--font-size-subtle)',
-									color: 'var(--color-subtle)',
-									marginBlockStart: 'var(--size-8)',
-								}}
-							>
-								November 22nd, 2024
-							</footer>
-						</article>
-					</li>
-				</ol>
-			</nav>
+			<BlogPostList
+				heading="Recent thoughts"
+				posts={[
+					{
+						id: 1,
+						title: 'The title of a past article',
+						publicationDate: Date.UTC(1985, 10, 22),
+						content: (
+							<>
+								The beginning of the past article's content. The beginning of
+								the past article's content.
+							</>
+						),
+					},
+					{
+						id: 2,
+						title: 'The title of a past article',
+						publicationDate: Date.UTC(1985, 10, 22),
+						content: (
+							<>
+								The beginning of the past article's content. The beginning of
+								the past article's content.
+							</>
+						),
+					},
+				]}
+			/>
 		</>
 	);
 }

@@ -4,10 +4,11 @@ article.blog-post {
 	& > header {
 		margin-block-end: var(--size-24);
 
-		& p {
+		& .publication-date {
 			color: var(--color-subtle);
 			font-family: var(--font-family-code);
 			font-size: var(--font-size-body);
+			line-height: 2;
 		}
 	}
 

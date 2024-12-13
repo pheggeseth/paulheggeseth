@@ -1,0 +1,5 @@
+.blog-post-list {
+	& > h1 {
+		margin-block-end: var(--size-24);
+	}
+}
