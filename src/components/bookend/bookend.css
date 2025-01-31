@@ -1,0 +1,14 @@
+.bookend {
+	color: var(--color-subtle);
+	font-family: var(--font-family-code);
+	font-size: var(--font-size-subtle);
+	text-align: center;
+
+	&[data-variant='start'] {
+		margin-block: var(--size-48) var(--size-24);
+	}
+
+	&[data-variant='end'] {
+		margin-block: var(--size-24) var(--size-48);
+	}
+}

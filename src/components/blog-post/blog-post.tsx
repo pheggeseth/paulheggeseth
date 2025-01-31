@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { BlogPostDate } from '../blog-post-date';
+import { Bookend } from '../bookend';
 import './blog-post.css';
 
 export function BlogPost({
@@ -15,13 +16,13 @@ export function BlogPost({
 		<>
 			<title>{title}</title>
 			<article className="blog-post">
-				<div className="bookend start">{'<thoughts>'}</div>
+				<Bookend variant="start">{'<thoughts>'}</Bookend>
 				<header>
 					<h1>{title}</h1>
 					<BlogPostDate published={publicationDate} />
 				</header>
 				{children}
-				<div className="bookend end">{'</thoughts>'}</div>
+				<Bookend variant="end">{'</thoughts>'}</Bookend>
 			</article>
 		</>
 	);
