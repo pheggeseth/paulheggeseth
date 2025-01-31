@@ -1,3 +1,5 @@
+import type { PostDate } from '../types';
+
 const ordinalMap = {
 	one: 'st',
 	two: 'nd',
@@ -9,9 +11,6 @@ const ordinalMap = {
 
 const pluralRules = new Intl.PluralRules('en-us', { type: 'ordinal' });
 
-const getDay = (date: Date) =>
-	`${date.getUTCDate()}${ordinalMap[pluralRules.select(date.getUTCDate())]}` as const;
-
 /**
  * Returns a `Date` in this format:
  *
@@ -19,7 +18,6 @@ const getDay = (date: Date) =>
  *
  * such as `November 22nd, 1985`
  */
-export function formatDate(date: Date | number) {
-	const d = typeof date === 'number' ? new Date(date) : date;
-	return `${new Intl.DateTimeFormat('en-us', { month: 'long' }).format(d)} ${getDay(d)}, ${d.getUTCFullYear()}` as const;
+export function formatDate([year, month, day]: PostDate) {
+	return `${new Intl.DateTimeFormat('en-us', { month: 'long' }).format(new Date(year, month - 1, day))} ${day}${ordinalMap[pluralRules.select(day)]}, ${year}` as const;
 }

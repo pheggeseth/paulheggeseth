@@ -7,7 +7,7 @@ export default function Index() {
 		<>
 			<BlogPost
 				title="The current article will go here"
-				publicationDate={new Date('2015-12-20').valueOf()}
+				publicationDate={[2015, 12, 24]}
 			>
 				<p>
 					It's content will go here. This would be the first paragraph that you
@@ -57,7 +57,7 @@ export default function Index() {
 					{
 						id: 1,
 						title: 'The title of a past article',
-						publicationDate: Date.UTC(1985, 10, 22),
+						publicationDate: [1985, 11, 22],
 						content: (
 							<>
 								The beginning of the past article's content. The beginning of
@@ -68,7 +68,7 @@ export default function Index() {
 					{
 						id: 2,
 						title: 'The title of a past article',
-						publicationDate: Date.UTC(1985, 10, 22),
+						publicationDate: [1985, 11, 22],
 						content: (
 							<>
 								The beginning of the past article's content. The beginning of

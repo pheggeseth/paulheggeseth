@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { PostDate } from '../../types';
 import { BlogPostPreview } from '../blog-post-preview';
 import './blog-post-list.css';
 
@@ -10,7 +11,7 @@ export function BlogPostList({
 	posts: Array<{
 		id: number;
 		title: string;
-		publicationDate: number;
+		publicationDate: PostDate;
 		content: ReactNode;
 	}>;
 }) {

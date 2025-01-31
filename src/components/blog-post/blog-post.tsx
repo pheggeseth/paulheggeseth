@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { PostDate } from '../../types';
 import { BlogPostDate } from '../blog-post-date';
 import { Bookend } from '../bookend';
 import './blog-post.css';
@@ -9,7 +10,7 @@ export function BlogPost({
 	children,
 }: {
 	title: string;
-	publicationDate: number;
+	publicationDate: PostDate;
 	children: ReactNode;
 }) {
 	return (
