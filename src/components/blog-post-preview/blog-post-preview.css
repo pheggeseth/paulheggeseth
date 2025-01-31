@@ -1,8 +1,8 @@
 article.blog-post-preview {
-	margin-block-end: var(--size-32);
+	margin-block-end: var(--size-48);
 
 	& > header {
-		margin-block-end: var(--size-2);
+		margin-block-end: var(--size-6);
 
 		& > h2 {
 			font-size: var(--size-18);
@@ -10,6 +10,10 @@ article.blog-post-preview {
 	}
 
 	& > footer {
-		margin-block-start: var(--size-8);
+		margin-block-start: var(--size-16);
+
+		& * {
+			font-size: var(--font-size-subtle);
+		}
 	}
 }
