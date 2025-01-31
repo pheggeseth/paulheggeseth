@@ -1,4 +1,6 @@
 .blog-post-list {
+	margin-block-start: var(--size-64);
+
 	& > h1 {
 		font-size: var(--size-16);
 		margin-block-end: var(--size-24);

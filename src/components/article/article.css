@@ -1,21 +1,29 @@
 article.article {
 	& > header {
 		margin-block-end: var(--size-24);
-	}
 
-	& section {
-		& > header {
-			margin-block-end: var(--size-8);
-		}
-
-		& + & {
-			margin-block-start: var(--size-48);
+		& > h1 {
+			font-size: var(--size-32);
 		}
 	}
 
-	& p {
+	& > h2 {
+		font-size: var(--size-24);
+		margin-block-end: var(--size-8);
+	}
+
+	& > h3 {
+		font-size: var(--size-16);
+		margin-block-end: var(--size-4);
+	}
+
+	& > p {
 		& + & {
 			margin-block-start: var(--size-24);
+		}
+
+		& + h2 {
+			margin-block-start: var(--size-48);
 		}
 	}
 }

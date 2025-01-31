@@ -14,19 +14,11 @@ export default function About() {
 					</VisuallyHidden>
 					<Bookend variant="start">{'<greetings>'}</Bookend>
 				</header>
-				<section>
-					<header>
-						<h2>I'm Paul,</h2>
-					</header>
-					<p>I write code for humans.</p>
-					<p>At work, I do it as a Senior Software Engineer at LaunchDarkly.</p>
-				</section>
-				<section>
-					<header>
-						<h2>and this is my website.</h2>
-					</header>
-					<p>It is very much a work in progress!</p>
-				</section>
+				<h2>I'm Paul,</h2>
+				<p>I write code for humans.</p>
+				<p>At work, I do it as a Senior Software Engineer at LaunchDarkly.</p>
+				<h2>and this is my website.</h2>
+				<p>It is very much a work in progress!</p>
 				<Bookend variant="end">{'</greetings>'}</Bookend>
 			</Article>
 		</>
