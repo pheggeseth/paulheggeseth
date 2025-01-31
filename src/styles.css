@@ -51,9 +51,9 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--color-surface: whitesmoke;
-	--color-body: black;
-	--color-subtle: dimgray;
+	--color-surface: floralwhite;
+	--color-body: #333;
+	--color-subtle: #666;
 	--font-size-subtle: var(--size-12);
 	--font-size-body: var(--size-14);
 	--font-family-heading: 'Figtree', sans-serif;
