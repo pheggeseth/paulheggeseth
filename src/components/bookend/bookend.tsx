@@ -5,7 +5,7 @@ export function Bookend({
 	children,
 }: { variant: 'start' | 'end'; children: string }) {
 	return (
-		<div className="bookend" data-variant={variant}>
+		<div aria-hidden className="bookend" data-variant={variant}>
 			{children}
 		</div>
 	);
