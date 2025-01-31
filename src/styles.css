@@ -99,7 +99,6 @@ body,
 			& > ul {
 				display: flex;
 				align-items: center;
-				font-family: var(--font-family-code);
 
 				& > li {
 					&:first-child {
@@ -107,6 +106,7 @@ body,
 					}
 
 					& * {
+						font-family: var(--font-family-code);
 						font-size: var(--font-size-body);
 						font-weight: 400;
 					}
