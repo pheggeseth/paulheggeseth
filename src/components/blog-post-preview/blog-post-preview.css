@@ -2,7 +2,7 @@ article.blog-post-preview {
 	margin-block-end: var(--size-48);
 
 	& > header {
-		margin-block-end: var(--size-6);
+		margin-block-end: var(--size-8);
 
 		& > h2 {
 			font-size: var(--size-18);
