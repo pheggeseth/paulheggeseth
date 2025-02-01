@@ -18,7 +18,7 @@ export default async function Thoughts({ slug }: { slug: string }) {
 	});
 
 	return (
-		<BlogPost title={data.title} publicationDate={data.date}>
+		<BlogPost title={data.title} publicationDate={data.publicationDate}>
 			<Content />
 		</BlogPost>
 	);
