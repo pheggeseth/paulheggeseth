@@ -1,3 +1,6 @@
+import type { z } from 'zod';
+import type { dateTupleSchema } from './schemas';
+
 export type GetConfig = () => Promise<
 	| {
 			render: 'static';
@@ -6,4 +9,4 @@ export type GetConfig = () => Promise<
 	| { render: 'dynamic' }
 >;
 
-export type PostDate = [year: number, month: number, day: number];
+export type PostDate = z.infer<typeof dateTupleSchema>;

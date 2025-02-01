@@ -1,25 +1,13 @@
-import fs from 'node:fs/promises';
-import { compile, run } from '@mdx-js/mdx';
-import matter from 'gray-matter';
-import * as runtime from 'react/jsx-runtime';
 import { BlogPost } from '../../components/blog-post';
 import type { GetConfig } from '../../types';
+import { parseBlogPost } from '../../utils/parse-blog-post';
 
 export default async function Thoughts({ slug }: { slug: string }) {
-	const fileContent = await fs.readFile(`src/posts/${slug}.mdx`, 'utf-8');
-	const { data, content } = matter(fileContent);
-
-	const compiledCode = String(
-		await compile(content, { outputFormat: 'function-body' }),
-	);
-	const { default: Content } = await run(compiledCode, {
-		...runtime,
-		baseUrl: import.meta.url,
-	});
+	const { title, publicationDate, BlogPostContent } = await parseBlogPost(slug);
 
 	return (
-		<BlogPost title={data.title} publicationDate={data.publicationDate}>
-			<Content />
+		<BlogPost title={title} publicationDate={publicationDate}>
+			<BlogPostContent />
 		</BlogPost>
 	);
 }
