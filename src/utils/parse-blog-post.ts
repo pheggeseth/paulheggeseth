@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import { compile, run } from '@mdx-js/mdx';
 import matter from 'gray-matter';
 import * as runtime from 'react/jsx-runtime';
-import { frontmatterSchema } from '../schemas';
+import { frontMatterSchema } from '../schemas';
 
 export async function parseBlogPost(slug: string) {
 	const fileContent = await fs.readFile(`src/blog-posts/${slug}.mdx`, 'utf-8');
@@ -16,7 +16,7 @@ export async function parseBlogPost(slug: string) {
 	);
 
 	return {
-		...frontmatterSchema.parse(data),
+		...frontMatterSchema.parse(data),
 		BlogPostContent,
 	};
 }
