@@ -6,4 +6,4 @@ pre-commit:
       stage_fixed: true
     tsc-check:
       glob: "*.{ts,tsx,d.cts,d.mts}"
-      run: npx tsc --noEmit
+      run: npx tsc --noEmit --pretty
