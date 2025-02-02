@@ -51,7 +51,7 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--color-surface: floralwhite;
+	--color-surface: #fffdf8;
 	--color-body: #333;
 	--color-subtle: #666;
 	--font-size-subtle: var(--size-12);
@@ -59,6 +59,25 @@
 	--font-family-heading: 'Figtree', sans-serif;
 	--font-family-body: 'Merriweather', serif;
 	--font-family-code: 'JetBrains Mono', monospace;
+	--shadow-color: 43deg 27% 76%;
+	--shadow-elevation-low:
+		0px 1px 0.8px hsl(var(--shadow-color) / 0.4),
+		0px 1.3px 1px -2.5px hsl(var(--shadow-color) / 0.27),
+		0px 3.2px 2.4px -5px hsl(var(--shadow-color) / 0.13);
+	--shadow-elevation-medium:
+		0px 1px 0.8px hsl(var(--shadow-color) / 0.42),
+		0px 1.6px 1.2px -1.7px hsl(var(--shadow-color) / 0.32),
+		0px 5.4px 4.1px -3.3px hsl(var(--shadow-color) / 0.21),
+		-0.1px 16px 12px -5px hsl(var(--shadow-color) / 0.11);
+	--shadow-elevation-high:
+		0px 1px 0.8px hsl(var(--shadow-color) / 0.39),
+		0px 1.2px 0.9px -0.7px hsl(var(--shadow-color) / 0.34),
+		0px 2.4px 1.8px -1.4px hsl(var(--shadow-color) / 0.3),
+		0px 5.6px 4.2px -2.1px hsl(var(--shadow-color) / 0.25),
+		-0.1px 12px 9px -2.9px hsl(var(--shadow-color) / 0.2),
+		-0.1px 22.5px 16.9px -3.6px hsl(var(--shadow-color) / 0.15),
+		-0.2px 38.2px 28.7px -4.3px hsl(var(--shadow-color) / 0.1),
+		-0.3px 60px 45px -5px hsl(var(--shadow-color) / 0.05);
 }
 
 html,
@@ -77,20 +96,42 @@ body,
 	grid-template-rows: auto 1fr auto;
 	column-gap: var(--size-16);
 	scrollbar-width: thin;
-	scrollbar-color: var(--color-subtle) transparent;
 
 	& > :is(header, footer) {
 		color: var(--color-subtle);
 		padding-block: var(--size-8);
 	}
 
+	& > .header-shadow {
+		box-shadow: var(--shadow-elevation-medium);
+		grid-column: 1 / -1;
+		grid-row: 1;
+		position: sticky;
+		top: 0;
+		height: 1em;
+		box-sizing: content-box;
+		padding: var(--size-8);
+	}
+
+	& .header-shadow-blocker {
+		grid-column: 1 / -1;
+		grid-row: 1;
+		background: var(--color-surface);
+		height: calc(var(--size-48) - 1em - var(--size-16));
+		margin-block-start: var(--size-32);
+		position: relative;
+		z-index: 1;
+	}
+
 	& > header {
 		grid-column: 1 / -1;
+		grid-row: 1;
 		display: grid;
 		grid-template-columns: subgrid;
 		position: sticky;
 		top: 0;
 		background: var(--color-surface);
+		line-height: 1em;
 		margin-block-start: var(--size-48);
 
 		& > nav {
