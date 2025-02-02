@@ -3,11 +3,11 @@ import type { GetConfig } from '../../types';
 import { parseBlogPost } from '../../utils/parse-blog-post';
 
 export default async function Thoughts({ slug }: { slug: string }) {
-	const { title, publicationDate, BlogPostContent } = await parseBlogPost(slug);
+	const { data, Component } = await parseBlogPost(slug);
 
 	return (
-		<BlogPost title={title} publicationDate={publicationDate}>
-			<BlogPostContent />
+		<BlogPost title={data.title} publicationDate={data.publicationDate}>
+			<Component />
 		</BlogPost>
 	);
 }

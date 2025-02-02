@@ -1,22 +1,13 @@
-import fs from 'node:fs/promises';
-import { compile, run } from '@mdx-js/mdx';
-import matter from 'gray-matter';
-import * as runtime from 'react/jsx-runtime';
-import { frontMatterSchema } from '../schemas';
+import { createMDXContent } from './create-mdx-content';
+import { readBlogPostFile } from './read-blog-post-file';
 
 export async function parseBlogPost(slug: string) {
-	const fileContent = await fs.readFile(`src/blog-posts/${slug}.mdx`, 'utf-8');
-	const { data, content } = matter(fileContent);
-	const { default: BlogPostContent } = await run(
-		await compile(content, { outputFormat: 'function-body' }),
-		{
-			...runtime,
-			baseUrl: import.meta.url,
-		},
-	);
+	const { data, content } = await readBlogPostFile(slug);
+	const Component = await createMDXContent(content);
+	console.log({ data, content });
 
 	return {
-		...frontMatterSchema.parse(data),
-		BlogPostContent,
+		data,
+		Component,
 	};
 }
