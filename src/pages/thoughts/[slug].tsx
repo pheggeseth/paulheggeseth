@@ -6,9 +6,12 @@ export default async function Thoughts({ slug }: { slug: string }) {
 	const { data, Component } = await parseBlogPost(slug);
 
 	return (
-		<BlogPost title={data.title} publicationDate={data.publicationDate}>
-			<Component />
-		</BlogPost>
+		<>
+			<title>{data.title}</title>
+			<BlogPost title={data.title} publicationDate={data.publicationDate}>
+				<Component />
+			</BlogPost>
+		</>
 	);
 }
 

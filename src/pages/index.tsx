@@ -5,6 +5,7 @@ import type { GetConfig } from '../types';
 export default function Index() {
 	return (
 		<>
+			<title>paulheggeseth.codes()</title>
 			<BlogPost
 				title="The current article will go here"
 				publicationDate={[2015, 12, 24]}
@@ -50,7 +51,6 @@ export default function Index() {
 					paragraph that you read. It will contain some information.
 				</p>
 			</BlogPost>
-			<title>paulheggeseth.codes()</title>
 			<BlogPostList
 				heading="Recent thoughts"
 				posts={[

@@ -14,17 +14,14 @@ export function BlogPost({
 	children: ReactNode;
 }) {
 	return (
-		<>
-			<title>{title}</title>
-			<Article>
-				<Bookend variant="start">{'<thoughts>'}</Bookend>
-				<header>
-					<h1>{title}</h1>
-					<BlogPostDate published={publicationDate} />
-				</header>
-				{children}
-				<Bookend variant="end">{'</thoughts>'}</Bookend>
-			</Article>
-		</>
+		<Article>
+			<Bookend variant="start">{'<thoughts>'}</Bookend>
+			<header>
+				<h1>{title}</h1>
+				<BlogPostDate published={publicationDate} />
+			</header>
+			{children}
+			<Bookend variant="end">{'</thoughts>'}</Bookend>
+		</Article>
 	);
 }
