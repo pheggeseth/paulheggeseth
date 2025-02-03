@@ -17,11 +17,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
 						<ul>
 							<li>
 								<h1>
-									<Link to="/">paulheggeseth.codes()_</Link>
+									<Link to="/" aria-label="home">
+										paulheggeseth.codes()_
+									</Link>
 								</h1>
 							</li>
 							<li>
-								<Link to="/about">say('hi');</Link>
+								<Link to="/about" aria-label="about">
+									say('hi');
+								</Link>
 							</li>
 						</ul>
 					</nav>
