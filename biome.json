@@ -16,6 +16,9 @@
 			},
 			"performance": {
 				"noDelete": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
 			}
 		}
 	},
