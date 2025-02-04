@@ -51,33 +51,37 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--color-surface: #fffdf8;
+	--color-surface: floralwhite;
 	--color-body: #333;
-	--color-subtle: #666;
+	--color-subtle: #777;
+	--color-border: #aaa;
 	--font-size-subtle: var(--size-12);
 	--font-size-body: var(--size-15);
 	--font-family-heading: 'Figtree', sans-serif;
 	--font-family-body: 'Merriweather', serif;
 	--font-family-code: 'JetBrains Mono', monospace;
-	--shadow-color: 43deg 27% 76%;
+	--shadow-color: 40deg 28% 61%;
 	--shadow-elevation-low:
-		0px 1px 0.8px hsl(var(--shadow-color) / 0.4),
-		0px 1.3px 1px -2.5px hsl(var(--shadow-color) / 0.27),
-		0px 3.2px 2.4px -5px hsl(var(--shadow-color) / 0.13);
+		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.69),
+		0.3px 0.7px 0.6px -2.5px hsl(var(--shadow-color) / 0.46),
+		1px 2px 1.7px -5px hsl(var(--shadow-color) / 0.23);
 	--shadow-elevation-medium:
-		0px 1px 0.8px hsl(var(--shadow-color) / 0.42),
-		0px 1.6px 1.2px -1.7px hsl(var(--shadow-color) / 0.32),
-		0px 5.4px 4.1px -3.3px hsl(var(--shadow-color) / 0.21),
-		-0.1px 16px 12px -5px hsl(var(--shadow-color) / 0.11);
+		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.58),
+		0.3px 0.6px 0.5px -1.2px hsl(var(--shadow-color) / 0.46),
+		0.8px 1.7px 1.4px -2.5px hsl(var(--shadow-color) / 0.35),
+		2.3px 4.5px 3.8px -3.7px hsl(var(--shadow-color) / 0.23),
+		5px 10px 8.4px -5px hsl(var(--shadow-color) / 0.12);
 	--shadow-elevation-high:
-		0px 1px 0.8px hsl(var(--shadow-color) / 0.39),
-		0px 1.2px 0.9px -0.7px hsl(var(--shadow-color) / 0.34),
-		0px 2.4px 1.8px -1.4px hsl(var(--shadow-color) / 0.3),
-		0px 5.6px 4.2px -2.1px hsl(var(--shadow-color) / 0.25),
-		-0.1px 12px 9px -2.9px hsl(var(--shadow-color) / 0.2),
-		-0.1px 22.5px 16.9px -3.6px hsl(var(--shadow-color) / 0.15),
-		-0.2px 38.2px 28.7px -4.3px hsl(var(--shadow-color) / 0.1),
-		-0.3px 60px 45px -5px hsl(var(--shadow-color) / 0.05);
+		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.54),
+		0.3px 0.6px 0.5px -0.6px hsl(var(--shadow-color) / 0.48),
+		0.5px 1px 0.8px -1.1px hsl(var(--shadow-color) / 0.43),
+		1.2px 2.3px 1.9px -1.7px hsl(var(--shadow-color) / 0.38),
+		2.4px 4.8px 4px -2.2px hsl(var(--shadow-color) / 0.32),
+		4.5px 9px 7.5px -2.8px hsl(var(--shadow-color) / 0.27),
+		7.6px 15.2px 12.7px -3.3px hsl(var(--shadow-color) / 0.21),
+		11.9px 23.8px 20px -3.9px hsl(var(--shadow-color) / 0.16),
+		17.6px 35.3px 29.6px -4.4px hsl(var(--shadow-color) / 0.11),
+		25px 50px 41.9px -5px hsl(var(--shadow-color) / 0.05);
 }
 
 html,
@@ -103,7 +107,6 @@ body,
 	}
 
 	& > .header-shadow {
-		border-block-end: 0.5px solid var(--color-subtle);
 		box-shadow: var(--shadow-elevation-medium);
 		grid-column: 1 / -1;
 		grid-row: 1;
@@ -166,7 +169,7 @@ body,
 		font-family: var(--font-family-code);
 		font-size: var(--font-size-body);
 		grid-column: 1 / -1;
-		border-block-start: 0.5px solid var(--color-subtle);
+		border-block-start: 1px solid var(--color-border);
 		margin-block-start: var(--size-128);
 		line-height: 1em;
 
