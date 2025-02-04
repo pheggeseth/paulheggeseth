@@ -2,5 +2,5 @@
 	color: var(--color-subtle);
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-body);
-	line-height: 2;
+	line-height: 2rem;
 }

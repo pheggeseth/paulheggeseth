@@ -1,5 +1,5 @@
 import type { z } from 'zod';
-import type { dateTupleSchema } from './schemas';
+import type { blogPostSchema, dateTupleSchema } from './schemas';
 
 export type GetConfig = () => Promise<
 	| {
@@ -10,3 +10,4 @@ export type GetConfig = () => Promise<
 >;
 
 export type PostDate = z.infer<typeof dateTupleSchema>;
+export type BlogPostType = z.infer<typeof blogPostSchema>;

@@ -3,6 +3,7 @@
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-subtle);
 	text-align: center;
+	line-height: 1rem;
 
 	&[data-variant='start'] {
 		margin-block: var(--size-48) var(--size-24);
