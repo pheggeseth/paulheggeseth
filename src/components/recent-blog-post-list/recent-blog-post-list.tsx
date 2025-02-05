@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import type { PostDate } from '../../types';
-import { BlogPostPreview } from '../blog-post-preview';
-import './blog-post-list.css';
+import { BlogPostPreview } from './blog-post-preview';
+import './recent-blog-post-list.css';
 
-export function BlogPostList({
+export function RecentBlogPostList({
 	heading,
 	posts,
 }: {
@@ -16,7 +16,7 @@ export function BlogPostList({
 	}>;
 }) {
 	return (
-		<nav className="blog-post-list">
+		<nav className="recent-blog-post-list">
 			<h1>{heading}</h1>
 			<ol>
 				{posts.map((post) => (

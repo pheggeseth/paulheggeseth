@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import { Link } from 'waku';
-import { Article } from '../../components/article';
 import { Bookend } from '../../components/bookend';
+import { Article } from '../../components/ui/article';
 import type { BlogPostType, GetConfig } from '../../types';
 import { formatDay } from '../../utils/dates';
 import { readBlogPostFile } from '../../utils/read-blog-post-file';

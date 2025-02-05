@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import type { PostDate } from '../../types';
-import { Article } from '../article';
 import { BlogPostDate } from '../blog-post-date';
 import { Bookend } from '../bookend';
+import { Article } from '../ui/article';
 
 export function BlogPost({
 	title,

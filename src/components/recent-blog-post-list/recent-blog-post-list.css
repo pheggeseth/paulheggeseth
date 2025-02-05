@@ -1,4 +1,4 @@
-.blog-post-list {
+.recent-blog-post-list {
 	margin-block-start: var(--size-64);
 
 	& > h1 {

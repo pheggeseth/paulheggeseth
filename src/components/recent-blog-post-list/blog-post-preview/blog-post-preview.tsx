@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import type { PostDate } from '../../types';
-import { BlogPostDate } from '../blog-post-date';
+import type { PostDate } from '../../../types';
+import { BlogPostDate } from '../../blog-post-date';
 import './blog-post-preview.css';
 
 export function BlogPostPreview({

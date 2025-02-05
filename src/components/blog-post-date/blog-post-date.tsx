@@ -1,6 +1,6 @@
 import type { PostDate } from '../../types';
 import { formatDate } from '../../utils/dates';
-import { VisuallyHidden } from '../visually-hidden';
+import { VisuallyHidden } from '../ui/visually-hidden';
 import './blog-post-date.css';
 
 export function BlogPostDate({

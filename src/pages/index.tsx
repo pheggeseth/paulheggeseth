@@ -1,5 +1,5 @@
 import { BlogPost } from '../components/blog-post';
-import { BlogPostList } from '../components/blog-post-list';
+import { RecentBlogPostList } from '../components/recent-blog-post-list';
 import type { GetConfig } from '../types';
 
 export default function Index() {
@@ -51,7 +51,7 @@ export default function Index() {
 					paragraph that you read. It will contain some information.
 				</p>
 			</BlogPost>
-			<BlogPostList
+			<RecentBlogPostList
 				heading="Recent thoughts"
 				posts={[
 					{
