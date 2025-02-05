@@ -60,6 +60,7 @@
 	--font-family-heading: 'Figtree', sans-serif;
 	--font-family-body: 'Merriweather', serif;
 	--font-family-code: 'JetBrains Mono', monospace;
+	--font-body: 300 var(--font-size-body) var(--font-family-body);
 	--shadow-color: 40deg 28% 61%;
 	--shadow-elevation-low:
 		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.69),
@@ -87,12 +88,12 @@
 html,
 body,
 #layout {
-	color: var(--color-body);
-	background: var(--color-surface);
 	height: 100%;
 }
 
 #layout {
+	color: var(--color-body);
+	background: var(--color-surface);
 	position: relative; /* helps visually hidden elements not impact scrolling */
 	overflow: auto;
 	display: grid;
@@ -112,7 +113,7 @@ body,
 		grid-row: 1;
 		position: sticky;
 		top: 0;
-		height: 1em;
+		height: 1rem;
 		box-sizing: content-box;
 		padding: var(--size-8);
 	}
@@ -212,10 +213,7 @@ h5 {
 }
 
 p {
-	font-family: var(--font-family-body);
-	font-size: var(--font-size-body);
-	font-optical-sizing: auto;
-	font-weight: 300;
+	font: var(--font-body);
 	line-height: 2rem;
 	letter-spacing: 0.02rem;
 }
