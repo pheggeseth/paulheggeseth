@@ -25,16 +25,33 @@ export function ScrollRestoration({ children }: { children: React.ReactNode }) {
 		};
 	}, []);
 
+	const popStateRef = useRef(false);
+
+	useEffect(() => {
+		function popState() {
+			popStateRef.current = true;
+		}
+
+		window.addEventListener('popstate', popState);
+
+		return () => {
+			window.removeEventListener('popstate', popState);
+		};
+	}, []);
+
 	useEffect(() => {
 		const layout = document.getElementById('layout');
 		if (!layout) return;
 
-		// set the scroll position to the new path's previously saved position, if there is one,
-		// otherwise set the position to 0
-		layout.scrollTop = positions.current[router.path] ?? 0;
+		// if a popstate event was detected, restore the previous scroll position,
+		// otherwise, reset the scroll position to 0
+		layout.scrollTop = popStateRef.current
+			? (positions.current[router.path] ?? 0)
+			: 0;
 
 		// save the path so the cleanup function can use it
 		const oldPath = router.path;
+		popStateRef.current = false;
 
 		return () => {
 			// save the current scroll position for the old path when the path changes
