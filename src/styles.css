@@ -53,7 +53,7 @@
 	--size-960: calc(var(--unit) * 960);
 	--color-surface: floralwhite;
 	--color-body: #333;
-	--color-subtle: #777;
+	--color-subtle: #888;
 	--color-border: #aaa;
 	--font-size-subtle: var(--size-12);
 	--font-size-body: var(--size-15);
@@ -61,6 +61,7 @@
 	--font-family-body: 'Merriweather', serif;
 	--font-family-code: 'JetBrains Mono', monospace;
 	--font-body: 300 var(--font-size-body) var(--font-family-body);
+	--letter-spacing-body: 0.02rem;
 	--shadow-color: 40deg 28% 61%;
 	--shadow-elevation-low:
 		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.69),
@@ -155,8 +156,9 @@ body,
 					}
 
 					& a {
+						--inline-padding: var(--size-6);
 						display: block;
-						padding: var(--size-4);
+						padding: var(--size-4) var(--inline-padding);
 						margin-block: calc(var(--size-4) * -1);
 					}
 
@@ -164,13 +166,13 @@ body,
 						margin-right: auto;
 
 						& a {
-							margin-inline-start: calc(var(--size-4) * -1);
+							margin-inline-start: calc(var(--inline-padding) * -1);
 						}
 					}
 
 					&:last-child {
 						& a {
-							margin-inline-end: calc(var(--size-4) * -1);
+							margin-inline-end: calc(var(--inline-padding) * -1);
 						}
 					}
 				}
@@ -231,7 +233,7 @@ h5 {
 p {
 	font: var(--font-body);
 	line-height: 2rem;
-	letter-spacing: 0.02rem;
+	letter-spacing: var(--letter-spacing-body);
 }
 
 ol,

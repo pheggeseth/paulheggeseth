@@ -1,0 +1,37 @@
+ol.blog-post-list {
+	& > li {
+		& > .post-year-heading {
+			text-align: end;
+			margin-block-start: var(--size-32);
+		}
+
+		& > .post-year-heading + ol {
+			margin-block-start: var(--size-4);
+
+			& > li > a {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				column-gap: var(--size-16);
+				align-items: baseline;
+				font: var(--font-body);
+				line-height: 2rem;
+				padding-inline: var(--size-8);
+				margin-inline: calc(var(--size-8) * -1);
+
+				& .title {
+					letter-spacing: var(--letter-spacing-body);
+				}
+
+				& .spacer {
+					border-block-end: 1px dotted var(--color-border);
+				}
+
+				& .publication-date {
+					font-family: var(--font-family-code);
+					color: var(--color-subtle);
+					font-weight: 400,;
+				}
+			}
+		}
+	}
+}
