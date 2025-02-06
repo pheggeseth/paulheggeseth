@@ -1,4 +1,4 @@
-ol.blog-post-list {
+nav.blog-post-list ol {
 	& > li {
 		& > .post-year-heading {
 			text-align: end;
