@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Link } from 'waku';
 import type { GetConfig } from '../types';
 import '../styles.css';
+import { ScrollRestoration } from '../components/ui/scroll-restoration';
 
 type RootLayoutProps = { children: ReactNode };
 
@@ -9,7 +10,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<>
+		<ScrollRestoration>
 			<meta name="description" content="Paul Heggeseth's blog" />
 			<div id="layout">
 				<div className="header-shadow" role="presentation" />
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 					</div>
 				</footer>
 			</div>
-		</>
+		</ScrollRestoration>
 	);
 }
 
