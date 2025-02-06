@@ -41,7 +41,7 @@ article.blog-post-preview {
 			align-items: center;
 			justify-content: flex-end;
 			height: 2rem;
-			width: var(--size-96);
+			width: var(--size-128);
 
 			& > a {
 				padding: var(--size-3) var(--size-6);
