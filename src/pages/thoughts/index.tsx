@@ -1,6 +1,5 @@
 import { BlogPostList } from '../../components/blog-post-list';
 import { Bookend } from '../../components/bookend';
-import { Article } from '../../components/ui/article';
 import type { GetConfig } from '../../types';
 import { getBlogPostPublicationYear } from '../../utils/get-blog-post-publication-year';
 import { getBlogPostSlugs } from '../../utils/get-blog-post-slugs';
@@ -25,14 +24,14 @@ export default async function BlogPostsListPage() {
 	}
 
 	return (
-		<Article>
+		<article>
 			<Bookend variant="start">{'<archive>'}</Bookend>
 			<header>
 				<h1>Thoughts</h1>
 			</header>
 			<BlogPostList posts={posts} />
 			<Bookend variant="end">{'</archive>'}</Bookend>
-		</Article>
+		</article>
 	);
 }
 

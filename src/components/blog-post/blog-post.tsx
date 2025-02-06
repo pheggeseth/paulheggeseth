@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import type { PostDate } from '../../types';
 import { BlogPostDate } from '../blog-post-date';
 import { Bookend } from '../bookend';
-import { Article } from '../ui/article';
 
 export function BlogPost({
 	title,
@@ -14,7 +13,7 @@ export function BlogPost({
 	children: ReactNode;
 }) {
 	return (
-		<Article>
+		<article>
 			<Bookend variant="start">{'<thoughts>'}</Bookend>
 			<header>
 				<h1>{title}</h1>
@@ -22,6 +21,6 @@ export function BlogPost({
 			</header>
 			{children}
 			<Bookend variant="end">{'</thoughts>'}</Bookend>
-		</Article>
+		</article>
 	);
 }

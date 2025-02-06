@@ -1,5 +1,4 @@
 import { Bookend } from '../components/bookend';
-import { Article } from '../components/ui/article';
 import { VisuallyHidden } from '../components/ui/visually-hidden';
 import type { GetConfig } from '../types';
 
@@ -7,7 +6,7 @@ export default function About() {
 	return (
 		<>
 			<title>Hi</title>
-			<Article>
+			<article>
 				<header>
 					<VisuallyHidden>
 						<h1>Greetings</h1>
@@ -20,7 +19,7 @@ export default function About() {
 				<h2>and this is my website.</h2>
 				<p>It is very much a work in progress!</p>
 				<Bookend variant="end">{'</greetings>'}</Bookend>
-			</Article>
+			</article>
 		</>
 	);
 }
