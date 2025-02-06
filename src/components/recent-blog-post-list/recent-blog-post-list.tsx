@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import type { PostDate } from '../../types';
+import type { BlogPostType } from '../../types';
 import { BlogPostPreview } from './blog-post-preview';
 import './recent-blog-post-list.css';
 
@@ -8,25 +7,20 @@ export function RecentBlogPostList({
 	posts,
 }: {
 	heading: string;
-	posts: Array<{
-		id: number;
-		title: string;
-		publicationDate: PostDate;
-		content: ReactNode;
-	}>;
+	posts: Array<BlogPostType & { slug: string }>;
 }) {
 	return (
 		<nav className="recent-blog-post-list">
 			<h1>{heading}</h1>
 			<ol>
 				{posts.map((post) => (
-					<li key={post.id}>
+					<li key={post.data.publicationDate.join('-')}>
 						<BlogPostPreview
-							title={post.title}
-							publicationDate={post.publicationDate}
-						>
-							{post.content}
-						</BlogPostPreview>
+							slug={post.slug}
+							title={post.data.title}
+							description={post.data.description}
+							publicationDate={post.data.publicationDate}
+						/>
 					</li>
 				))}
 			</ol>

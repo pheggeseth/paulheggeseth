@@ -2,15 +2,10 @@ import { BlogPostList } from '../../components/blog-post-list';
 import { Bookend } from '../../components/bookend';
 import type { GetConfig } from '../../types';
 import { getBlogPostPublicationYear } from '../../utils/get-blog-post-publication-year';
-import { getBlogPostSlugs } from '../../utils/get-blog-post-slugs';
-import { readBlogPostFile } from '../../utils/read-blog-post-file';
-import { byPublicationDateDescending } from '../../utils/sort';
+import { getMostRecentBlogPosts } from '../../utils/get-most-recent-blog-posts';
 
 export default async function BlogPostsListPage() {
-	const slugs = await getBlogPostSlugs();
-	const posts = (await Promise.all(slugs.map(readBlogPostFile))).sort(
-		byPublicationDateDescending,
-	);
+	const posts = await getMostRecentBlogPosts();
 
 	const postsByYear = new Map<number, typeof posts>();
 

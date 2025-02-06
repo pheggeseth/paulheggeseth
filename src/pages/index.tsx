@@ -1,83 +1,28 @@
 import { BlogPost } from '../components/blog-post';
 import { RecentBlogPostList } from '../components/recent-blog-post-list';
 import type { GetConfig } from '../types';
+import { createMDXContent } from '../utils/create-mdx-content';
+import { getMostRecentBlogPosts } from '../utils/get-most-recent-blog-posts';
 
-export default function Index() {
+export default async function Index() {
+	const [currentPost, ...recentPosts] = await getMostRecentBlogPosts(5);
+
+	if (!currentPost) {
+		throw new Error();
+	}
+
+	const Content = await createMDXContent(currentPost?.content);
+
 	return (
 		<>
 			<title>paulheggeseth.codes()</title>
 			<BlogPost
-				title="The current article will go here"
-				publicationDate={[2015, 12, 24]}
+				title={currentPost.data.title}
+				publicationDate={currentPost.data.publicationDate}
 			>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
-				<p>
-					It's content will go here. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information. This would
-					be the first paragraph that you read. It will contain some
-					information. This would be the first paragraph that you read. It will
-					contain some information. This would be the first paragraph that you
-					read. It will contain some information. This would be the first
-					paragraph that you read. It will contain some information.
-				</p>
+				<Content />
 			</BlogPost>
-			<RecentBlogPostList
-				heading="Recent thoughts"
-				posts={[
-					{
-						id: 1,
-						title: 'The title of a past article',
-						publicationDate: [1985, 11, 22],
-						content: (
-							<>
-								The beginning of the past article's content. The beginning of
-								the past article's content.
-							</>
-						),
-					},
-					{
-						id: 2,
-						title: 'The title of a past article',
-						publicationDate: [1985, 11, 22],
-						content: (
-							<>
-								The beginning of the past article's content. The beginning of
-								the past article's content.
-							</>
-						),
-					},
-				]}
-			/>
+			<RecentBlogPostList heading="Recent thoughts" posts={recentPosts} />
 		</>
 	);
 }
