@@ -6,6 +6,8 @@ import '../styles.css';
 type RootLayoutProps = { children: ReactNode };
 
 export default function RootLayout({ children }: RootLayoutProps) {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<>
 			<meta name="description" content="Paul Heggeseth's blog" />
@@ -23,6 +25,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
 								</h1>
 							</li>
 							<li>
+								<Link to="/thoughts">read('things')</Link>
+							</li>
+							<span aria-hidden>||</span>
+							<li>
 								<Link to="/about" aria-label="about">
 									say('hi');
 								</Link>
@@ -32,7 +38,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				</header>
 				<main>{children}</main>
 				<footer>
-					<div>Copyright {new Date().getFullYear()} Paul Heggeseth</div>
+					<div aria-label={`Copyright ${currentYear} Paul Heggeseth`}>
+						copyright({currentYear}) Paul.Heggeseth
+					</div>
 				</footer>
 			</div>
 		</>

@@ -148,13 +148,13 @@ body,
 				display: flex;
 				align-items: center;
 
-				& > li {
-					& > * {
-						font-family: var(--font-family-code);
-						font-size: var(--font-size-body);
-						font-weight: 400;
-					}
+				& * {
+					font-family: var(--font-family-code);
+					font-size: var(--font-size-body);
+					font-weight: 400;
+				}
 
+				& > li {
 					& a {
 						--inline-padding: var(--size-6);
 						display: block;
