@@ -51,7 +51,7 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--color-surface: floralwhite;
+	--color-surface: #fffaf0;
 	--color-body: #333;
 	--color-subtle: #888;
 	--color-border: #aaa;
@@ -61,6 +61,7 @@
 	--font-family-body: 'Merriweather', serif;
 	--font-family-code: 'JetBrains Mono', monospace;
 	--font-body: 300 var(--font-size-body) var(--font-family-body);
+	--font-subtle: 300 var(--font-size-subtle) var(--font-family-code);
 	--letter-spacing-body: 0.02rem;
 	--shadow-color: 40deg 28% 61%;
 	--shadow-elevation-low:

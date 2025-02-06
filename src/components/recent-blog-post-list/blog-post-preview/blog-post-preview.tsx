@@ -14,14 +14,25 @@ export function BlogPostPreview({
 	description?: string | undefined;
 	publicationDate: PostDate;
 }) {
+	const path = `/thoughts/${slug}`;
+
 	return (
 		<article className="blog-post-preview">
 			<header>
 				<h2>
-					<Link to={`/thoughts/${slug}`}>{title}</Link>
+					<Link to={path}>{title}</Link>
 				</h2>
 			</header>
-			{description && <p>{description}</p>}
+			{description && (
+				<div className="description-wrapper">
+					<p>{description}</p>
+					<div className="more-wrapper">
+						<Link className="more-link" to={path} aria-label={title}>
+							More
+						</Link>
+					</div>
+				</div>
+			)}
 			<footer>
 				<BlogPostDate published={publicationDate} />
 			</footer>
