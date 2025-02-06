@@ -148,6 +148,7 @@ body,
 			& > ul {
 				display: flex;
 				align-items: center;
+				gap: var(--size-3);
 
 				& * {
 					font-family: var(--font-family-code);
