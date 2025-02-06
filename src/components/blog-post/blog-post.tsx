@@ -14,13 +14,13 @@ export function BlogPost({
 }) {
 	return (
 		<article>
-			<Bookend variant="start">{'<thoughts>'}</Bookend>
+			<Bookend label="thoughts" variant="start" />
 			<header>
 				<h1>{title}</h1>
 				<BlogPostDate published={publicationDate} />
 			</header>
 			{children}
-			<Bookend variant="end">{'</thoughts>'}</Bookend>
+			<Bookend label="thoughts" variant="end" />
 		</article>
 	);
 }

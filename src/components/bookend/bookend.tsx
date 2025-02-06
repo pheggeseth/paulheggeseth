@@ -1,12 +1,12 @@
 import './bookend.css';
 
 export function Bookend({
+	label,
 	variant,
-	children,
-}: { variant: 'start' | 'end'; children: string }) {
+}: { label: string; variant: 'start' | 'end' }) {
 	return (
 		<div aria-hidden className="bookend" data-variant={variant}>
-			{children}
+			{variant === 'start' ? `<${label}>` : `</${label}>`}
 		</div>
 	);
 }

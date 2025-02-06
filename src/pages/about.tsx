@@ -11,14 +11,14 @@ export default function About() {
 					<VisuallyHidden>
 						<h1>Greetings</h1>
 					</VisuallyHidden>
-					<Bookend variant="start">{'<greetings>'}</Bookend>
+					<Bookend label="greetings" variant="start" />
 				</header>
 				<h2>I'm Paul,</h2>
 				<p>I write code for humans.</p>
 				<p>At work, I do it as a Senior Software Engineer at LaunchDarkly.</p>
 				<h2>and this is my website.</h2>
 				<p>It is very much a work in progress!</p>
-				<Bookend variant="end">{'</greetings>'}</Bookend>
+				<Bookend label="greetings" variant="end" />
 			</article>
 		</>
 	);
