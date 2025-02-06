@@ -1,7 +1,9 @@
 'use client';
 
+import nullthrows from 'nullthrows';
 import { useEffect, useRef } from 'react';
 import { useRouter_UNSTABLE as useRouter } from 'waku';
+import { useDOMEventEffect } from '../../../utils/use-dom-event-effect';
 
 export function ScrollRestoration({ children }: { children: React.ReactNode }) {
 	const router = useRouter();
@@ -9,35 +11,19 @@ export function ScrollRestoration({ children }: { children: React.ReactNode }) {
 	const scrollTop = useRef(0);
 
 	// save the layout element's scroll position whenever it changes
-	useEffect(() => {
-		const layout = document.getElementById('layout');
-		if (!layout) return;
-
-		function savePosition(event: Event) {
+	useDOMEventEffect(
+		'scroll',
+		(event) => {
 			scrollTop.current =
 				(event.currentTarget as HTMLDivElement | null)?.scrollTop ?? 0;
-		}
-
-		layout.addEventListener('scroll', savePosition);
-
-		return () => {
-			layout.removeEventListener('scroll', savePosition);
-		};
-	}, []);
+		},
+		() => nullthrows(document.getElementById('layout')),
+	);
 
 	const popStateRef = useRef(false);
-
-	useEffect(() => {
-		function popState() {
-			popStateRef.current = true;
-		}
-
-		window.addEventListener('popstate', popState);
-
-		return () => {
-			window.removeEventListener('popstate', popState);
-		};
-	}, []);
+	useDOMEventEffect('popstate', () => {
+		popStateRef.current = true;
+	});
 
 	useEffect(() => {
 		const layout = document.getElementById('layout');
