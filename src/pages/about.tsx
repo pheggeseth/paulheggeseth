@@ -13,8 +13,8 @@ export default function About() {
 					</VisuallyHidden>
 					<Bookend label="greetings" variant="start" />
 				</header>
-				<h2>I'm Paul,</h2>
-				<p>I write code for humans.</p>
+				<h2>Hi. I'm Paul,</h2>
+				<p>I create user interfaces for humans.</p>
 				<p>At work, I do it as a Senior Software Engineer at LaunchDarkly.</p>
 				<h2>and this is my website.</h2>
 				<p>It is very much a work in progress!</p>
