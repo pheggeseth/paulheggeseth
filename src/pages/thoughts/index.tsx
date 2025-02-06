@@ -1,42 +1,28 @@
-import fs from 'node:fs/promises';
 import { Link } from 'waku';
 import { Bookend } from '../../components/bookend';
 import { Article } from '../../components/ui/article';
-import type { BlogPostType, GetConfig } from '../../types';
+import type { GetConfig } from '../../types';
 import { formatDay } from '../../utils/dates';
+import { getBlogPostPublicationYear } from '../../utils/get-blog-post-publication-year';
+import { getBlogPostSlugs } from '../../utils/get-blog-post-slugs';
 import { readBlogPostFile } from '../../utils/read-blog-post-file';
-
-function getPublicationYear(post: BlogPostType) {
-	return post.data.publicationDate[0];
-}
-
-function getPublicationDate(post: BlogPostType) {
-	return Date.UTC(...post.data.publicationDate);
-}
+import { byPublicationDateDescending } from '../../utils/sort';
 
 export default async function BlogPostsListPage() {
-	const posts = (
-		await Promise.all(
-			(
-				await fs.readdir('src/blog-posts', { encoding: 'utf-8' })
-			).map(async (fileName) => {
-				const slug = fileName.slice(0, -4);
-				return { ...(await readBlogPostFile(slug)), slug: slug };
-			}),
-		)
-	).sort((a, b) => getPublicationDate(b) - getPublicationDate(a));
+	const slugs = await getBlogPostSlugs();
+	const posts = (await Promise.all(slugs.map(readBlogPostFile))).sort(
+		byPublicationDateDescending,
+	);
 
-	const byYear = new Map<number, (typeof posts)[number][]>();
+	const postsByYear = new Map<number, typeof posts>();
 
 	for (const post of posts) {
-		const year = getPublicationYear(post);
-		let group = byYear.get(year);
-		if (group) {
-			group.push(post);
+		const year = getBlogPostPublicationYear(post);
+		if (postsByYear.has(year)) {
+			postsByYear.get(year)?.push(post);
 		} else {
-			group = [post];
+			postsByYear.set(year, [post]);
 		}
-		byYear.set(year, group);
 	}
 
 	return (
@@ -46,7 +32,7 @@ export default async function BlogPostsListPage() {
 				<h1>Thoughts</h1>
 			</header>
 			<ol>
-				{Array.from(byYear.entries()).map(([year, postsForYear]) => (
+				{Array.from(postsByYear.entries()).map(([year, postsForYear]) => (
 					<li key={year}>
 						<h3
 							style={{ textAlign: 'end', marginBlockStart: 'var(--size-32)' }}
@@ -95,7 +81,7 @@ export default async function BlogPostsListPage() {
 					</li>
 				))}
 			</ol>
-			<Bookend variant="start">{'</archive>'}</Bookend>
+			<Bookend variant="end">{'</archive>'}</Bookend>
 		</Article>
 	);
 }
