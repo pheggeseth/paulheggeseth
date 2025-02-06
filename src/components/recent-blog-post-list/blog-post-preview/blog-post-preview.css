@@ -1,23 +1,29 @@
 article.blog-post-preview {
-	margin-block-end: var(--size-48);
+	margin-block-end: var(--size-16);
 
 	& > header {
-		margin-block-end: var(--size-8);
+		margin-block-end: var(--size-4);
 
 		& > h2 {
-			font-size: var(--size-24);
+			font-size: var(--size-16);
 
 			& > a {
 				--block-padding: var(--size-3);
-				--inline-padding: var(--size-8);
+				--inline-padding: var(--size-6);
 				padding: var(--block-padding) var(--inline-padding);
 				margin: calc(var(--block-padding) * -1) calc(var(--inline-padding) * -1);
 			}
 		}
 	}
 
+	& > p {
+		overflow: hidden;
+		height: 4rem;
+	}
+
 	& > footer {
-		margin-block-start: var(--size-16);
+		margin-block-start: var(--size-4);
+		text-align: end;
 
 		& * {
 			font-size: var(--font-size-subtle);
