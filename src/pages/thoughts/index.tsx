@@ -20,12 +20,12 @@ export default async function BlogPostsListPage() {
 
 	return (
 		<article>
-			<Bookend variant="start">{'<archive>'}</Bookend>
+			<Bookend variant="start">{'<blog>'}</Bookend>
 			<header>
 				<h1>Thoughts</h1>
 			</header>
 			<BlogPostList posts={posts} />
-			<Bookend variant="end">{'</archive>'}</Bookend>
+			<Bookend variant="end">{'</blog>'}</Bookend>
 		</article>
 	);
 }
