@@ -11,7 +11,7 @@ export default async function Index() {
 		throw new Error();
 	}
 
-	const Content = await createMDXContent(currentPost?.content);
+	const MDXContent = await createMDXContent(currentPost?.content);
 
 	return (
 		<>
@@ -20,7 +20,7 @@ export default async function Index() {
 				title={currentPost.data.title}
 				publicationDate={currentPost.data.publicationDate}
 			>
-				<Content />
+				<MDXContent />
 			</BlogPost>
 			<RecentBlogPostList heading="Recent thoughts" posts={recentPosts} />
 		</>

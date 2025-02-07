@@ -3,10 +3,10 @@ import { readBlogPostFile } from './read-blog-post-file';
 
 export async function parseBlogPost(slug: string) {
 	const { data, content } = await readBlogPostFile(slug);
-	const Component = await createMDXContent(content);
+	const MDXContent = await createMDXContent(content);
 
 	return {
 		data,
-		Component,
+		MDXContent,
 	};
 }
