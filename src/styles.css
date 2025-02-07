@@ -3,7 +3,43 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 :root {
-	--unit: 0.0625rem;
+	--border: 1px solid var(--color-border);
+	--border-radius: var(--size-4);
+	--color-body: #333;
+	--color-border: #aaa;
+	--color-hover: hsl(var(--shadow-color) / 0.1);
+	--color-subtle: #888;
+	--color-surface: #fffaf0;
+	--font-body: 300 var(--font-size-body) var(--font-family-body);
+	--font-family-body: 'Merriweather', serif;
+	--font-family-code: 'JetBrains Mono', monospace;
+	--font-family-heading: 'Figtree', sans-serif;
+	--font-size-body: var(--size-15);
+	--font-size-subtle: var(--size-12);
+	--font-subtle: 300 var(--font-size-subtle) var(--font-family-code);
+	--letter-spacing-body: 0.02rem;
+	--shadow-color: 40deg 28% 53%;
+	--shadow-elevation-low:
+		0.3px 0.7px 0.7px hsl(var(--shadow-color) / 0.65),
+		0.5px 1.1px 1.1px -1.9px hsl(var(--shadow-color) / 0.5),
+		1.5px 3px 3.1px -3.7px hsl(var(--shadow-color) / 0.36);
+	--shadow-elevation-medium:
+		0.3px 0.7px 0.7px hsl(var(--shadow-color) / 0.54),
+		0.7px 1.4px 1.5px -0.9px hsl(var(--shadow-color) / 0.47),
+		1.5px 3.1px 3.2px -1.9px hsl(var(--shadow-color) / 0.4),
+		3.5px 7.1px 7.4px -2.8px hsl(var(--shadow-color) / 0.33),
+		7.3px 14.8px 15.5px -3.7px hsl(var(--shadow-color) / 0.25);
+	--shadow-elevation-high:
+		0.3px 0.7px 0.7px hsl(var(--shadow-color) / 0.51),
+		1.1px 2.3px 2.4px -0.4px hsl(var(--shadow-color) / 0.47),
+		2.1px 4.2px 4.4px -0.8px hsl(var(--shadow-color) / 0.44),
+		3.5px 7.1px 7.4px -1.2px hsl(var(--shadow-color) / 0.4),
+		5.7px 11.6px 12.1px -1.7px hsl(var(--shadow-color) / 0.37),
+		9.1px 18.4px 19.2px -2.1px hsl(var(--shadow-color) / 0.34),
+		13.9px 28.3px 29.6px -2.5px hsl(var(--shadow-color) / 0.3),
+		20.6px 41.7px 43.6px -2.9px hsl(var(--shadow-color) / 0.27),
+		29.3px 59.5px 62.2px -3.3px hsl(var(--shadow-color) / 0.24),
+		40.6px 82.3px 86px -3.7px hsl(var(--shadow-color) / 0.2);
 	--size-0-25: calc(var(--unit) * 0.25);
 	--size-0-5: calc(var(--unit) * 0.5);
 	--size-1: var(--unit);
@@ -51,44 +87,8 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--border: 1px solid var(--color-border);
-	--border-radius: var(--size-4);
-	--color-surface: #fffaf0;
-	--color-body: #333;
-	--color-subtle: #888;
-	--color-border: #aaa;
-	--color-hover: hsl(var(--shadow-color) / 0.1);
-	--font-size-subtle: var(--size-12);
-	--font-size-body: var(--size-15);
-	--font-family-heading: 'Figtree', sans-serif;
-	--font-family-body: 'Merriweather', serif;
-	--font-family-code: 'JetBrains Mono', monospace;
-	--font-body: 300 var(--font-size-body) var(--font-family-body);
-	--font-subtle: 300 var(--font-size-subtle) var(--font-family-code);
-	--letter-spacing-body: 0.02rem;
-	--shadow-color: 40deg 28% 61%;
-	--shadow-elevation-low:
-		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.69),
-		0.3px 0.7px 0.6px -2.5px hsl(var(--shadow-color) / 0.46),
-		1px 2px 1.7px -5px hsl(var(--shadow-color) / 0.23);
-	--shadow-elevation-medium:
-		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.58),
-		0.3px 0.6px 0.5px -1.2px hsl(var(--shadow-color) / 0.46),
-		0.8px 1.7px 1.4px -2.5px hsl(var(--shadow-color) / 0.35),
-		2.3px 4.5px 3.8px -3.7px hsl(var(--shadow-color) / 0.23),
-		5px 10px 8.4px -5px hsl(var(--shadow-color) / 0.12);
-	--shadow-elevation-high:
-		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.54),
-		0.3px 0.6px 0.5px -0.6px hsl(var(--shadow-color) / 0.48),
-		0.5px 1px 0.8px -1.1px hsl(var(--shadow-color) / 0.43),
-		1.2px 2.3px 1.9px -1.7px hsl(var(--shadow-color) / 0.38),
-		2.4px 4.8px 4px -2.2px hsl(var(--shadow-color) / 0.32),
-		4.5px 9px 7.5px -2.8px hsl(var(--shadow-color) / 0.27),
-		7.6px 15.2px 12.7px -3.3px hsl(var(--shadow-color) / 0.21),
-		11.9px 23.8px 20px -3.9px hsl(var(--shadow-color) / 0.16),
-		17.6px 35.3px 29.6px -4.4px hsl(var(--shadow-color) / 0.11),
-		25px 50px 41.9px -5px hsl(var(--shadow-color) / 0.05);
-	--transition-background: background 150ms ease-in-out;
+	--transition-speed: 150ms ease-in-out;
+	--unit: 0.0625rem;
 }
 
 html,
@@ -249,7 +249,7 @@ body,
 a {
 	color: inherit;
 	text-decoration: none;
-	transition: var(--transition-background);
+	transition: background var(--transition-speed);
 	border-radius: var(--border-radius);
 
 	&:is(:hover, :focus-visible) {

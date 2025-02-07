@@ -41,7 +41,7 @@ nav.blog-post-list ol {
 						place-content: center;
 						border-radius: var(--border-radius);
 						cursor: pointer;
-						transition: var(--transition-background);
+						transition: background var(--transition-speed);
 
 						&:is(:hover, :focus-visible) {
 							background: var(--color-hover);
