@@ -51,10 +51,12 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
+	--border-radius: var(--size-4);
 	--color-surface: #fffaf0;
 	--color-body: #333;
 	--color-subtle: #888;
 	--color-border: #aaa;
+	--color-hover: hsl(var(--shadow-color) / 0.1);
 	--font-size-subtle: var(--size-12);
 	--font-size-body: var(--size-15);
 	--font-family-heading: 'Figtree', sans-serif;
@@ -246,10 +248,10 @@ a {
 	color: inherit;
 	text-decoration: none;
 	transition: background 150ms ease-in-out;
-	border-radius: var(--size-4);
+	border-radius: var(--border-radius);
 
 	&:is(:hover, :focus-visible) {
-		background: hsl(var(--shadow-color) / 0.1);
+		background: var(--color-hover);
 	}
 }
 

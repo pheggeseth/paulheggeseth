@@ -27,16 +27,22 @@ export function BlogPostList({
 						<ol>
 							{postsForYear.map((post, index) => (
 								<li key={index}>
-									<Link to={`/thoughts/${post.slug}`}>
-										<span className="title">{post.data.title}</span>
-										<span className="spacer" aria-hidden />
-										<span
-											className="publication-date"
-											aria-label={`Published on ${formatDate(post.data.publicationDate)}`}
-										>
-											{formatDay(post.data.publicationDate)}
-										</span>
-									</Link>
+									<details>
+										<summary>
+											<div className="trigger">V</div>
+											<Link to={`/thoughts/${post.slug}`}>
+												<span className="title">{post.data.title}</span>
+												<span className="spacer" aria-hidden />
+												<span
+													className="publication-date"
+													aria-label={`Published on ${formatDate(post.data.publicationDate)}`}
+												>
+													{formatDay(post.data.publicationDate)}
+												</span>
+											</Link>
+										</summary>
+										<p className="description">{post.data.description}</p>
+									</details>
 								</li>
 							))}
 						</ol>
