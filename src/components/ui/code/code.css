@@ -1,0 +1,13 @@
+.code-wrapper {
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+
+	& pre {
+		font-size: var(--font-size-code);
+	}
+
+	& code {
+		font-family: var(--font-family-code);
+		font-size: var(--font-size-code);
+	}
+}

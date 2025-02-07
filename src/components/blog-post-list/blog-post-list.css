@@ -23,7 +23,9 @@ nav.blog-post-list ol {
 
 				& > summary {
 					display: flex;
-					margin-inline-start: calc(var(--size-10) * -1);
+					align-items: center;
+					margin-block: var(--size-4);
+					margin-inline-start: calc(var(--size-8) * -1);
 
 					&:focus-visible {
 						outline: none;
@@ -36,7 +38,8 @@ nav.blog-post-list ol {
 					}
 
 					& > .trigger {
-						width: 2rem;
+						height: var(--size-24);
+						width: var(--size-24);
 						display: grid;
 						place-content: center;
 						border-radius: var(--border-radius);
@@ -59,9 +62,9 @@ nav.blog-post-list ol {
 						column-gap: var(--size-16);
 						align-items: baseline;
 						font: var(--font-body);
-						line-height: 2rem;
-						padding-inline: var(--size-8);
-						margin-inline-end: calc(var(--size-8) * -1);
+						line-height: 1rem;
+						padding: var(--size-4) var(--size-6);
+						margin-inline-end: calc(var(--size-6) * -1);
 
 						& .title {
 							letter-spacing: var(--letter-spacing-body);

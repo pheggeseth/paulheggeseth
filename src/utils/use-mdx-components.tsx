@@ -1,3 +1,8 @@
+import type { ComponentProps } from 'react';
+import { Code } from '../components/ui/code';
+
 export function useMDXComponents() {
-	return {};
+	return {
+		pre: (props: ComponentProps<typeof Code>) => <Code {...props} />,
+	};
 }

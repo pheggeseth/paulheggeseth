@@ -5,41 +5,28 @@
 :root {
 	--border: 1px solid var(--color-border);
 	--border-radius: var(--size-4);
-	--color-body: #333;
-	--color-border: #aaa;
+	--color-body: hsl(40deg 15% 20%);
+	--color-border: hsl(40deg, 5%, 70%);
 	--color-hover: hsl(var(--shadow-color) / 0.1);
-	--color-subtle: #888;
-	--color-surface: #fffaf0;
+	--color-subtle: hsl(40deg 5% 50% / 1);
+	--color-surface: hsl(40deg 100% 98%);
 	--font-body: 300 var(--font-size-body) var(--font-family-body);
 	--font-family-body: 'Merriweather', serif;
 	--font-family-code: 'JetBrains Mono', monospace;
 	--font-family-heading: 'Figtree', sans-serif;
 	--font-size-body: var(--size-15);
+	--font-size-code: var(--size-13);
 	--font-size-subtle: var(--size-12);
 	--font-subtle: 300 var(--font-size-subtle) var(--font-family-code);
 	--letter-spacing-body: 0.02rem;
-	--shadow-color: 40deg 28% 53%;
-	--shadow-elevation-low:
-		0.3px 0.7px 0.7px hsl(var(--shadow-color) / 0.65),
-		0.5px 1.1px 1.1px -1.9px hsl(var(--shadow-color) / 0.5),
-		1.5px 3px 3.1px -3.7px hsl(var(--shadow-color) / 0.36);
-	--shadow-elevation-medium:
-		0.3px 0.7px 0.7px hsl(var(--shadow-color) / 0.54),
-		0.7px 1.4px 1.5px -0.9px hsl(var(--shadow-color) / 0.47),
-		1.5px 3.1px 3.2px -1.9px hsl(var(--shadow-color) / 0.4),
-		3.5px 7.1px 7.4px -2.8px hsl(var(--shadow-color) / 0.33),
-		7.3px 14.8px 15.5px -3.7px hsl(var(--shadow-color) / 0.25);
-	--shadow-elevation-high:
-		0.3px 0.7px 0.7px hsl(var(--shadow-color) / 0.51),
-		1.1px 2.3px 2.4px -0.4px hsl(var(--shadow-color) / 0.47),
-		2.1px 4.2px 4.4px -0.8px hsl(var(--shadow-color) / 0.44),
-		3.5px 7.1px 7.4px -1.2px hsl(var(--shadow-color) / 0.4),
-		5.7px 11.6px 12.1px -1.7px hsl(var(--shadow-color) / 0.37),
-		9.1px 18.4px 19.2px -2.1px hsl(var(--shadow-color) / 0.34),
-		13.9px 28.3px 29.6px -2.5px hsl(var(--shadow-color) / 0.3),
-		20.6px 41.7px 43.6px -2.9px hsl(var(--shadow-color) / 0.27),
-		29.3px 59.5px 62.2px -3.3px hsl(var(--shadow-color) / 0.24),
-		40.6px 82.3px 86px -3.7px hsl(var(--shadow-color) / 0.2);
+	--shadow-color: 40deg 30% 60%;
+	--shadow:
+		0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.88),
+		0.4px 0.7px 0.6px -1.2px hsl(var(--shadow-color) / 0.7),
+		1.3px 2px 1.8px -2.5px hsl(var(--shadow-color) / 0.52),
+		3.6px 5.6px 5px -3.7px hsl(var(--shadow-color) / 0.35),
+		8.2px 12.6px 11.3px -5px hsl(var(--shadow-color) / 0.17);
+
 	--size-0-25: calc(var(--unit) * 0.25);
 	--size-0-5: calc(var(--unit) * 0.5);
 	--size-1: var(--unit);
@@ -114,7 +101,7 @@ body,
 	}
 
 	& > .header-shadow {
-		box-shadow: var(--shadow-elevation-medium);
+		box-shadow: var(--shadow);
 		grid-column: 1 / -1;
 		grid-row: 1;
 		position: sticky;
