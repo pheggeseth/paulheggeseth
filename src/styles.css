@@ -94,6 +94,20 @@ body,
 	grid-template-rows: auto 1fr auto;
 	column-gap: var(--size-16);
 	scrollbar-width: thin;
+	scrollbar-color: var(--color-border) transparent;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--color-border);
+		border-radius: var(--border-radius);
+	}
 
 	& > :is(header, footer) {
 		color: var(--color-subtle);
