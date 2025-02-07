@@ -9,9 +9,31 @@ nav.blog-post-list ol {
 			margin-block-start: var(--size-4);
 
 			& > li > details {
+				&[open] {
+					.closed-icon {
+						display: none;
+					}
+				}
+
+				&:not([open]) {
+					.open-icon {
+						display: none;
+					}
+				}
+
 				& > summary {
 					display: flex;
-					margin-inline-start: calc(var(--size-8) * -1);
+					margin-inline-start: calc(var(--size-10) * -1);
+
+					&:focus-visible {
+						outline: none;
+
+						& > .trigger {
+							background: var(--color-hover);
+							outline: var(--border);
+							outline-offset: -1px;
+						}
+					}
 
 					& > .trigger {
 						width: 2rem;
@@ -19,9 +41,14 @@ nav.blog-post-list ol {
 						place-content: center;
 						border-radius: var(--border-radius);
 						cursor: pointer;
+						transition: var(--transition-background);
 
 						&:is(:hover, :focus-visible) {
 							background: var(--color-hover);
+						}
+
+						& svg {
+							width: var(--size-20);
 						}
 					}
 

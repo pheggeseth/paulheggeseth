@@ -1,3 +1,4 @@
+import { ChevronDown, ChevronRight } from 'react-feather';
 import { Link } from 'waku';
 import type { BlogPostType } from '../../types';
 import { formatDate, formatDay } from '../../utils/dates';
@@ -29,7 +30,10 @@ export function BlogPostList({
 								<li key={index}>
 									<details>
 										<summary>
-											<div className="trigger">V</div>
+											<div className="trigger">
+												<ChevronRight className="closed-icon" />
+												<ChevronDown className="open-icon" />
+											</div>
 											<Link to={`/thoughts/${post.slug}`}>
 												<span className="title">{post.data.title}</span>
 												<span className="spacer" aria-hidden />

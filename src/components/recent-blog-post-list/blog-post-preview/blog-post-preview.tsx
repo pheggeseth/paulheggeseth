@@ -2,6 +2,7 @@ import { Link } from 'waku';
 import type { PostDate } from '../../../types';
 import { BlogPostDate } from '../../blog-post-date';
 import './blog-post-preview.css';
+import { ArrowRight } from 'react-feather';
 
 export function BlogPostPreview({
 	slug,
@@ -27,8 +28,9 @@ export function BlogPostPreview({
 				<div className="description-wrapper">
 					<p>{description}</p>
 					<div className="more-wrapper">
-						<Link className="more-link" to={path} aria-label={title}>
+						<Link to={path} aria-label={title}>
 							More
+							<ArrowRight />
 						</Link>
 					</div>
 				</div>

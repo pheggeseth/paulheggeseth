@@ -41,11 +41,19 @@ article.blog-post-preview {
 			align-items: center;
 			justify-content: flex-end;
 			height: 2rem;
-			width: var(--size-128);
+			width: var(--size-160);
 
 			& > a {
 				padding: var(--size-3) var(--size-6);
 				margin-inline-end: calc(var(--size-6) * -1);
+				display: flex;
+				align-items: center;
+				gap: var(--size-4);
+
+				& > svg {
+					height: var(--size-16);
+					width: var(--size-16);
+				}
 			}
 		}
 	}
