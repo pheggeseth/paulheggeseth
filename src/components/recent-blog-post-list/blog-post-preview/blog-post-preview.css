@@ -51,8 +51,8 @@ article.blog-post-preview {
 				gap: var(--size-4);
 
 				& > svg {
-					height: var(--size-16);
-					width: var(--size-16);
+					height: var(--size-12);
+					width: var(--size-12);
 				}
 			}
 		}
