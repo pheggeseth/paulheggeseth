@@ -23,20 +23,20 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 	tokenColors: [
 		{
 			settings: {
-				background: '#3b362b', // hsl(40deg 15% 20%)
-				foreground: '#a89e8a', // hsl(40deg 15% 60%)
+				background: '#b8a37a1a', // --color-hover
+				foreground: '#868279', // --color-subtle
 			},
 		},
 		{
 			scope: ['entity', 'variable'],
 			settings: {
-				foreground: '#fffcf5', // hsl(40deg 100% 98%)
+				foreground: '#3b362b',
 			},
 		},
 		{
 			scope: ['string', 'constant'],
 			settings: {
-				foreground: '#c9ba9c', // hsl(40deg 30% 70%)
+				foreground: '#9f8a60',
 			},
 		},
 	],

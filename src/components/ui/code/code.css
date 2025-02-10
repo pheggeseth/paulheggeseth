@@ -3,6 +3,8 @@
 	box-shadow: var(--shadow);
 
 	& pre {
+		border: var(--border);
+		border-radius: var(--border-radius);
 		font-size: var(--font-size-code);
 	}
 
