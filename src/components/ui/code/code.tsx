@@ -1,4 +1,3 @@
-'use server';
 import { Code as BrightCode } from 'bright';
 import type { ComponentProps } from 'react';
 import './code.css';
@@ -23,7 +22,7 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 	tokenColors: [
 		{
 			settings: {
-				background: '#b8a37a1a', // --color-hover
+				background: '#f6f2ea', // --color-hover
 				foreground: '#868279', // --color-subtle
 			},
 		},
@@ -41,26 +40,3 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 		},
 	],
 };
-
-// const oldDarkTheme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
-// 	tokenColors: [
-// 		{
-// 			settings: {
-// 				background: '#3b362b', // hsl(40deg 15% 20%)
-// 				foreground: '#a89e8a', // hsl(40deg 15% 60%)
-// 			},
-// 		},
-// 		{
-// 			scope: ['entity', 'variable'],
-// 			settings: {
-// 				foreground: '#fffcf5', // hsl(40deg 100% 98%)
-// 			},
-// 		},
-// 		{
-// 			scope: ['string', 'constant'],
-// 			settings: {
-// 				foreground: '#c9ba9c', // hsl(40deg 30% 70%)
-// 			},
-// 		},
-// 	],
-// };
