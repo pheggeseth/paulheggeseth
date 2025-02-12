@@ -8,6 +8,7 @@ export function Code(props: Omit<ComponentProps<typeof BrightCode>, 'theme'>) {
 			<BrightCode
 				{...props}
 				theme={theme}
+				lineNumbers
 				style={{
 					borderRadius: 'var(--border-radius)',
 					margin: 'var(--size-16) 0',
@@ -19,13 +20,8 @@ export function Code(props: Omit<ComponentProps<typeof BrightCode>, 'theme'>) {
 }
 
 const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
+	name: 'default',
 	tokenColors: [
-		{
-			settings: {
-				background: '#f6f2ea', // --color-hover
-				foreground: '#868279', // --color-subtle
-			},
-		},
 		{
 			scope: ['entity', 'variable'],
 			settings: {
@@ -39,4 +35,10 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 			},
 		},
 	],
+	colors: {
+		'editor.background': '#f6f2ea',
+		'editor.foreground': '#868279',
+		'editor.selectionBackground': '#dfca9f',
+		'editorLineNumber.foreground': '#b6b4af',
+	},
 };
