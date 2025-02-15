@@ -3,7 +3,7 @@
 	box-shadow: var(--shadow);
 
 	& pre {
-		border: 1px solid hsl(40deg 10% 50% / 20%);
+		border: var(--border);
 		border-radius: var(--border-radius);
 		font-size: var(--font-size-code);
 	}

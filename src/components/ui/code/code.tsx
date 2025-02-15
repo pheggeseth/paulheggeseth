@@ -30,13 +30,13 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 		{
 			scope: ['string', 'constant'],
 			settings: {
-				foreground: '#8e6e2f',
+				foreground: '#86682d',
 			},
 		},
 	],
 	colors: {
-		'editor.background': '#fffcf5',
-		'editor.foreground': '#817256',
+		'editor.background': '#b8a9841a',
+		'editor.foreground': '#7a6d52',
 		'editor.selectionBackground': '#f2ead9',
 		'editorLineNumber.foreground': '#99886680',
 	},
