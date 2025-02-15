@@ -53,6 +53,7 @@ article.blog-post-preview {
 				& > svg {
 					height: var(--size-12);
 					width: var(--size-12);
+					margin-inline-end: -1.5px;
 				}
 			}
 		}

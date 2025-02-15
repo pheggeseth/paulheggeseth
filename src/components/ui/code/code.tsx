@@ -4,18 +4,17 @@ import './code.css';
 
 export function Code(props: Omit<ComponentProps<typeof BrightCode>, 'theme'>) {
 	return (
-		<div className="code-wrapper">
-			<BrightCode
-				{...props}
-				theme={theme}
-				lineNumbers
-				style={{
-					borderRadius: 'var(--border-radius)',
-					margin: 'var(--size-16) 0',
-					tabSize: 2,
-				}}
-			/>
-		</div>
+		<BrightCode
+			{...props}
+			className="code-wrapper"
+			theme={theme}
+			lineNumbers
+			style={{
+				borderRadius: 'var(--border-radius)',
+				margin: 'var(--size-16) 0',
+				tabSize: 2,
+			}}
+		/>
 	);
 }
 
@@ -25,20 +24,20 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 		{
 			scope: ['entity', 'variable'],
 			settings: {
-				foreground: '#3b362b',
+				foreground: '#1d1b16',
 			},
 		},
 		{
 			scope: ['string', 'constant'],
 			settings: {
-				foreground: '#9f8a60',
+				foreground: '#8e6e2f',
 			},
 		},
 	],
 	colors: {
-		'editor.background': '#f6f2ea',
-		'editor.foreground': '#868279',
-		'editor.selectionBackground': '#dfca9f',
-		'editorLineNumber.foreground': '#b6b4af',
+		'editor.background': '#fffcf5',
+		'editor.foreground': '#817256',
+		'editor.selectionBackground': '#f2ead9',
+		'editorLineNumber.foreground': '#99886680',
 	},
 };
