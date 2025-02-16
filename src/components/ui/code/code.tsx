@@ -35,7 +35,7 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 		},
 	],
 	colors: {
-		'editor.background': '#b8a9841a',
+		'editor.background': '#b7a5801a', // shadow color
 		'editor.foreground': '#7a6d52',
 		'editor.selectionBackground': '#f2ead9',
 		'editorLineNumber.foreground': '#99886680',

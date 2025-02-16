@@ -31,8 +31,8 @@ article.blog-post-preview {
 			background: linear-gradient(
 				90deg,
 				transparent 0%,
-				hsl(40 100% 97% / 0.5) 25%,
-				hsl(40 100% 97%) 50%
+				hsl(var(--color-surface-values) / 0.5) 25%,
+				hsl(var(--color-surface-values)) 50%
 			);
 			font: var(--font-subtle);
 			color: var(--color-subtle);
