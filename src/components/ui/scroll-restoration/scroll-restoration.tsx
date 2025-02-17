@@ -3,7 +3,7 @@
 import nullthrows from 'nullthrows';
 import { useEffect, useRef } from 'react';
 import { useRouter_UNSTABLE as useRouter } from 'waku';
-import { useDOMEventEffect } from '../../../utils/use-dom-event-effect';
+import { useDOMEventEffect } from '../../../hooks/use-dom-event-effect';
 
 export function ScrollRestoration({ children }: { children: React.ReactNode }) {
 	const router = useRouter();
