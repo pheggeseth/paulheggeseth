@@ -24,20 +24,20 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 		{
 			scope: ['entity', 'variable'],
 			settings: {
-				foreground: '#1d1b16',
+				foreground: '#fffaf0', // hsl(40, 100%, 97%)
 			},
 		},
 		{
 			scope: ['string', 'constant'],
 			settings: {
-				foreground: '#86682d',
+				foreground: '#d2c6ac', // hsl(40, 30%, 75%)
 			},
 		},
 	],
 	colors: {
-		'editor.background': '#b7a5801a', // shadow color
-		'editor.foreground': '#7a6d52',
-		'editor.selectionBackground': '#f2ead9',
-		'editorLineNumber.foreground': '#99886680',
+		'editor.background': '#3b362b', // hsl(40, 15%, 20%)
+		'editor.foreground': '#a89e8a', // hsl(40, 15%, 60%)
+		'editor.selectionBackground': '#756b5780', // hsla(40, 15%, 40%, 0.5)
+		'editorLineNumber.foreground': '#756b57', // hsl(40, 15%, 40%)
 	},
 };
