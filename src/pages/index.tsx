@@ -8,7 +8,12 @@ export default async function Index() {
 	const [currentPost, ...recentPosts] = await getMostRecentBlogPosts(5);
 
 	if (!currentPost) {
-		throw new Error();
+		return (
+			<>
+				<title>paulheggeseth.codes()</title>
+				<div>no blog posts found</div>
+			</>
+		);
 	}
 
 	const MDXContent = await createMDXContent(currentPost?.content);
