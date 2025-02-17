@@ -11,3 +11,22 @@
 		font-size: var(--font-size-code);
 	}
 }
+
+.Pre {
+	background: var(--color-body);
+	padding: var(--size-8);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	line-height: 1.5;
+	tab-size: 2;
+}
+
+.Line {
+	display: flex;
+
+	& .line-number-wrapper {
+		color: var(--color-subtle);
+		user-select: none;
+		margin-inline-end: var(--size-8);
+	}
+}
