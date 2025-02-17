@@ -278,6 +278,13 @@ p {
 	letter-spacing: var(--letter-spacing-body);
 }
 
+pre {
+	font-family: var(--font-family-code);
+	font-size: var(--font-size-code);
+	line-height: 1.5;
+	tab-size: 2;
+}
+
 ol,
 ul {
 	list-style: none;

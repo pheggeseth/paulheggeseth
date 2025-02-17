@@ -1,1 +1,1 @@
-export { Code, MyCode } from './code';
+export { Code } from './code';

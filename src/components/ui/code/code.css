@@ -12,21 +12,20 @@
 	}
 }
 
-.Pre {
+.pre {
 	background: var(--color-body);
 	padding: var(--size-8);
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
-	line-height: 1.5;
-	tab-size: 2;
 }
 
-.Line {
+.line {
 	display: flex;
 
-	& .line-number-wrapper {
+	& .line-number {
 		color: var(--color-subtle);
 		user-select: none;
-		margin-inline-end: var(--size-8);
+		margin-inline-end: 1em;
+		text-align: right;
 	}
 }
