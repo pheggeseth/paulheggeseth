@@ -1,8 +1,10 @@
 import { BlogPostList } from '../../components/blog-post-list';
 import { Bookend } from '../../components/bookend';
 import type { GetConfig } from '../../types';
-import { getBlogPostPublicationYear } from '../../utils/get-blog-post-publication-year';
-import { getMostRecentBlogPosts } from '../../utils/get-most-recent-blog-posts';
+import {
+	getBlogPostPublicationYear,
+	getMostRecentBlogPosts,
+} from '../../utils/blog-posts';
 
 export default async function BlogPostsListPage() {
 	const posts = await getMostRecentBlogPosts();

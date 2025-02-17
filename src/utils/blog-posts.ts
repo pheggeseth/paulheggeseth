@@ -1,0 +1,45 @@
+import fs from 'node:fs/promises';
+import matter from 'gray-matter';
+import { blogPostSchema } from '../schemas';
+import type { BlogPostType } from '../types';
+import { createMDXContent } from './create-mdx-content';
+import { byPublicationDateDescending } from './sort';
+
+export async function getBlogPostSlugs() {
+	const fileNames = await fs.readdir('src/blog-posts', { encoding: 'utf-8' });
+	return fileNames.map((fileName) => fileName.replace(/\.[^/.]+$/, ''));
+}
+
+export async function readBlogPostFile(slug: string) {
+	const file = await fs.readFile(`src/blog-posts/${slug}.mdx`, 'utf-8');
+	return { ...blogPostSchema.parse(matter(file)), slug };
+}
+
+export async function getAllBlogPosts() {
+	const slugs = await getBlogPostSlugs();
+	return Promise.all(slugs.map(readBlogPostFile));
+}
+
+export function getBlogPostPublicationYear(post: BlogPostType) {
+	return post.data.publicationDate[0];
+}
+
+export function getBlogPostPublicationDate(post: BlogPostType) {
+	return Date.UTC(...post.data.publicationDate);
+}
+
+export async function getMostRecentBlogPosts(limit?: number) {
+	return (await getAllBlogPosts())
+		.sort(byPublicationDateDescending)
+		.slice(0, limit);
+}
+
+export async function parseBlogPost(slug: string) {
+	const { data, content } = await readBlogPostFile(slug);
+	const MDXContent = await createMDXContent(content);
+
+	return {
+		data,
+		MDXContent,
+	};
+}

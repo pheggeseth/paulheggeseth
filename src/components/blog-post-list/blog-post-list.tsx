@@ -1,8 +1,8 @@
 import { ChevronDown, ChevronRight } from 'react-feather';
 import { Link } from 'waku';
 import type { BlogPostType } from '../../types';
+import { getBlogPostPublicationYear } from '../../utils/blog-posts';
 import { formatDate, formatDay } from '../../utils/dates';
-import { getBlogPostPublicationYear } from '../../utils/get-blog-post-publication-year';
 import './blog-post-list.css';
 
 export function BlogPostList({
