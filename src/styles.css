@@ -9,7 +9,7 @@
 	--color-brown: var(--hue) 15% 40%;
 	--color-body: hsl(var(--color-black));
 	--color-border: hsl(var(--color-black) / 25%);
-	--color-hover: hsl(var(--color-brown) / 7.5%);
+	--color-hover: hsl(var(--color-brown) / 10%);
 	--color-subtle: hsl(var(--color-brown));
 	--color-surface-values: var(--hue) 100% 97%;
 	--color-surface: hsl(var(--color-surface-values));

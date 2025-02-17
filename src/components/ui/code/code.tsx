@@ -28,6 +28,20 @@ export const lineNumbers: AnnotationHandler = {
 	},
 };
 
+function SelectionStyle({ theme }: { theme: RawTheme }) {
+	const background = theme.colors?.['editor.selectionBackground'];
+	if (!background) return null;
+
+	return (
+		<style
+			// biome-ignore lint/security/noDangerouslySetInnerHtml: necessary for inline style element
+			dangerouslySetInnerHTML={{
+				__html: `.Pre ::-moz-selection { background: ${background}; }\n.Pre ::selection { background: ${background}; }`,
+			}}
+		/>
+	);
+}
+
 export async function MyCode({ codeblock }: { codeblock: RawCode }) {
 	const highlighted = await highlight(codeblock, theme);
 
@@ -40,9 +54,12 @@ export async function MyCode({ codeblock }: { codeblock: RawCode }) {
 		handlers.push(lineNumbers);
 	}
 
-	console.log(highlighted);
-
-	return <Pre className="Pre" code={highlighted} handlers={handlers} />;
+	return (
+		<>
+			<SelectionStyle theme={theme} />
+			<Pre className="Pre" code={highlighted} handlers={handlers} />
+		</>
+	);
 }
 
 export function Code(props: Omit<ComponentProps<typeof BrightCode>, 'theme'>) {
@@ -61,7 +78,9 @@ export function Code(props: Omit<ComponentProps<typeof BrightCode>, 'theme'>) {
 	);
 }
 
-const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
+type RawTheme = Extract<Parameters<typeof highlight>[1], object>;
+
+const theme: RawTheme = {
 	name: 'default',
 	tokenColors: [
 		{
@@ -80,7 +99,7 @@ const theme: NonNullable<ComponentProps<typeof BrightCode>['theme']> = {
 	colors: {
 		'editor.background': '#3b362b', // hsl(40, 15%, 20%)
 		'editor.foreground': '#a89e8a', // hsl(40, 15%, 60%)
-		'editor.selectionBackground': '#756b5780', // hsla(40, 15%, 40%, 0.5)
+		'editor.selectionBackground': 'hsl(40deg, 100%, 97%, 20%)',
 		'editorLineNumber.foreground': '#756b57', // hsl(40, 15%, 40%)
 	},
 };
