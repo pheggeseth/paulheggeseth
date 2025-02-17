@@ -1,6 +1,6 @@
-import { BlogPost } from '../../components/blog-post';
-import type { GetConfig } from '../../types';
-import { parseBlogPost } from '../../utils/blog-posts';
+import { BlogPost } from '@/components/blog-post';
+import type { GetConfig } from '@/types';
+import { parseBlogPost } from '@/utils/blog-posts';
 
 export default async function BlogPostPage({ slug }: { slug: string }) {
 	const { data, MDXContent } = await parseBlogPost(slug);

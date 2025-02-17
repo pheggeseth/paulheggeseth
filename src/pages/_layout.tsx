@@ -1,8 +1,8 @@
+import '../styles.css';
+import { ScrollRestoration } from '@/components/ui/scroll-restoration';
+import type { GetConfig } from '@/types';
 import type { ReactNode } from 'react';
 import { Link } from 'waku';
-import type { GetConfig } from '../types';
-import '../styles.css';
-import { ScrollRestoration } from '../components/ui/scroll-restoration';
 
 type RootLayoutProps = { children: ReactNode };
 

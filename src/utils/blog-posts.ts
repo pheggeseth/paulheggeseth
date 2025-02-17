@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
+import { blogPostSchema } from '@/schemas';
+import type { BlogPostType } from '@/types';
 import matter from 'gray-matter';
-import { blogPostSchema } from '../schemas';
-import type { BlogPostType } from '../types';
 import { createMDXContent } from './create-mdx-content';
 import { byPublicationDateDescending } from './sort';
 

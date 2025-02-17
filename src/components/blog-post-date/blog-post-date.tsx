@@ -1,7 +1,7 @@
-import type { PostDate } from '../../types';
-import { formatDate } from '../../utils/dates';
-import { VisuallyHidden } from '../ui/visually-hidden';
 import './blog-post-date.css';
+import { VisuallyHidden } from '@/components/ui/visually-hidden';
+import type { PostDate } from '@/types';
+import { formatDate } from '@/utils/dates';
 
 export function BlogPostDate({
 	published,

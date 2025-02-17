@@ -1,6 +1,6 @@
+import type { GetConfig } from '@/types';
 import { Bookend } from '../components/bookend';
 import { VisuallyHidden } from '../components/ui/visually-hidden';
-import type { GetConfig } from '../types';
 
 export default function About() {
 	return (

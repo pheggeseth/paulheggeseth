@@ -1,3 +1,4 @@
+import './code.css';
 import {
 	type AnnotationHandler,
 	Pre,
@@ -7,7 +8,6 @@ import {
 import { lineNumbers } from './annotations';
 import { SelectionStyle } from './selection-style';
 import { theme } from './theme';
-import './code.css';
 
 export async function Code({ codeblock }: { codeblock: RawCode }) {
 	const highlighted = await highlight(codeblock, theme);

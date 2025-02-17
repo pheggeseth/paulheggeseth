@@ -1,8 +1,8 @@
-import { Link } from 'waku';
-import type { PostDate } from '../../../types';
-import { BlogPostDate } from '../../blog-post-date';
 import './blog-post-preview.css';
+import { BlogPostDate } from '@/components/blog-post-date';
+import type { PostDate } from '@/types';
 import { ArrowRight } from 'react-feather';
+import { Link } from 'waku';
 
 export function BlogPostPreview({
 	slug,

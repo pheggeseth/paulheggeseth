@@ -1,7 +1,7 @@
+import { BlogPostDate } from '@/components/blog-post-date';
+import { Bookend } from '@/components/bookend';
+import type { PostDate } from '@/types';
 import type { ReactNode } from 'react';
-import type { PostDate } from '../../types';
-import { BlogPostDate } from '../blog-post-date';
-import { Bookend } from '../bookend';
 
 export function BlogPost({
 	title,

@@ -1,4 +1,4 @@
-import type { BlogPostType } from '../types';
+import type { BlogPostType } from '@/types';
 import { getBlogPostPublicationDate } from './blog-posts';
 
 export function byPublicationDateDescending(a: BlogPostType, b: BlogPostType) {

@@ -1,4 +1,4 @@
-import type { PostDate } from '../types';
+import type { PostDate } from '@/types';
 
 const ordinalMap = {
 	one: 'st',

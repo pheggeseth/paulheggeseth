@@ -1,6 +1,6 @@
-import type { BlogPostType } from '../../types';
-import { BlogPostPreview } from './blog-post-preview';
 import './recent-blog-post-list.css';
+import type { BlogPostType } from '@/types';
+import { BlogPostPreview } from './blog-post-preview';
 
 export function RecentBlogPostList({
 	heading,

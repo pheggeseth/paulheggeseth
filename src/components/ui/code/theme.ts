@@ -1,4 +1,4 @@
-import type { RawTheme } from './types';
+import type { RawTheme } from '@/types';
 
 export const theme: RawTheme = {
 	name: 'default',

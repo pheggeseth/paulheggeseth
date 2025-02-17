@@ -1,5 +1,5 @@
-import { type ReactElement, cloneElement } from 'react';
 import './visually-hidden.css';
+import { type ReactElement, cloneElement } from 'react';
 
 export function VisuallyHidden({
 	children,
