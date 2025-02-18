@@ -5,6 +5,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "waku dev",
+		"generate-create-path": "tsx .gen/generate-create-path.ts",
 		"build": "waku build",
 		"start": "waku start"
 	},
@@ -23,12 +24,15 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@biomejs/js-api": "0.7.1",
+		"@biomejs/wasm-nodejs": "1.9.4",
 		"@types/node": "22.12.0",
 		"@types/react": "19.0.8",
 		"@types/react-dom": "19.0.3",
 		"autoprefixer": "10.4.20",
 		"lefthook": "1.8.5",
 		"postcss-load-config": "6.0.1",
+		"tsx": "4.19.2",
 		"typescript": "5.7.3",
 		"vite-tsconfig-paths": "5.1.4"
 	}

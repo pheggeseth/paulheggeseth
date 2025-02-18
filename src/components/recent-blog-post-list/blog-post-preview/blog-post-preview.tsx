@@ -1,6 +1,7 @@
 import './blog-post-preview.css';
 import { BlogPostDate } from '@/components/blog-post-date';
 import type { PostDate } from '@/types';
+import { createPath } from '@/utils/create-path.gen';
 import { ArrowRight } from 'react-feather';
 import { Link } from 'waku';
 
@@ -15,7 +16,7 @@ export function BlogPostPreview({
 	description?: string | undefined;
 	publicationDate: PostDate;
 }) {
-	const path = `/thoughts/${slug}`;
+	const path = createPath('/thoughts/[slug]', { slug });
 
 	return (
 		<article className="blog-post-preview">

@@ -1,6 +1,7 @@
 import '../styles.css';
 import { ScrollRestoration } from '@/components/ui/scroll-restoration';
 import type { GetConfig } from '@/types';
+import { createPath } from '@/utils/create-path.gen';
 import type { ReactNode } from 'react';
 import { Link } from 'waku';
 
@@ -20,17 +21,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
 						<ul>
 							<li>
 								<h1>
-									<Link to="/" aria-label="home">
+									<Link to={createPath('/')} aria-label="home">
 										paulheggeseth.codes()_
 									</Link>
 								</h1>
 							</li>
 							<li>
-								<Link to="/thoughts">read('things')</Link>
+								<Link to={createPath('/thoughts')}>read('things')</Link>
 							</li>
 							<span aria-hidden>||</span>
 							<li>
-								<Link to="/about" aria-label="about">
+								<Link to={createPath('/about')} aria-label="about">
 									say('hi');
 								</Link>
 							</li>
