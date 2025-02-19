@@ -26,11 +26,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
 									</Link>
 								</h1>
 							</li>
-							<li>
+							<li className="display-tablet">
 								<Link to={createPath('/thoughts')}>read('things')</Link>
 							</li>
-							<span aria-hidden>||</span>
-							<li>
+							<span aria-hidden className="display-tablet">
+								||
+							</span>
+							<li className="display-tablet">
 								<Link to={createPath('/about')} aria-label="about">
 									say('hi');
 								</Link>

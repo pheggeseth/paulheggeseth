@@ -300,3 +300,15 @@ ul {
 *::selection {
 	background: var(--color-hover);
 }
+
+@media screen and (min-width: 31.5rem) {
+	.display-mobile {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width: calc(31.5rem - 1px)) {
+	:is(.display-tablet, .display-desktop) {
+		display: none !important;
+	}
+}
