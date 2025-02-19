@@ -85,13 +85,18 @@ body,
 	height: 100%;
 }
 
-#layout {
-	color: var(--color-body);
+html {
 	background: var(--color-surface);
+}
+
+#layout {
+	width: min(100vw, 100%);
+	color: var(--color-body);
 	position: relative; /* helps visually hidden elements not impact scrolling */
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
 	display: grid;
-	grid-template-columns: auto minmax(auto, var(--size-640)) auto;
+	grid-template-columns: auto minmax(0, min(100%, var(--size-640))) auto;
 	grid-template-rows: auto 1fr auto;
 	column-gap: var(--size-16);
 	scrollbar-width: thin;
