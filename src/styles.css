@@ -132,12 +132,13 @@ html {
 	}
 
 	& .header-shadow-blocker {
+		width: 100%;
 		grid-column: 1 / -1;
 		grid-row: 1;
 		background: var(--color-surface);
-		height: calc(var(--size-48) - 1em - var(--size-16));
-		margin-block-start: var(--size-32);
-		position: relative;
+		height: var(--size-32);
+		position: absolute;
+		top: var(--size-24);
 	}
 
 	& > header {
