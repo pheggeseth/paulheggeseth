@@ -1,22 +1,13 @@
-.code-wrapper {
-	border-radius: var(--border-radius);
-	box-shadow: var(--shadow);
-
-	& pre {
-		font-size: var(--font-size-code);
-	}
-
-	& code {
-		font-family: var(--font-family-code);
-		font-size: var(--font-size-code);
-	}
-}
-
 .pre {
 	background: var(--color-body);
 	padding: var(--size-8);
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
+	overflow: auto;
+
+	&.line-numbers {
+		padding-inline-start: 0;
+	}
 }
 
 .line {
@@ -24,8 +15,14 @@
 
 	& .line-number {
 		color: var(--color-subtle);
+		background: var(--color-body);
 		user-select: none;
-		margin-inline-end: 1em;
+		padding-inline: var(--size-8);
 		text-align: right;
+		box-sizing: content-box;
+		position: sticky;
+		left: 0;
+		border-inline-end: 1px solid var(--color-subtle);
+		margin-inline-end: var(--size-8);
 	}
 }

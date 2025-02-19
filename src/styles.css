@@ -142,6 +142,7 @@ body,
 		grid-template-columns: subgrid;
 		position: sticky;
 		top: 0;
+		z-index: 1;
 		background: var(--color-surface);
 		line-height: 1rem;
 		margin-block-start: var(--size-48);
