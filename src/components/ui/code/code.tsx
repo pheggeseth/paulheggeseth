@@ -24,14 +24,33 @@ export async function Code({ codeblock }: { codeblock: RawCode }) {
 		handlers.push(lineNumbers);
 	}
 
+	const totalLines = highlighted.code.split('\n').length.toString().length + 1;
+	const width = `calc(${totalLines}ch + var(--size-16))`;
+
 	return (
 		<>
-			<SelectionStyle theme={theme} />
-			<Pre
-				className={clsx('pre', hasLineNumbers && 'line-numbers')}
-				code={highlighted}
-				handlers={handlers}
-			/>
+			<div className="wrapper">
+				{hasLineNumbers && (
+					<>
+						<div
+							className="left-shadow"
+							style={{ width, marginInlineStart: `calc(${width} * -1)` }}
+						/>
+						<div
+							className="left-border"
+							style={{ width, marginInlineStart: `calc(${width} * -1)` }}
+						/>
+					</>
+				)}
+
+				<SelectionStyle theme={theme} />
+				<Pre
+					className={clsx('pre', hasLineNumbers && 'line-numbers')}
+					code={highlighted}
+					handlers={handlers}
+				/>
+				<div className="right-shadow" />
+			</div>
 		</>
 	);
 }
