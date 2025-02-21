@@ -161,6 +161,7 @@ html {
 		& > nav {
 			grid-column: 2;
 			height: 1rem;
+			margin-inline-end: -8px;
 
 			& > ul {
 				display: flex;
@@ -201,6 +202,7 @@ html {
 
 	& > main {
 		grid-column: 2;
+		margin-inline-end: -8px;
 
 		& > article {
 			& > header {
