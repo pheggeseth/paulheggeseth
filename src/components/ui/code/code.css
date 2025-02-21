@@ -48,42 +48,26 @@
 				padding-inline-start: 0;
 			}
 		}
+
+		& > .right-shadow {
+			position: sticky;
+			right: 0;
+			width: 6px;
+			animation: reveal linear both;
+			animation-range: calc(100% - 8px) 100%;
+			animation-direction: reverse;
+			animation-timeline: --scroll-timeline;
+			opacity: 0;
+			flex: none;
+			background-image: linear-gradient(
+				90deg,
+				hsl(var(--shadow-color) / 0%) 0%,
+				hsl(var(--shadow-color) / 15%) 30%,
+				hsl(var(--shadow-color) / 30%) 40%,
+				hsl(var(--shadow-color) / 70%) 60%,
+				hsl(var(--shadow-color) / 95%) 75%,
+				hsl(var(--shadow-color))
+			);
+		}
 	}
-}
-
-.line {
-	display: flex;
-
-	& .line-number {
-		color: var(--color-subtle);
-		background: var(--color-body);
-		user-select: none;
-		padding-inline: var(--size-8);
-		text-align: right;
-		box-sizing: content-box;
-		position: sticky;
-		left: 0;
-		margin-inline-end: var(--size-8);
-	}
-}
-
-.right-shadow {
-	position: sticky;
-	right: 0;
-	width: 6px;
-	animation: reveal linear both;
-	animation-range: calc(100% - 8px) 100%;
-	animation-direction: reverse;
-	animation-timeline: --scroll-timeline;
-	opacity: 0;
-	flex: none;
-	background-image: linear-gradient(
-		90deg,
-		hsl(var(--shadow-color) / 0%) 0%,
-		hsl(var(--shadow-color) / 15%) 30%,
-		hsl(var(--shadow-color) / 30%) 40%,
-		hsl(var(--shadow-color) / 70%) 60%,
-		hsl(var(--shadow-color) / 95%) 75%,
-		hsl(var(--shadow-color))
-	);
 }
