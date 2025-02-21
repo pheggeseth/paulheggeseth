@@ -27,7 +27,7 @@
 	animation-timeline: --scroll-timeline;
 	opacity: 0;
 	flex: none;
-	box-shadow: 2px 0 2px hsl(var(--shadow-color) / 1);
+	box-shadow: 3px 0 3px hsl(var(--shadow-color) / 1);
 }
 
 .left-border {
@@ -65,7 +65,7 @@
 .right-shadow {
 	position: sticky;
 	right: 0;
-	width: 3px;
+	width: 5px;
 	animation: reveal linear both;
 	animation-range: calc(100% - 8px) 100%;
 	animation-direction: reverse;
@@ -74,20 +74,18 @@
 	flex: none;
 	background-image: linear-gradient(
 		90deg,
-		hsl(40deg 15% 10% / 0%) 0%,
-		hsl(40deg 15% 10% / 16%) 16%,
-		hsl(40deg 15% 10% / 24%) 24%,
-		hsl(40deg 15% 10% / 30%) 30%,
-		hsl(40deg 15% 10% / 35%) 35%,
-		hsl(40deg 15% 10% / 40%) 40%,
-		hsl(40deg 15% 10% / 45%) 45%,
-		hsl(40deg 15% 10% / 50%) 50%,
-		hsl(40deg 15% 10% / 55%) 55%,
-		hsl(40deg 15% 10% / 60%) 60%,
-		hsl(40deg 15% 10% / 65%) 65%,
-		hsl(40deg 15% 10% / 70%) 70%,
-		hsl(40deg 15% 10% / 76%) 76%,
-		hsl(40deg 15% 10% / 84%) 84%,
-		hsl(40deg 15% 10%) 100%
+		hsl(var(--shadow-color) / 0%) 0%,
+		hsl(var(--shadow-color) / 16%) 16%,
+		hsl(var(--shadow-color) / 24%) 24%,
+		hsl(var(--shadow-color) / 30%) 30%,
+		hsl(var(--shadow-color) / 40%) 35%,
+		hsl(var(--shadow-color) / 50%) 40%,
+		hsl(var(--shadow-color) / 55%) 45%,
+		hsl(var(--shadow-color) / 60%) 50%,
+		hsl(var(--shadow-color) / 65%) 55%,
+		hsl(var(--shadow-color) / 75%) 60%,
+		hsl(var(--shadow-color) / 80%) 70%,
+		/* hsl(var(--shadow-color) / 90%) 70%, */
+		hsl(var(--shadow-color))
 	);
 }
