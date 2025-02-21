@@ -1,12 +1,3 @@
-@keyframes reveal {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
 .code-wrapper {
 	background: var(--color-body);
 	border-radius: var(--border-radius);

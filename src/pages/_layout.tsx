@@ -14,8 +14,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
 		<ScrollRestoration>
 			<meta name="description" content="Paul Heggeseth's blog" />
 			<div id="layout">
-				<div className="header-shadow" role="presentation" />
-				<div className="header-shadow-blocker" role="presentation" />
 				<header>
 					<nav>
 						<ul>

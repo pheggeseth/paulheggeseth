@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
+@keyframes reveal {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 :root {
 	--border: 1px solid var(--color-border);
 	--border-radius: var(--size-4);
@@ -101,6 +110,7 @@ html {
 	column-gap: var(--size-16);
 	scrollbar-color: var(--color-border) transparent;
 	scrollbar-gutter: stable;
+	scroll-timeline: --scroll-timeline block;
 
 	&::-webkit-scrollbar {
 		width: 8px;
@@ -120,29 +130,6 @@ html {
 		padding-block: var(--size-8);
 	}
 
-	& > .header-shadow {
-		box-shadow: var(--shadow);
-		grid-column: 1 / -1;
-		grid-row: 1;
-		position: sticky;
-		top: 0;
-		height: 1rem;
-		box-sizing: content-box;
-		padding: var(--size-8);
-		z-index: 1;
-	}
-
-	& .header-shadow-blocker {
-		width: 100%;
-		grid-column: 1 / -1;
-		grid-row: 1;
-		background: var(--color-surface);
-		height: var(--size-32);
-		position: absolute;
-		top: var(--size-24);
-		z-index: 1;
-	}
-
 	& > header {
 		grid-column: 1 / -1;
 		grid-row: 1;
@@ -154,6 +141,19 @@ html {
 		background: var(--color-surface);
 		line-height: 1rem;
 		margin-block-start: var(--size-48);
+
+		&::after {
+			content: '';
+			box-shadow: var(--shadow);
+			height: var(--size-8);
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			animation: reveal linear both;
+			animation-range: 48px 64px;
+			animation-timeline: --scroll-timeline;
+			opacity: 0;
+		}
 
 		& > nav {
 			grid-column: 2;
