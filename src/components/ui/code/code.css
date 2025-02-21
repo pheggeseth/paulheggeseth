@@ -7,42 +7,47 @@
 	}
 }
 
-.wrapper {
+.code-wrapper {
 	background: var(--color-body);
-	overflow: auto;
-	scroll-timeline: --scroll-timeline inline;
-	display: flex;
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
-	--shadow-color: 40 15% 10%;
-}
+	overflow: hidden;
 
-.left-shadow {
-	position: sticky;
-	left: 0;
-	width: 32px;
-	margin-inline-start: -32px;
-	animation: reveal linear both;
-	animation-range: 0 8px;
-	animation-timeline: --scroll-timeline;
-	opacity: 0;
-	flex: none;
-	box-shadow: 3px 0 3px hsl(var(--shadow-color) / 1);
-}
+	& > .scroll-container {
+		--shadow-color: 40 15% 10%;
+		overflow: auto;
+		scroll-timeline: --scroll-timeline inline;
+		display: flex;
+		scrollbar-color: var(--color-subtle) var(--color-body);
 
-.left-border {
-	position: sticky;
-	left: 0;
-	flex: none;
-	border-inline-end: 1px solid var(--color-subtle);
-	z-index: 1;
-}
+		& > .left-shadow {
+			position: sticky;
+			left: 0;
+			width: 32px;
+			margin-inline-start: -32px;
+			animation: reveal linear both;
+			animation-range: 0 8px;
+			animation-timeline: --scroll-timeline;
+			opacity: 0;
+			flex: none;
+			box-shadow: 3px 0 3px hsl(var(--shadow-color) / 1);
+		}
 
-.pre {
-	padding: var(--size-8);
+		& > .left-border {
+			position: sticky;
+			left: 0;
+			flex: none;
+			border-inline-end: 1px solid var(--color-subtle);
+			z-index: 1;
+		}
 
-	&.line-numbers {
-		padding-inline-start: 0;
+		& > .pre {
+			padding: var(--size-8);
+
+			&.line-numbers {
+				padding-inline-start: 0;
+			}
+		}
 	}
 }
 
@@ -65,7 +70,7 @@
 .right-shadow {
 	position: sticky;
 	right: 0;
-	width: 5px;
+	width: 6px;
 	animation: reveal linear both;
 	animation-range: calc(100% - 8px) 100%;
 	animation-direction: reverse;
@@ -75,17 +80,10 @@
 	background-image: linear-gradient(
 		90deg,
 		hsl(var(--shadow-color) / 0%) 0%,
-		hsl(var(--shadow-color) / 16%) 16%,
-		hsl(var(--shadow-color) / 24%) 24%,
-		hsl(var(--shadow-color) / 30%) 30%,
-		hsl(var(--shadow-color) / 40%) 35%,
-		hsl(var(--shadow-color) / 50%) 40%,
-		hsl(var(--shadow-color) / 55%) 45%,
-		hsl(var(--shadow-color) / 60%) 50%,
-		hsl(var(--shadow-color) / 65%) 55%,
-		hsl(var(--shadow-color) / 75%) 60%,
-		hsl(var(--shadow-color) / 80%) 70%,
-		/* hsl(var(--shadow-color) / 90%) 70%, */
+		hsl(var(--shadow-color) / 15%) 30%,
+		hsl(var(--shadow-color) / 30%) 40%,
+		hsl(var(--shadow-color) / 70%) 60%,
+		hsl(var(--shadow-color) / 95%) 75%,
 		hsl(var(--shadow-color))
 	);
 }

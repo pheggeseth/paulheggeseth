@@ -29,27 +29,28 @@ export async function Code({ codeblock }: { codeblock: RawCode }) {
 
 	return (
 		<>
-			<div className="wrapper">
-				{hasLineNumbers && (
-					<>
-						<div
-							className="left-shadow"
-							style={{ width, marginInlineStart: `calc(${width} * -1)` }}
-						/>
-						<div
-							className="left-border"
-							style={{ width, marginInlineStart: `calc(${width} * -1)` }}
-						/>
-					</>
-				)}
-
-				<SelectionStyle theme={theme} />
-				<Pre
-					className={clsx('pre', hasLineNumbers && 'line-numbers')}
-					code={highlighted}
-					handlers={handlers}
-				/>
-				<div className="right-shadow" />
+			<div className="code-wrapper">
+				<div className="scroll-container">
+					{hasLineNumbers && (
+						<>
+							<div
+								className="left-shadow"
+								style={{ width, marginInlineStart: `calc(${width} * -1)` }}
+							/>
+							<div
+								className="left-border"
+								style={{ width, marginInlineStart: `calc(${width} * -1)` }}
+							/>
+						</>
+					)}
+					<SelectionStyle theme={theme} />
+					<Pre
+						className={clsx('pre', hasLineNumbers && 'line-numbers')}
+						code={highlighted}
+						handlers={handlers}
+					/>
+					<div className="right-shadow" />
+				</div>
 			</div>
 		</>
 	);

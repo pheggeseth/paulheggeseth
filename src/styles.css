@@ -99,8 +99,8 @@ html {
 	grid-template-columns: auto minmax(0, min(100%, var(--size-640))) auto;
 	grid-template-rows: auto 1fr auto;
 	column-gap: var(--size-16);
-	scrollbar-width: thin;
 	scrollbar-color: var(--color-border) transparent;
+	scrollbar-gutter: stable;
 
 	&::-webkit-scrollbar {
 		width: 8px;
@@ -129,6 +129,7 @@ html {
 		height: 1rem;
 		box-sizing: content-box;
 		padding: var(--size-8);
+		z-index: 1;
 	}
 
 	& .header-shadow-blocker {
@@ -139,6 +140,7 @@ html {
 		height: var(--size-32);
 		position: absolute;
 		top: var(--size-24);
+		z-index: 1;
 	}
 
 	& > header {
@@ -148,7 +150,7 @@ html {
 		grid-template-columns: subgrid;
 		position: sticky;
 		top: 0;
-		z-index: 1;
+		z-index: 2;
 		background: var(--color-surface);
 		line-height: 1rem;
 		margin-block-start: var(--size-48);
@@ -253,6 +255,7 @@ html {
 	margin: 0;
 	padding: 0;
 	overflow-wrap: break-word;
+	scrollbar-width: thin;
 }
 
 a {
