@@ -2,13 +2,12 @@
 
 import { createPath } from '@/utils/create-path.gen';
 import { Link } from 'waku';
-import { Button } from './button';
 import { Popover } from './popover';
 
 export function MobileNavPopover() {
 	return (
 		<Popover>
-			<Button>openMenu()</Button>
+			<button type="button">openMenu()</button>
 			<Popover.Panel as="ul">
 				{({ hide }) => (
 					<>
@@ -29,7 +28,7 @@ export function MobileNavPopover() {
 								onClick={hide}
 								unstable_prefetchOnEnter
 							>
-								say('hi');
+								say('hi')
 							</Link>
 						</li>
 					</>

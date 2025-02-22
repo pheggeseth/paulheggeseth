@@ -4,31 +4,35 @@ import nullthrows from 'nullthrows';
 import {
 	type ComponentProps,
 	type ElementType,
-	type HTMLAttributes,
 	type ReactElement,
 	type ReactNode,
 	cloneElement,
 	useId,
 } from 'react';
-import type { Button } from '../button';
 
 function PopoverRoot({
 	children,
 }: {
 	children: [
-		trigger: ReactElement<typeof Button>,
+		trigger: ReactElement<ElementType<'button'>>,
 		panel: ReactElement<typeof PopoverPanel>,
 	];
 }) {
 	const id = useId();
-	const triggerProps: HTMLAttributes<HTMLButtonElement> = {
+	const triggerProps: ComponentProps<'button'> = {
 		popoverTarget: id,
 	};
-	const panelProps: HTMLAttributes<HTMLDivElement> = {
+	const panelProps: ComponentProps<'div'> = {
 		id,
 	};
-	const trigger = cloneElement(children[0], triggerProps);
-	const panel = cloneElement(children[1], panelProps);
+	const trigger = cloneElement(children[0], {
+		...children[0].props,
+		...triggerProps,
+	});
+	const panel = cloneElement(children[1], {
+		...children[1].props,
+		...panelProps,
+	});
 
 	return (
 		<>

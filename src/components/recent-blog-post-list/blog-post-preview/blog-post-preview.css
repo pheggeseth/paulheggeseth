@@ -44,7 +44,7 @@ article.blog-post-preview {
 			width: var(--size-160);
 
 			& > a {
-				padding: var(--size-3) var(--size-6);
+				padding-block: var(--size-3);
 				margin-inline-end: calc(var(--size-6) * -1);
 				display: flex;
 				align-items: center;

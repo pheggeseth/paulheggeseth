@@ -259,11 +259,35 @@ html {
 	scrollbar-width: thin;
 }
 
+a,
+button {
+	transition: background var(--transition-speed);
+	border-radius: var(--border-radius);
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: var(--size-4) var(--size-6);
+	line-height: 1rem;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
-	transition: background var(--transition-speed);
-	border-radius: var(--border-radius);
+
+	&:is(:hover, :focus-visible) {
+		background: var(--color-hover);
+	}
+
+	&:focus-visible {
+		outline: var(--border);
+		outline-offset: -1px;
+	}
+}
+
+button {
+	color: var(--color-subtle);
+	font-family: var(--font-family-code);
+	font-weight: 400;
 
 	&:is(:hover, :focus-visible) {
 		background: var(--color-hover);
@@ -306,13 +330,13 @@ ul {
 	background: var(--color-hover);
 }
 
-@media screen and (min-width: 31.5rem) {
+@media screen and (min-width: calc(31.5rem + 0.1px)) {
 	.display-mobile {
 		display: none !important;
 	}
 }
 
-@media screen and (max-width: calc(31.5rem)) {
+@media screen and (max-width: 31.5rem) {
 	:is(.display-tablet, .display-desktop) {
 		display: none !important;
 	}

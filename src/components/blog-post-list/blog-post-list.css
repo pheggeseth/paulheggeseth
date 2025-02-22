@@ -78,7 +78,6 @@ nav.blog-post-list ol {
 						& .publication-date {
 							font-family: var(--font-family-code);
 							color: var(--color-subtle);
-							font-weight: 400,;
 						}
 					}
 				}
