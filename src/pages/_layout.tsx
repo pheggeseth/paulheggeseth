@@ -1,4 +1,5 @@
 import '../styles.css';
+import { MobileNavPopover } from '@/components/mobile-nav-popover';
 import { ScrollRestoration } from '@/components/ui/scroll-restoration';
 import type { GetConfig } from '@/types';
 import { createPath } from '@/utils/create-path.gen';
@@ -23,6 +24,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
 										paulheggeseth.codes()_
 									</Link>
 								</h1>
+							</li>
+							<li className="display-mobile">
+								<MobileNavPopover />
 							</li>
 							<li className="display-tablet">
 								<Link to={createPath('/thoughts')}>read('things')</Link>
