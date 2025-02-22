@@ -1,0 +1,16 @@
+.popover-panel[popover] {
+	justify-self: end;
+	right: anchor(end);
+	inset-block-start: anchor(end);
+	margin-block: var(--size-4);
+	background: var(--color-surface);
+	border: var(--border);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	padding: var(--size-4);
+
+	& a {
+		color: var(--color-subtle);
+		border-radius: calc(var(--border-radius) - 1px);
+	}
+}
