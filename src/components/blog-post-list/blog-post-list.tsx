@@ -37,6 +37,8 @@ export function BlogPostList({
 											</div>
 											<Link
 												to={createPath('/thoughts/[slug]', { slug: post.slug })}
+												aria-label={post.data.title}
+												unstable_prefetchOnEnter
 											>
 												<span className="title">{post.data.title}</span>
 												<span className="spacer" aria-hidden />

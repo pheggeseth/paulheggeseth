@@ -20,7 +20,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
 						<ul>
 							<li>
 								<h1>
-									<Link to={createPath('/')} aria-label="home">
+									<Link
+										to={createPath('/')}
+										aria-label="home"
+										unstable_prefetchOnEnter
+									>
 										paulheggeseth.codes()_
 									</Link>
 								</h1>
@@ -29,13 +33,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
 								<MobileNavPopover />
 							</li>
 							<li className="display-tablet">
-								<Link to={createPath('/thoughts')}>read('things')</Link>
+								<Link
+									to={createPath('/thoughts')}
+									aria-label="blog"
+									unstable_prefetchOnEnter
+								>
+									read('things')
+								</Link>
 							</li>
 							<span aria-hidden className="display-tablet">
 								||
 							</span>
 							<li className="display-tablet">
-								<Link to={createPath('/about')} aria-label="about">
+								<Link
+									to={createPath('/about')}
+									aria-label="about"
+									unstable_prefetchOnEnter
+								>
 									say('hi');
 								</Link>
 							</li>
