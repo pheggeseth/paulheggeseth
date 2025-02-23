@@ -90,29 +90,16 @@
 	--unit: 0.0625rem;
 }
 
-html,
-body,
-#layout {
-	height: 100%;
-}
-
 html {
 	background: var(--color-surface);
 }
 
-#layout {
-	width: min(100vw, 100%);
-	color: var(--color-body);
-	position: relative; /* helps visually hidden elements not impact scrolling */
+body {
 	overflow-x: hidden;
 	overflow-y: auto;
-	display: grid;
-	grid-template-columns: auto minmax(0, min(100%, var(--size-640))) auto;
-	grid-template-rows: auto 1fr auto;
-	column-gap: var(--size-16);
 	scrollbar-color: var(--color-border) transparent;
 	scrollbar-gutter: stable;
-	scroll-timeline: --scroll-timeline block;
+	scrollbar-width: thin;
 
 	&::-webkit-scrollbar {
 		width: 8px;
@@ -126,6 +113,16 @@ html {
 		background-color: var(--color-border);
 		border-radius: var(--border-radius);
 	}
+}
+
+#layout {
+	width: min(100vw, 100%);
+	color: var(--color-body);
+	position: relative; /* helps visually hidden elements not impact scrolling */
+	display: grid;
+	grid-template-columns: auto minmax(0, min(100%, var(--size-640))) auto;
+	grid-template-rows: auto 1fr auto;
+	column-gap: var(--size-16);
 
 	& > :is(header, footer) {
 		color: var(--color-subtle);
@@ -153,7 +150,7 @@ html {
 			width: 100%;
 			animation: reveal linear both;
 			animation-range: 48px 64px;
-			animation-timeline: --scroll-timeline;
+			animation-timeline: scroll(root);
 			opacity: 0;
 			pointer-events: none;
 		}
@@ -161,7 +158,6 @@ html {
 		& > nav {
 			grid-column: 2;
 			height: 1rem;
-			margin-inline-end: -8px;
 
 			& > ul {
 				display: flex;
@@ -198,7 +194,6 @@ html {
 
 	& > main {
 		grid-column: 2;
-		margin-inline-end: -8px;
 
 		& > article {
 			& > header {
