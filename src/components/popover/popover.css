@@ -7,6 +7,7 @@
 	margin: auto;
 
 	&::backdrop {
+		backdrop-filter: blur(0.5px);
 		background-color: hsl(var(--color-brown) / 0.1);
 	}
 
