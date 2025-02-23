@@ -7,7 +7,7 @@ import {
 	highlight,
 } from 'codehike/code';
 import { lineNumbers } from './annotations';
-import { SelectionStyle } from './selection-style';
+import { Style } from './components/style';
 import { theme } from './theme';
 
 export async function Code({ codeblock }: { codeblock: RawCode }) {
@@ -29,7 +29,7 @@ export async function Code({ codeblock }: { codeblock: RawCode }) {
 
 	return (
 		<>
-			<div className="code-wrapper">
+			<div className="Code">
 				<div className="scroll-container">
 					{hasLineNumbers && (
 						<>
@@ -43,7 +43,7 @@ export async function Code({ codeblock }: { codeblock: RawCode }) {
 							/>
 						</>
 					)}
-					<SelectionStyle theme={theme} />
+					<Style theme={theme} />
 					<Pre
 						className={clsx('pre', hasLineNumbers && 'line-numbers')}
 						code={highlighted}

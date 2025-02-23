@@ -1,6 +1,6 @@
 import type { RawTheme } from '@/types';
 
-export function SelectionStyle({ theme }: { theme: RawTheme }) {
+export function Style({ theme }: { theme: RawTheme }) {
 	const background = theme.colors?.['editor.selectionBackground'];
 	if (!background) return null;
 

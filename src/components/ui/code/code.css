@@ -1,8 +1,9 @@
-.code-wrapper {
+.Code {
 	background: var(--color-body);
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
 	overflow: hidden;
+	margin-block: var(--size-24);
 
 	& > .scroll-container {
 		--shadow-color: 40 15% 10%;
