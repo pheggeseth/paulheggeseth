@@ -1,13 +1,16 @@
 'use client';
 
 import { createPath } from '@/utils/create-path.gen';
+import { Menu } from 'react-feather';
 import { Link } from 'waku';
 import { Popover } from './popover';
 
 export function MobileNavPopover() {
 	return (
 		<Popover>
-			<button type="button">openMenu()</button>
+			<button type="button" style={{ padding: 4, marginInlineEnd: -4 }}>
+				<Menu style={{ height: 16, width: 16, display: 'block' }} />
+			</button>
 			<Popover.Panel as="ul">
 				{({ hide }) => (
 					<>

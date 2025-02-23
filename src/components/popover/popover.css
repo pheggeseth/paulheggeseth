@@ -1,16 +1,27 @@
 .popover-panel[popover] {
-	justify-self: end;
-	right: anchor(end);
-	inset-block-start: anchor(end);
-	margin-block: var(--size-4);
 	background: var(--color-surface);
 	border: var(--border);
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
 	padding: var(--size-4);
+	margin: auto;
+
+	&::backdrop {
+		background-color: hsl(var(--color-brown) / 0.1);
+	}
 
 	& a {
 		color: var(--color-subtle);
 		border-radius: calc(var(--border-radius) - 1px);
+	}
+}
+
+@supports (right: anchor(end)) {
+	.popover-panel[popover] {
+		margin: 0;
+		justify-self: end;
+		right: anchor(end);
+		inset-block-start: anchor(end);
+		margin-block: var(--size-4);
 	}
 }
