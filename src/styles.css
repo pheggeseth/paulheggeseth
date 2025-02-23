@@ -90,6 +90,12 @@
 	--unit: 0.0625rem;
 }
 
+html,
+body,
+#layout {
+	height: 100%;
+}
+
 html {
 	background: var(--color-surface);
 }
