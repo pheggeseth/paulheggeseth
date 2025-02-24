@@ -1,14 +1,20 @@
 import { BlogPost } from '@/components/blog-post';
 import type { GetConfig } from '@/types';
-import { parseBlogPost } from '@/utils/blog-posts';
+import { importBlogPost } from '@/utils/import-blog-post';
+import type { PageProps } from 'waku/router';
 
-export default async function BlogPostPage({ slug }: { slug: string }) {
-	const { data, MDXContent } = await parseBlogPost(slug);
+export default async function BlogPostPage({
+	slug,
+}: PageProps<'/thoughts/[slug]'>) {
+	const { MDXContent, frontmatter } = await importBlogPost(slug);
 
 	return (
 		<>
-			<title>{data.title}</title>
-			<BlogPost title={data.title} publicationDate={data.publicationDate}>
+			<title>{frontmatter.title}</title>
+			<BlogPost
+				title={frontmatter.title}
+				publicationDate={frontmatter.publicationDate}
+			>
 				<MDXContent />
 			</BlogPost>
 		</>
