@@ -21,7 +21,7 @@ export default defineConfig({
 						[remarkCodeHike, { components: { code: Code.name } }],
 					],
 					recmaPlugins: [[recmaCodeHike, { components: { code: Code.name } }]],
-					providerImportSource: '../../src/utils/mdx-components.tsx',
+					providerImportSource: '../utils/mdx-components.tsx',
 				}),
 			],
 		}),

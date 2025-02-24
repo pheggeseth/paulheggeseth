@@ -1,8 +1,7 @@
 import { BlogPost } from '@/components/blog-post';
 import { RecentBlogPostList } from '@/components/recent-blog-post-list';
 import type { GetConfig } from '@/types';
-import { getMostRecentBlogPosts } from '@/utils/blog-posts';
-import { importBlogPost } from '@/utils/import-blog-post';
+import { getMostRecentBlogPosts, importBlogPost } from '@/utils/blog-posts';
 
 export default async function Index() {
 	const [currentPost, ...recentPosts] = await getMostRecentBlogPosts(5);

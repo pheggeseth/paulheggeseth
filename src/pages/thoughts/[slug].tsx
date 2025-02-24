@@ -1,6 +1,6 @@
 import { BlogPost } from '@/components/blog-post';
 import type { GetConfig } from '@/types';
-import { importBlogPost } from '@/utils/import-blog-post';
+import { importBlogPost } from '@/utils/blog-posts';
 import type { PageProps } from 'waku/router';
 
 export default async function BlogPostPage({

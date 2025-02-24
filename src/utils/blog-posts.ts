@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
-import { blogPostSchema } from '@/schemas';
+import { blogPostSchema, frontMatterSchema } from '@/schemas';
 import type { BlogPostType } from '@/types';
+import type { run } from '@mdx-js/mdx';
 import matter from 'gray-matter';
 import { byPublicationDateDescending } from './sort';
 
@@ -31,4 +32,15 @@ export async function getMostRecentBlogPosts(limit?: number) {
 	return (await getAllBlogPosts())
 		.sort(byPublicationDateDescending)
 		.slice(0, limit);
+}
+
+export async function importBlogPost(slug: string) {
+	const module: Awaited<ReturnType<typeof run>> = await import(
+		`../blog-posts/${slug}.mdx`
+	);
+
+	return {
+		MDXContent: module.default,
+		data: frontMatterSchema.parse(module.data),
+	};
 }
