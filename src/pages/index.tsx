@@ -2,7 +2,7 @@ import { BlogPost } from '@/components/blog-post';
 import { RecentBlogPostList } from '@/components/recent-blog-post-list';
 import type { GetConfig } from '@/types';
 import { getMostRecentBlogPosts } from '@/utils/blog-posts';
-import { createMDXContent } from '@/utils/create-mdx-content';
+import { importBlogPost } from '@/utils/import-blog-post';
 
 export default async function Index() {
 	const [currentPost, ...recentPosts] = await getMostRecentBlogPosts(5);
@@ -16,7 +16,7 @@ export default async function Index() {
 		);
 	}
 
-	const MDXContent = await createMDXContent(currentPost?.content);
+	const { MDXContent } = await importBlogPost(currentPost.slug);
 
 	return (
 		<>

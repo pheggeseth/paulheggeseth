@@ -1,6 +1,6 @@
 import './blog-post-preview.css';
 import { BlogPostDate } from '@/components/blog-post-date';
-import type { PostDate } from '@/types';
+import type { BlogPostType } from '@/types';
 import { createPath } from '@/utils/create-path.gen';
 import { ArrowRight } from 'react-feather';
 import { Link } from 'waku';
@@ -11,10 +11,10 @@ export function BlogPostPreview({
 	description,
 	publicationDate,
 }: {
-	slug: string;
-	title: string;
-	description?: string | undefined;
-	publicationDate: PostDate;
+	slug: BlogPostType['slug'];
+	title: BlogPostType['data']['title'];
+	description?: BlogPostType['data']['description'];
+	publicationDate: BlogPostType['data']['publicationDate'];
 }) {
 	const path = createPath('/thoughts/[slug]', { slug });
 
@@ -29,7 +29,7 @@ export function BlogPostPreview({
 				<div className="description-wrapper">
 					<p>{description}</p>
 					<div className="more-wrapper">
-						<Link to={path} aria-label={title}>
+						<Link to={path} aria-label={title} unstable_prefetchOnEnter>
 							More
 							<ArrowRight />
 						</Link>

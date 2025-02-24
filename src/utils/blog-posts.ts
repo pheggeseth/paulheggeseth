@@ -2,7 +2,6 @@ import fs from 'node:fs/promises';
 import { blogPostSchema } from '@/schemas';
 import type { BlogPostType } from '@/types';
 import matter from 'gray-matter';
-import { createMDXContent } from './create-mdx-content';
 import { byPublicationDateDescending } from './sort';
 
 export async function getBlogPostSlugs() {
@@ -12,7 +11,7 @@ export async function getBlogPostSlugs() {
 
 export async function readBlogPostFile(slug: string) {
 	const file = await fs.readFile(`src/blog-posts/${slug}.mdx`, 'utf-8');
-	return { ...blogPostSchema.parse(matter(file)), slug };
+	return blogPostSchema.parse({ data: matter(file).data, slug });
 }
 
 export async function getAllBlogPosts() {
@@ -32,14 +31,4 @@ export async function getMostRecentBlogPosts(limit?: number) {
 	return (await getAllBlogPosts())
 		.sort(byPublicationDateDescending)
 		.slice(0, limit);
-}
-
-export async function parseBlogPost(slug: string) {
-	const { data, content } = await readBlogPostFile(slug);
-	const MDXContent = await createMDXContent(content);
-
-	return {
-		data,
-		MDXContent,
-	};
 }

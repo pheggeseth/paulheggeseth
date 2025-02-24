@@ -6,9 +6,7 @@ import { formatDate, formatDay } from '@/utils/dates';
 import { ChevronDown, ChevronRight } from 'react-feather';
 import { Link } from 'waku';
 
-export function BlogPostList({
-	posts,
-}: { posts: Array<BlogPostType & { slug: string }> }) {
+export function BlogPostList({ posts }: { posts: Array<BlogPostType> }) {
 	const postsByYear = new Map<number, typeof posts>();
 
 	for (const post of posts) {

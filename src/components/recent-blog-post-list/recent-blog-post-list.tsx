@@ -7,7 +7,7 @@ export function RecentBlogPostList({
 	posts,
 }: {
 	heading: string;
-	posts: Array<BlogPostType & { slug: string }>;
+	posts: Array<BlogPostType>;
 }) {
 	return (
 		<nav className="recent-blog-post-list">

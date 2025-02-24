@@ -6,15 +6,12 @@ import type { PageProps } from 'waku/router';
 export default async function BlogPostPage({
 	slug,
 }: PageProps<'/thoughts/[slug]'>) {
-	const { MDXContent, frontmatter } = await importBlogPost(slug);
+	const { MDXContent, data } = await importBlogPost(slug);
 
 	return (
 		<>
-			<title>{frontmatter.title}</title>
-			<BlogPost
-				title={frontmatter.title}
-				publicationDate={frontmatter.publicationDate}
-			>
+			<title>{data.title}</title>
+			<BlogPost title={data.title} publicationDate={data.publicationDate}>
 				<MDXContent />
 			</BlogPost>
 		</>

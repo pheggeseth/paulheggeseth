@@ -15,5 +15,5 @@ export const frontMatterSchema = z.object({
 
 export const blogPostSchema = z.object({
 	data: frontMatterSchema,
-	content: z.string().min(1),
+	slug: z.string().min(1),
 });

@@ -17,7 +17,7 @@ export default defineConfig({
 				mdx({
 					remarkPlugins: [
 						[remarkFrontmatter, 'yaml'],
-						[remarkMdxFrontmatter, { name: 'frontmatter' }],
+						[remarkMdxFrontmatter, { name: 'data' }],
 						[remarkCodeHike, { components: { code: Code.name } }],
 					],
 					recmaPlugins: [[recmaCodeHike, { components: { code: Code.name } }]],

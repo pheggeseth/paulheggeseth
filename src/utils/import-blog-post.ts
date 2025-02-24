@@ -8,6 +8,6 @@ export async function importBlogPost(slug: string) {
 
 	return {
 		MDXContent: module.default,
-		frontmatter: frontMatterSchema.parse(module.frontmatter),
+		data: frontMatterSchema.parse(module.data),
 	};
 }
