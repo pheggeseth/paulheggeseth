@@ -18,11 +18,11 @@
 			width: 32px;
 			margin-inline-start: -32px;
 			animation: reveal linear both;
-			animation-range: 0 8px;
+			animation-range: 6px 14px;
 			animation-timeline: --scroll-timeline;
 			opacity: 0;
 			flex: none;
-			box-shadow: 4px 0 3px hsl(var(--shadow-color) / 1);
+			box-shadow: 6px 0 6px hsl(var(--shadow-color) / 1);
 		}
 
 		& > .left-border {
@@ -43,23 +43,16 @@
 
 		& > .right-shadow {
 			position: sticky;
-			right: 0;
-			width: 8px;
+			right: -6px;
+			width: 6px;
+			margin-inline-start: -6px;
 			animation: reveal linear both;
-			animation-range: calc(100% - 8px) 100%;
+			animation-range: calc(100% - 14px) calc(100% - 6px);
 			animation-direction: reverse;
 			animation-timeline: --scroll-timeline;
 			opacity: 0;
 			flex: none;
-			background-image: linear-gradient(
-				90deg,
-				hsl(var(--shadow-color) / 0%) 0%,
-				hsl(var(--shadow-color) / 15%) 30%,
-				hsl(var(--shadow-color) / 30%) 40%,
-				hsl(var(--shadow-color) / 70%) 60%,
-				hsl(var(--shadow-color) / 95%) 70%,
-				hsl(var(--shadow-color))
-			);
+			box-shadow: -6px 0 6px hsl(var(--shadow-color) / 1);
 		}
 	}
 }
