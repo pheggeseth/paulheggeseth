@@ -6,8 +6,8 @@
 	margin-block: var(--size-24);
 
 	& > .scroll-container {
-		--shadow-x: 3px;
-		--shadow-blur: 2px;
+		--shadow-x: 4px;
+		--shadow-blur: 4px;
 		--shadow-color: hsl(40deg 15% 5% / 1);
 		overflow: auto;
 		scroll-timeline: --scroll-timeline inline;
@@ -20,7 +20,7 @@
 			width: 32px;
 			margin-inline-start: -32px;
 			animation: reveal linear both;
-			animation-range: 5px 13px;
+			animation-range: 8px 16px;
 			animation-timeline: --scroll-timeline;
 			opacity: 0;
 			flex: none;
@@ -45,11 +45,11 @@
 
 		& > .right-shadow {
 			position: sticky;
-			right: -5px;
-			width: 5px;
-			margin-inline-start: -5px;
+			right: -8px;
+			width: 8px;
+			margin-inline-start: 8px;
 			animation: reveal linear both;
-			animation-range: calc(100% - 13px) calc(100% - 5px);
+			animation-range: calc(100% - 16px) calc(100% - 8px);
 			animation-direction: reverse;
 			animation-timeline: --scroll-timeline;
 			opacity: 0;
