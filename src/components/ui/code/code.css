@@ -6,7 +6,9 @@
 	margin-block: var(--size-24);
 
 	& > .scroll-container {
-		--shadow-color: 40 15% 10%;
+		--shadow-x: 3px;
+		--shadow-blur: 2px;
+		--shadow-color: hsl(40deg 15% 5% / 1);
 		overflow: auto;
 		scroll-timeline: --scroll-timeline inline;
 		display: flex;
@@ -18,11 +20,11 @@
 			width: 32px;
 			margin-inline-start: -32px;
 			animation: reveal linear both;
-			animation-range: 6px 14px;
+			animation-range: 5px 13px;
 			animation-timeline: --scroll-timeline;
 			opacity: 0;
 			flex: none;
-			box-shadow: 6px 0 6px hsl(var(--shadow-color) / 1);
+			box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
 		}
 
 		& > .left-border {
@@ -43,16 +45,17 @@
 
 		& > .right-shadow {
 			position: sticky;
-			right: -6px;
-			width: 6px;
-			margin-inline-start: -6px;
+			right: -5px;
+			width: 5px;
+			margin-inline-start: -5px;
 			animation: reveal linear both;
-			animation-range: calc(100% - 14px) calc(100% - 6px);
+			animation-range: calc(100% - 13px) calc(100% - 5px);
 			animation-direction: reverse;
 			animation-timeline: --scroll-timeline;
 			opacity: 0;
 			flex: none;
-			box-shadow: -6px 0 6px hsl(var(--shadow-color) / 1);
+			box-shadow: calc(var(--shadow-x) * -1) 0 var(--shadow-blur)
+				var(--shadow-color);
 		}
 	}
 }
