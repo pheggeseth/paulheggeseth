@@ -320,6 +320,85 @@ pre {
 	font-size: var(--font-size-code);
 	line-height: 1.5;
 	tab-size: 2;
+	overflow: auto;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	scrollbar-color: var(--color-subtle) var(--color-body);
+	display: flex;
+	scroll-timeline: --scroll-timeline inline;
+	--shadow-x: 4px;
+	--shadow-blur: 4px;
+	--shadow-color: hsl(40deg 15% 5% / 1);
+
+	&.lines-1 {
+		--width: 1ch;
+	}
+
+	&.lines-2 {
+		--width: 2ch;
+	}
+
+	&.lines-3 {
+		--width: 3ch;
+	}
+
+	&.lines-4 {
+		--width: 4ch;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		position: sticky;
+		width: var(--width);
+		padding-inline: 8px;
+		left: 0;
+		box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+		animation: reveal linear both;
+		animation-range: 0px 8px;
+		animation-timeline: --scroll-timeline;
+		flex: none;
+		margin-inline-end: calc(calc(var(--width) + 16px) * -1);
+		opacity: 0;
+		z-index: 1;
+	}
+
+	& code {
+		counter-reset: step;
+		counter-increment: step 0;
+		padding-inline-end: 8px;
+		padding: 8px;
+		padding-inline-start: 0;
+		position: relative;
+
+		& .line {
+			&:first-child::before {
+				padding-block-start: 8px;
+				margin-block-start: -8px;
+			}
+
+			&:last-child::before {
+				padding-block-end: 8px;
+				margin-block-end: -8px;
+			}
+
+			&::before {
+				content: counter(step);
+				counter-increment: step;
+				color: var(--color-subtle);
+				width: var(--width);
+				margin-right: 8px;
+				display: inline-block;
+				text-align: right;
+				position: sticky;
+				left: 0;
+				background-color: var(--color-body);
+				border-inline-end: 1px solid var(--color-subtle);
+				padding-inline: 8px;
+				z-index: 1;
+			}
+		}
+	}
 }
 
 ol,
