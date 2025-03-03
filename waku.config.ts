@@ -24,13 +24,12 @@ export default defineConfig({
 						[
 							rehypeShiki,
 							{
-								lang: 'typescript',
 								theme,
 								transformers,
 							},
 						],
 					],
-					providerImportSource: '../utils/mdx-components.tsx',
+					providerImportSource: '../components/mdx-components.tsx',
 				}),
 			],
 		}),
@@ -40,11 +39,13 @@ export default defineConfig({
 const transformers: NonNullable<RehypeShikiOptions['transformers']> = [
 	{
 		pre(hast) {
-			const lines = (hast.children[0] as Element | undefined)?.children
-				?.filter((c) => c.type === 'element')
-				.length.toString().length;
+			const totalLines = (
+				hast.children[0] as Element | undefined
+			)?.children?.filter((c) => c.type === 'element').length;
 
-			this.addClassToHast(hast, `lines-${lines}`);
+			if (totalLines) {
+				this.addClassToHast(hast, `lines-${totalLines.toString().length}`);
+			}
 		},
 	},
 ];
