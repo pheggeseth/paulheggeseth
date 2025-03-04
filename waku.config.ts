@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import mdx from '@mdx-js/rollup';
 import rehypeShiki, { type RehypeShikiOptions } from '@shikijs/rehype';
-import type { Element } from 'hast';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -38,28 +37,54 @@ export default defineConfig({
 
 const transformers: NonNullable<RehypeShikiOptions['transformers']> = [
 	{
-		pre(hast) {
-			const meta = this.options.meta;
-			const regex = /^\[!code\s+(.*(?:,\s*)?)+\]$/;
-
-			const directives =
-				(meta?.__raw ?? '')
-					.match(regex)?.[1]
-					?.split(/,\s*/)
-					.filter((e): e is string => !!e) ?? [];
-
-			if (directives.includes('line-numbers')) {
-				const totalLines = (
-					hast.children[0] as Element | undefined
-				)?.children?.filter((c) => c.type === 'element').length;
-
-				if (totalLines) {
-					this.addClassToHast(
+		line(hast, line) {
+			if (hasLineNumbers(parseDirectives(this))) {
+				return {
+					type: 'element',
+					tagName: 'span',
+					properties: { class: 'line-wrapper' },
+					children: [
+						{
+							type: 'element',
+							tagName: 'span',
+							properties: { class: 'line-number' },
+							children: [{ type: 'text', value: line.toString() }],
+						},
 						hast,
-						`line-numbers-${totalLines.toString().length}`,
-					);
-				}
+					],
+				};
 			}
+
+			return hast;
+		},
+		pre(hast) {
+			console.log({ lines: this.lines });
+			if (hasLineNumbers(parseDirectives(this))) {
+				hast.children.unshift({
+					type: 'element',
+					tagName: 'div',
+					properties: { class: 'shadow' },
+					children: [],
+				});
+			}
+
+			return hast;
 		},
 	},
 ];
+
+function parseDirectives(that: { options: { meta?: { __raw?: string } } }) {
+	const regex = /^\[!code\s+(.*(?:,\s*)?)+\]$/;
+
+	const directives =
+		(that.options.meta?.__raw ?? '')
+			.match(regex)?.[1]
+			?.split(/,\s*/)
+			.filter((e): e is string => !!e) ?? [];
+
+	return directives;
+}
+
+function hasLineNumbers(directives: string[]) {
+	return directives.includes('line-numbers');
+}

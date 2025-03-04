@@ -318,7 +318,7 @@ p {
 pre {
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-code);
-	line-height: 1.5;
+	line-height: 1;
 	tab-size: 2;
 	overflow: auto;
 	border-radius: var(--border-radius);
@@ -330,79 +330,64 @@ pre {
 	--shadow-blur: 4px;
 	--shadow-color: hsl(40deg 15% 5% / 1);
 	--padding: 12px;
+	position: relative;
+
+	& .shadow {
+		position: sticky;
+		left: 0;
+		width: 2ch;
+		flex: none;
+		padding-inline: var(--padding);
+		margin-inline-end: calc(calc(calc(var(--padding) * -2) - 2ch) - 1px);
+		box-sizing: content-box;
+		border-inline-end: 1px solid transparent;
+		animation: reveal linear both;
+		animation-range: 0px 16px;
+		animation-timeline: --scroll-timeline;
+		box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+		opacity: 0;
+	}
 
 	& code {
 		padding: var(--padding);
-	}
+		display: grid;
+		grid-template-columns: auto 1fr;
+		row-gap: 8px;
 
-	&[class*='line-numbers'] {
-		&.line-numbers-1 {
-			--width: 1ch;
+		& ::selection {
+			background: hsl(40deg, 100%, 97%, 20%);
 		}
 
-		&.line-numbers-2 {
-			--width: 2ch;
-		}
+		& .line-wrapper {
+			grid-column: 1 / -1;
+			display: grid;
+			grid-template-columns: subgrid;
 
-		&.line-numbers-3 {
-			--width: 3ch;
-		}
+			& .line-number {
+				position: sticky;
+				left: 0;
+				padding-inline: var(--padding);
+				margin-inline-start: calc(var(--padding) * -1);
+				background: var(--color-body);
+				text-align: end;
+				border-inline-end: 1px solid var(--color-subtle);
+				padding-block: 5px;
+				margin-block: -5px;
+				margin-inline-end: var(--padding);
+				pointer-events: none;
+			}
 
-		&.line-numbers-4 {
-			--width: 4ch;
-		}
-
-		&::before {
-			content: '';
-			display: block;
-			position: sticky;
-			width: var(--width);
-			padding-inline: var(--padding);
-			left: 0;
-			box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
-			animation: reveal linear both;
-			animation-range: 0px 8px;
-			animation-timeline: --scroll-timeline;
-			flex: none;
-			margin-inline-end: calc(
-				calc(var(--width) + calc(var(--padding) * 2)) *
-				-1
-			);
-			opacity: 0;
-			z-index: 1;
-		}
-
-		& code {
-			counter-reset: step;
-			counter-increment: step 0;
-			padding-inline-start: 0;
-			position: relative;
-
-			& .line {
-				&:first-child::before {
+			&:first-child {
+				& .line-number {
 					padding-block-start: var(--padding);
 					margin-block-start: calc(var(--padding) * -1);
 				}
+			}
 
-				&:last-child::before {
+			&:last-child {
+				& .line-number {
 					padding-block-end: var(--padding);
 					margin-block-end: calc(var(--padding) * -1);
-				}
-
-				&::before {
-					content: counter(step);
-					counter-increment: step;
-					color: var(--color-subtle);
-					width: var(--width);
-					margin-right: var(--padding);
-					display: inline-block;
-					text-align: right;
-					position: sticky;
-					left: 0;
-					background-color: var(--color-body);
-					border-inline-end: 1px solid var(--color-subtle);
-					padding-inline: var(--padding);
-					z-index: 1;
 				}
 			}
 		}
