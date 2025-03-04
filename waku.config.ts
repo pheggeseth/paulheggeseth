@@ -39,12 +39,26 @@ export default defineConfig({
 const transformers: NonNullable<RehypeShikiOptions['transformers']> = [
 	{
 		pre(hast) {
-			const totalLines = (
-				hast.children[0] as Element | undefined
-			)?.children?.filter((c) => c.type === 'element').length;
+			const meta = this.options.meta;
+			const regex = /^\[!code\s+(.*(?:,\s*)?)+\]$/;
 
-			if (totalLines) {
-				this.addClassToHast(hast, `lines-${totalLines.toString().length}`);
+			const directives =
+				(meta?.__raw ?? '')
+					.match(regex)?.[1]
+					?.split(/,\s*/)
+					.filter((e): e is string => !!e) ?? [];
+
+			if (directives.includes('line-numbers')) {
+				const totalLines = (
+					hast.children[0] as Element | undefined
+				)?.children?.filter((c) => c.type === 'element').length;
+
+				if (totalLines) {
+					this.addClassToHast(
+						hast,
+						`line-numbers-${totalLines.toString().length}`,
+					);
+				}
 			}
 		},
 	},
