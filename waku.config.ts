@@ -41,12 +41,15 @@ const transformers: Transformer[] = [
 	lineNumbers(),
 	{
 		pre(hast) {
-			return {
-				type: 'element',
-				tagName: 'div',
-				properties: { class: 'pre-wrapper' },
-				children: [hast],
-			};
+			hast.children = [
+				{
+					type: 'element',
+					tagName: 'div',
+					properties: { class: 'scroll-container' },
+					children: hast.children,
+				},
+			];
+			return hast;
 		},
 	},
 ];

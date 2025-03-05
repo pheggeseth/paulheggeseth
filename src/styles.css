@@ -315,61 +315,61 @@ p {
 	letter-spacing: var(--letter-spacing-body);
 }
 
-.pre-wrapper {
-	overflow: hidden;
-	border-radius: var(--border-radius);
-	margin-block: var(--size-24);
-}
-
 pre {
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-code);
 	line-height: 1;
 	tab-size: 2;
-	overflow: auto;
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
-	scrollbar-color: var(--color-subtle) var(--color-body);
-	display: flex;
-	scroll-timeline: --scroll-timeline inline;
+
 	--shadow-x: 4px;
 	--shadow-blur: 4px;
 	--shadow-color: hsl(40deg 15% 5% / 1);
 	--padding-inline: 12px;
 	--padding-block: 8px;
 	line-height: 1.5;
+	margin-block: var(--size-24);
+	overflow: hidden;
 
-	& .line-numbers-container {
-		position: sticky;
-		left: 0;
+	& .scroll-container {
+		overflow: auto;
+		scrollbar-color: var(--color-subtle) var(--color-body);
+		display: flex;
+		scroll-timeline: --scroll-timeline inline;
 
-		& .shadow {
-			display: block;
-			position: absolute;
-			inset: 0;
-			animation: reveal linear both;
-			animation-range: 0px 16px;
-			animation-timeline: --scroll-timeline;
-			box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
-			opacity: 0;
+		& .line-numbers-container {
+			position: sticky;
+			left: 0;
+
+			& .shadow {
+				display: block;
+				position: absolute;
+				inset: 0;
+				animation: reveal linear both;
+				animation-range: 0px 16px;
+				animation-timeline: --scroll-timeline;
+				box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+				opacity: 0;
+			}
+
+			& .line-numbers {
+				user-select: none;
+				color: var(--color-subtle);
+				background: var(--color-body);
+				padding: var(--padding-block);
+				border-inline-end: 1px solid var(--color-subtle);
+				text-align: end;
+			}
 		}
 
-		& .line-numbers {
-			user-select: none;
-			color: var(--color-subtle);
-			background: var(--color-body);
-			padding: var(--padding-block);
-			border-inline-end: 1px solid var(--color-subtle);
-			text-align: end;
-		}
-	}
+		& code {
+			padding: var(--padding-block) var(--padding-inline);
 
-	& code {
-		padding: var(--padding-block) var(--padding-inline);
-
-		&::selection,
-		& ::selection {
-			background: hsl(40deg, 100%, 97%, 15%);
+			&::selection,
+			& ::selection {
+				background: hsl(40deg, 100%, 97%, 15%);
+			}
 		}
 	}
 }
