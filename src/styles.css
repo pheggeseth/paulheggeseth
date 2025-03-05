@@ -315,6 +315,12 @@ p {
 	letter-spacing: var(--letter-spacing-body);
 }
 
+.pre-wrapper {
+	overflow: hidden;
+	border-radius: var(--border-radius);
+	margin-block: var(--size-24);
+}
+
 pre {
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-code);
@@ -329,67 +335,41 @@ pre {
 	--shadow-x: 4px;
 	--shadow-blur: 4px;
 	--shadow-color: hsl(40deg 15% 5% / 1);
-	--padding: 12px;
-	position: relative;
+	--padding-inline: 12px;
+	--padding-block: 8px;
+	line-height: 1.5;
 
-	& .shadow {
+	& .line-numbers-container {
 		position: sticky;
 		left: 0;
-		width: 2ch;
-		flex: none;
-		padding-inline: var(--padding);
-		margin-inline-end: calc(calc(calc(var(--padding) * -2) - 2ch) - 1px);
-		box-sizing: content-box;
-		border-inline-end: 1px solid transparent;
-		animation: reveal linear both;
-		animation-range: 0px 16px;
-		animation-timeline: --scroll-timeline;
-		box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
-		opacity: 0;
+
+		& .shadow {
+			display: block;
+			position: absolute;
+			inset: 0;
+			animation: reveal linear both;
+			animation-range: 0px 16px;
+			animation-timeline: --scroll-timeline;
+			box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+			opacity: 0;
+		}
+
+		& .line-numbers {
+			user-select: none;
+			color: var(--color-subtle);
+			background: var(--color-body);
+			padding: var(--padding-block);
+			border-inline-end: 1px solid var(--color-subtle);
+			text-align: end;
+		}
 	}
 
 	& code {
-		padding: var(--padding);
-		display: grid;
-		grid-template-columns: auto 1fr;
-		row-gap: 8px;
+		padding: var(--padding-block) var(--padding-inline);
 
+		&::selection,
 		& ::selection {
-			background: hsl(40deg, 100%, 97%, 20%);
-		}
-
-		& .line-wrapper {
-			grid-column: 1 / -1;
-			display: grid;
-			grid-template-columns: subgrid;
-
-			& .line-number {
-				position: sticky;
-				left: 0;
-				padding-inline: var(--padding);
-				margin-inline-start: calc(var(--padding) * -1);
-				background: var(--color-body);
-				text-align: end;
-				border-inline-end: 1px solid var(--color-subtle);
-				padding-block: 5px;
-				margin-block: -5px;
-				margin-inline-end: var(--padding);
-				pointer-events: none;
-			}
-
-			&:first-child {
-				& .line-number {
-					padding-block-start: var(--padding);
-					margin-block-start: calc(var(--padding) * -1);
-				}
-			}
-
-			&:last-child {
-				& .line-number {
-					padding-block-end: var(--padding);
-					margin-block-end: calc(var(--padding) * -1);
-				}
-			}
+			background: hsl(40deg, 100%, 97%, 15%);
 		}
 	}
 }
@@ -403,12 +383,14 @@ ul {
 	background: var(--color-hover);
 }
 
+/* tablet and larger */
 @media screen and (min-width: calc(31.5rem + 0.1px)) {
 	.display-mobile {
 		display: none !important;
 	}
 }
 
+/* mobile */
 @media screen and (max-width: 31.5rem) {
 	:is(.display-tablet, .display-desktop) {
 		display: none !important;

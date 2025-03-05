@@ -35,43 +35,56 @@ export default defineConfig({
 	},
 });
 
-const transformers: NonNullable<RehypeShikiOptions['transformers']> = [
-	{
-		line(hast, line) {
-			if (hasLineNumbers(parseDirectives(this))) {
-				return {
-					type: 'element',
-					tagName: 'span',
-					properties: { class: 'line-wrapper' },
-					children: [
-						{
-							type: 'element',
-							tagName: 'span',
-							properties: { class: 'line-number' },
-							children: [{ type: 'text', value: line.toString() }],
-						},
-						hast,
-					],
-				};
-			}
+type Transformer = NonNullable<RehypeShikiOptions['transformers']>[number];
 
-			return hast;
-		},
+const transformers: Transformer[] = [
+	lineNumbers(),
+	{
 		pre(hast) {
-			console.log({ lines: this.lines });
+			return {
+				type: 'element',
+				tagName: 'div',
+				properties: { class: 'pre-wrapper' },
+				children: [hast],
+			};
+		},
+	},
+];
+
+function lineNumbers(): Transformer {
+	return {
+		pre(hast) {
 			if (hasLineNumbers(parseDirectives(this))) {
 				hast.children.unshift({
 					type: 'element',
 					tagName: 'div',
-					properties: { class: 'shadow' },
-					children: [],
+					properties: { class: 'line-numbers-container' },
+					children: [
+						{
+							type: 'element',
+							tagName: 'div',
+							properties: { class: 'shadow' },
+							children: [],
+						},
+						{
+							type: 'element',
+							tagName: 'div',
+							properties: { class: 'line-numbers' },
+							children: this.lines.map((_, index) => ({
+								type: 'element',
+								tagName: 'div',
+								properties: {},
+								children: [{ type: 'text', value: (index + 1).toString() }],
+							})),
+						},
+					],
 				});
 			}
 
 			return hast;
 		},
-	},
-];
+	};
+}
 
 function parseDirectives(that: { options: { meta?: { __raw?: string } } }) {
 	const regex = /^\[!code\s+(.*(?:,\s*)?)+\]$/;
