@@ -66,7 +66,7 @@ function lineNumbers(): Transformer {
 						{
 							type: 'element',
 							tagName: 'div',
-							properties: { class: 'shadow' },
+							properties: { class: 'shadow-left' },
 							children: [],
 						},
 						{
@@ -81,6 +81,13 @@ function lineNumbers(): Transformer {
 							})),
 						},
 					],
+				});
+
+				hast.children.push({
+					type: 'element',
+					tagName: 'div',
+					properties: { class: 'shadow-right' },
+					children: [],
 				});
 			}
 

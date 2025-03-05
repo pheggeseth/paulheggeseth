@@ -342,12 +342,12 @@ pre {
 			position: sticky;
 			left: 0;
 
-			& .shadow {
+			& .shadow-left {
 				display: block;
 				position: absolute;
 				inset: 0;
 				animation: reveal linear both;
-				animation-range: 0px 16px;
+				animation-range: 5px 21px;
 				animation-timeline: --scroll-timeline;
 				box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
 				opacity: 0;
@@ -370,6 +370,21 @@ pre {
 			& ::selection {
 				background: hsl(40deg, 100%, 97%, 15%);
 			}
+		}
+
+		& .shadow-right {
+			position: sticky;
+			right: -5px;
+			flex: none;
+			width: 5px;
+			box-shadow: calc(var(--shadow-x) * -1) 0 var(--shadow-blur)
+				var(--shadow-color);
+			animation: reveal linear both;
+			animation-range: calc(100% - 21px) calc(100% - 5px);
+			animation-timeline: --scroll-timeline;
+			animation-direction: reverse;
+			margin-inline-start: 5px;
+			opacity: 0;
 		}
 	}
 }
