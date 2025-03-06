@@ -322,7 +322,7 @@ p {
 pre {
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-code);
-	line-height: 1;
+	line-height: 1.5;
 	tab-size: 2;
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
@@ -330,65 +330,82 @@ pre {
 	--shadow-x: 4px;
 	--shadow-blur: 4px;
 	--shadow-color: hsl(40deg 15% 5% / 1);
-	--padding-inline: 12px;
-	--padding-block: 8px;
-	line-height: 1.5;
 	margin-block: var(--size-24);
-	overflow: hidden;
+	display: flex;
+	scroll-timeline: --scroll-timeline inline;
+	scrollbar-color: var(--color-subtle) var(--color-body);
+	overflow: auto;
+	border: 1px solid var(--color-subtle);
 
-	& .scroll-container {
-		overflow: auto;
-		scrollbar-color: var(--color-subtle) var(--color-body);
-		display: flex;
-		scroll-timeline: --scroll-timeline inline;
+	&::before {
+		content: '';
+		animation: reveal linear both;
+		animation-range: 8px 16px;
+		animation-timeline: --scroll-timeline;
+		display: block;
+		position: sticky;
+		left: -8px;
+		width: 8px;
+		flex: none;
+		margin-inline-end: -8px;
+		box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+		opacity: 0;
+	}
 
-		& .line-numbers-container {
-			position: sticky;
-			left: 0;
+	&::after {
+		content: '';
+		animation: reveal linear both;
+		animation-direction: reverse;
+		animation-range: calc(100% - 16px) calc(100% - 8px);
+		animation-timeline: --scroll-timeline;
+		display: block;
+		position: sticky;
+		right: -8px;
+		width: 8px;
+		flex: none;
+		margin-inline-start: -8px;
+		box-shadow: calc(var(--shadow-x) * -1) 0 var(--shadow-blur)
+			var(--shadow-color);
+		opacity: 0;
+	}
 
-			& .shadow-left {
-				display: block;
-				position: absolute;
-				inset: 0;
-				animation: reveal linear both;
-				animation-range: 5px 21px;
-				animation-timeline: --scroll-timeline;
-				box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
-				opacity: 0;
-			}
-
-			& .line-numbers {
-				user-select: none;
-				color: var(--color-subtle);
-				background: var(--color-body);
-				padding: var(--padding-block);
-				border-inline-end: 1px solid var(--color-subtle);
-				text-align: end;
-			}
+	&:has(.line-numbers) {
+		&::before {
+			display: none;
 		}
+	}
 
-		& code {
-			padding: var(--padding-block) var(--padding-inline);
+	& .line-numbers {
+		position: sticky;
+		left: 0;
+		background: var(--color-body);
+		padding: 8px;
+		text-align: end;
+		border-inline-end: 1px solid var(--color-subtle);
+		color: var(--color-subtle);
 
-			&::selection,
-			& ::selection {
-				background: hsl(40deg, 100%, 97%, 15%);
-			}
-		}
-
-		& .shadow-right {
-			position: sticky;
-			right: -5px;
-			flex: none;
-			width: 5px;
-			box-shadow: calc(var(--shadow-x) * -1) 0 var(--shadow-blur)
-				var(--shadow-color);
+		&::before {
+			content: '';
 			animation: reveal linear both;
-			animation-range: calc(100% - 21px) calc(100% - 5px);
+			animation-range: 0px 8px;
 			animation-timeline: --scroll-timeline;
-			animation-direction: reverse;
-			margin-inline-start: 5px;
+			display: block;
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			border-inline-end: 1px solid transparent;
+			flex: none;
+			box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
 			opacity: 0;
+		}
+	}
+
+	& code {
+		padding: 8px 12px;
+
+		&::selection,
+		& ::selection {
+			background: hsl(40deg, 100%, 97%, 15%);
 		}
 	}
 }
