@@ -8,25 +8,20 @@ export function Tabs({
 	children: Array<ReactElement<ComponentProps<typeof Pre>, typeof Pre>>;
 }) {
 	const id = useId().slice(1, -1);
+	const tabId = (index: number) => `${id}-tab-${index}`;
+	const tabContentId = (index: number) => `${id}-tab-content-${index}`;
 
 	return (
 		<div className="tabs-wrapper">
-			<div className="tabs" role="tablist">
+			<div className="tabs" id={id} role="tablist">
 				<style>
-					{`
-          /* Show the content when its radio is checked */
-          ${children
+					{`${children
 						.map(
-							(_, index) => `
-              .tabs:has(#${id}-tab-${index}:checked) {
-                #${id}-tab-content-${index} {
-                  display: block;
-                }
-              }
-           `,
+							(_, index) =>
+								`.tabs#${id}:has(#${tabId(index)}:checked) { #${tabContentId(index)} { display: block; } }`,
 						)
-						.join('')}          
-        `}
+						.join('\n')}
+					`}
 				</style>
 				<div className="tab-labels">
 					{children.map((child, index) => (
@@ -36,12 +31,12 @@ export function Tabs({
 							className="tab-label"
 							// biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: <explanation>
 							role="tab"
-							aria-controls={`${id}-tab-content-${index}`}
+							aria-controls={tabContentId(index)}
 						>
 							<input
 								key={index}
 								type="radio"
-								id={`${id}-tab-${index}`}
+								id={tabId(index)}
 								name="tabs"
 								defaultChecked={index === 0}
 							/>
@@ -52,10 +47,10 @@ export function Tabs({
 				{children.map((child, index) => (
 					<div
 						key={index}
-						id={`${id}-tab-content-${index}`}
+						id={tabContentId(index)}
 						className="tab-content"
 						role="tabpanel"
-						aria-labelledby={`${id}-tab-${index}`}
+						aria-labelledby={tabId(index)}
 					>
 						{child}
 					</div>
