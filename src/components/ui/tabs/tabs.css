@@ -15,31 +15,53 @@
 		display: flex;
 		border-block-end: 1px solid var(--color-subtle);
 		height: var(--size-24);
+		margin-block-start: -1px;
 
 		& label.tab-label {
-			height: var(--size-24);
-			cursor: pointer;
 			display: flex;
 			align-items: center;
 			color: var(--color-subtle);
 			padding-inline: var(--size-8);
-			border-inline: 1px solid var(--color-subtle);
-			border-block-end: 1px solid transparent;
+			border-inline-end: 1px solid var(--color-subtle);
 			color: hsl(40, 15%, 60%);
 			font-family: var(--font-family-heading);
 			font-size: var(--font-size-subtle);
-			letter-spacing: 0.75px;
-			margin-block-end: -2px;
-			margin-inline-start: -1px;
+			letter-spacing: var(--letter-spacing);
+			position: relative;
+			--focus-color: rgb(87, 84, 73);
 
-			&:has(input:focus-visible) {
+			&:hover {
+				cursor: pointer;
 				background: var(--color-selection-code);
-				border-block-end: 1px solid var(--color-selection-code);
+
+				&::after {
+					height: 2px;
+					background: var(--focus-color) !important;
+				}
+			}
+
+			&:has(input:focus-visible, input[type='radio']:checked:focus-visible) {
+				background: var(--focus-color);
+
+				&::after {
+					height: 2px;
+					background: var(--focus-color);
+				}
 			}
 
 			&:has(input[type='radio']:checked) {
 				color: var(--color-surface);
-				border-block-end: 1px solid var(--color-body);
+
+				&::after {
+					content: '';
+					background: var(--color-body);
+					display: block;
+					position: absolute;
+					bottom: -1px;
+					height: 2px;
+					left: 0;
+					right: 0;
+				}
 			}
 
 			& input[type='radio'] {

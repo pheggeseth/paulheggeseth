@@ -6,7 +6,7 @@ import { getCodeHastFromProps } from './get-code-hast-from-props';
 
 export async function Pre(props: {
 	children: ReactElement<ComponentProps<'code'>, 'code'>;
-	'line-numbers'?: boolean;
+	lines?: boolean;
 	name?: string;
 }) {
 	const codeHast = await getCodeHastFromProps(props);

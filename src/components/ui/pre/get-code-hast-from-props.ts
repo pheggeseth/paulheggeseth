@@ -5,7 +5,7 @@ import { theme } from './theme';
 
 export async function getCodeHastFromProps(props: {
 	children: ReactElement<ComponentProps<'code'>, 'code'>;
-	'line-numbers'?: boolean;
+	lines?: boolean;
 }) {
 	const lang = props.children.props.className?.match(/language-(.+)/)?.[1];
 
@@ -20,7 +20,7 @@ export async function getCodeHastFromProps(props: {
 		theme,
 	})) as PreRoot;
 
-	if (props['line-numbers']) {
+	if (props.lines) {
 		root.children[0].children.unshift({
 			type: 'element',
 			tagName: 'div',

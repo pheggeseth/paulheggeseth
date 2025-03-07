@@ -404,6 +404,8 @@ pre {
 	}
 
 	& code {
+		font-family: var(--font-family-code);
+		font-size: var(--font-size-code);
 		padding: 8px;
 
 		&::selection,
@@ -423,14 +425,14 @@ ul {
 }
 
 /* tablet and larger */
-@media screen and (min-width: calc(31.5rem + 0.1px)) {
+@media screen and (min-width: calc(33rem + 0.1px)) {
 	.display-mobile {
 		display: none !important;
 	}
 }
 
 /* mobile */
-@media screen and (max-width: 31.5rem) {
+@media screen and (max-width: 33rem) {
 	:is(.display-tablet, .display-desktop) {
 		display: none !important;
 	}
