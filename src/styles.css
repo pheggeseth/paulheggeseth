@@ -354,6 +354,11 @@ p {
 	box-shadow: var(--shadow);
 	border: 1px solid var(--color-subtle);
 	overflow: hidden;
+
+	&:has(pre:focus-visible) {
+		outline: 1px solid var(--color-body);
+		outline-offset: 2px;
+	}
 }
 
 pre {
@@ -369,6 +374,10 @@ pre {
 	scroll-timeline: --scroll-timeline inline;
 	scrollbar-color: var(--color-subtle) var(--color-body);
 	overflow: auto;
+
+	&:focus-visible {
+		outline: none;
+	}
 
 	&::before {
 		content: '';
