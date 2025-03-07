@@ -56,19 +56,9 @@ nav.blog-post-list ol {
 						}
 					}
 
-					& > a {
-						flex: auto;
-						display: grid;
-						grid-template-columns: auto 1fr auto;
-						column-gap: var(--size-16);
-						align-items: baseline;
-						font: var(--font-body);
-						line-height: 1rem;
-						padding: var(--size-4) var(--size-6);
-						margin-inline-end: calc(var(--size-6) * -1);
-
+					& > .link {
 						& .title {
-							letter-spacing: var(--letter-spacing-body);
+							letter-spacing: var(--letter-spacing);
 						}
 
 						& .spacer {

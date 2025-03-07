@@ -10,11 +10,6 @@
 		backdrop-filter: blur(0.5px);
 		background-color: hsl(var(--color-brown) / 0.1);
 	}
-
-	& a {
-		color: var(--color-subtle);
-		border-radius: calc(var(--border-radius) - 1px);
-	}
 }
 
 @supports (right: anchor(end)) {

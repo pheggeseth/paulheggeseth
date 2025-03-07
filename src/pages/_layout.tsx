@@ -1,14 +1,12 @@
+import { Link } from '@/components/ui/link';
 import '../styles.css';
 import { MobileNavPopover } from '@/components/mobile-nav-popover';
 import { ScrollRestoration } from '@/components/ui/scroll-restoration';
 import type { GetConfig } from '@/types';
 import { createPath } from '@/utils/create-path.gen';
 import type { ReactNode } from 'react';
-import { Link } from 'waku';
 
-type RootLayoutProps = { children: ReactNode };
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	const currentYear = new Date().getFullYear();
 
 	return (
@@ -20,11 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 						<ul>
 							<li>
 								<h1>
-									<Link
-										to={createPath('/')}
-										aria-label="home"
-										unstable_prefetchOnEnter
-									>
+									<Link to={createPath('/')} aria-label="home">
 										paulheggeseth.codes()_
 									</Link>
 								</h1>
@@ -33,11 +27,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 								<MobileNavPopover />
 							</li>
 							<li className="display-tablet">
-								<Link
-									to={createPath('/thoughts')}
-									aria-label="blog"
-									unstable_prefetchOnEnter
-								>
+								<Link to={createPath('/thoughts')} aria-label="blog">
 									read('things')
 								</Link>
 							</li>
@@ -45,11 +35,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 								||
 							</span>
 							<li className="display-tablet">
-								<Link
-									to={createPath('/about')}
-									aria-label="about"
-									unstable_prefetchOnEnter
-								>
+								<Link to={createPath('/about')} aria-label="about">
 									say('hi');
 								</Link>
 							</li>

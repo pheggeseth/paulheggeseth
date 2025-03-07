@@ -1,10 +1,10 @@
 import './blog-post-list.css';
+import { Link } from '@/components/ui/link';
 import type { BlogPostType } from '@/types';
 import { getBlogPostPublicationYear } from '@/utils/blog-posts';
 import { createPath } from '@/utils/create-path.gen';
 import { formatDate, formatDay } from '@/utils/dates';
 import { ChevronDown, ChevronRight } from 'react-feather';
-import { Link } from 'waku';
 
 export function BlogPostList({ posts }: { posts: Array<BlogPostType> }) {
 	const postsByYear = new Map<number, typeof posts>();
@@ -36,7 +36,6 @@ export function BlogPostList({ posts }: { posts: Array<BlogPostType> }) {
 											<Link
 												to={createPath('/thoughts/[slug]', { slug: post.slug })}
 												aria-label={post.data.title}
-												unstable_prefetchOnEnter
 											>
 												<span className="title">{post.data.title}</span>
 												<span className="spacer" aria-hidden />

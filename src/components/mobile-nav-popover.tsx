@@ -2,9 +2,9 @@
 
 import { createPath } from '@/utils/create-path.gen';
 import { Menu } from 'react-feather';
-import { Link } from 'waku';
 import { Popover } from './popover';
 import { Button } from './ui/button';
+import { Link } from './ui/link';
 
 export function MobileNavPopover() {
 	return (
@@ -20,18 +20,12 @@ export function MobileNavPopover() {
 								to={createPath('/thoughts')}
 								aria-label="blog"
 								onClick={hide}
-								unstable_prefetchOnEnter
 							>
 								read('things')
 							</Link>
 						</li>
 						<li>
-							<Link
-								to={createPath('/about')}
-								aria-label="about"
-								onClick={hide}
-								unstable_prefetchOnEnter
-							>
+							<Link to={createPath('/about')} aria-label="about" onClick={hide}>
 								say('hi')
 							</Link>
 						</li>

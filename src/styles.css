@@ -187,11 +187,6 @@ body {
 					--inline-padding: var(--size-6);
 					margin-block: calc(var(--size-4) * -1);
 
-					& a {
-						padding: var(--size-4) var(--inline-padding);
-						display: block;
-					}
-
 					&:first-child {
 						margin-right: auto;
 						margin-inline-start: calc(var(--inline-padding) * -1);
@@ -265,30 +260,6 @@ body {
 	padding: 0;
 	overflow-wrap: break-word;
 	scrollbar-width: thin;
-}
-
-a {
-	transition: background var(--transition-speed);
-	border-radius: var(--border-radius);
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: var(--size-4) var(--size-6);
-	line-height: 1rem;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-
-	&:is(:hover, :focus-visible) {
-		background: var(--color-hover);
-	}
-
-	&:focus-visible {
-		outline: var(--border);
-		outline-offset: -1px;
-	}
 }
 
 h1,
