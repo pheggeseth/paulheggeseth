@@ -1,23 +1,20 @@
 import fs from 'node:fs/promises';
-import { blogPostSchema, frontMatterSchema } from '@/schemas';
+import { frontMatterSchema } from '@/schemas';
 import type { BlogPostType } from '@/types';
 import type { run } from '@mdx-js/mdx';
-import matter from 'gray-matter';
 import { byPublicationDateDescending } from './sort';
 
-export async function getBlogPostSlugs() {
-	const fileNames = await fs.readdir('src/blog-posts', { encoding: 'utf-8' });
-	return fileNames.map((fileName) => fileName.replace(/\.[^/.]+$/, ''));
-}
-
-export async function readBlogPostFile(slug: string) {
-	const file = await fs.readFile(`src/blog-posts/${slug}.mdx`, 'utf-8');
-	return blogPostSchema.parse({ data: matter(file).data, slug });
-}
-
 export async function getAllBlogPosts() {
-	const slugs = await getBlogPostSlugs();
-	return Promise.all(slugs.map(readBlogPostFile));
+	const fileNames = await fs.readdir('src/blog-posts', { encoding: 'utf-8' });
+	return Promise.all(
+		fileNames.map(async (fileName) => {
+			const slug = fileName.replace(/\.[^/.]+$/, '');
+			return {
+				slug,
+				data: (await importBlogPost(slug)).data,
+			};
+		}),
+	);
 }
 
 export function getBlogPostPublicationYear(post: BlogPostType) {
