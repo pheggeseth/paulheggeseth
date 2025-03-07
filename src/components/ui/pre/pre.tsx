@@ -27,10 +27,12 @@ export async function Pre(props: {
 		components: {
 			pre: ({ children, ...preProps }) => {
 				return (
-					<pre {...preProps}>
+					<div className="pre-root">
+						<div className="pre-wrapper">
+							<pre {...preProps}>{children}</pre>
+						</div>
 						<Copy text={codeString} />
-						{children}
-					</pre>
+					</div>
 				);
 			},
 		},

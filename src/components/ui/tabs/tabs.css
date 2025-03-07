@@ -89,15 +89,30 @@
 			box-shadow: none;
 			border-radius: 0;
 			position: unset;
+		}
 
-			& button.copy {
-				border-radius: 0;
-				height: calc(var(--size-24) - 1px);
+		& .pre-root {
+			margin: 0;
+		}
 
-				&:is(:hover, :focus-visible) {
-					background: var(--color-selection-code);
-					outline: none;
-				}
+		& .pre-wrapper {
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+		}
+
+		& button.copy {
+			border-radius: 0;
+			height: calc(var(--size-24) - 2px);
+			width: 23px;
+			transition: background var(--transition-speed), color
+				var(--transition-speed);
+			top: -23px !important;
+
+			&:is(:hover, :focus-visible) {
+				color: hsl(40, 15%, 60%);
+				background: var(--color-selection-code);
+				outline: none;
 			}
 		}
 	}

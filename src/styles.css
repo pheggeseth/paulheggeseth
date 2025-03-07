@@ -308,6 +308,8 @@ button {
 
 	&:has(svg:only-child) {
 		padding: var(--size-4);
+		display: inline-grid;
+		place-content: center;
 
 		& > svg {
 			height: var(--size-16);
@@ -333,23 +335,40 @@ p {
 	letter-spacing: var(--letter-spacing);
 }
 
+.pre-root {
+	margin-block: var(--size-32) var(--size-24);
+
+	&:has(button.copy) {
+		position: relative;
+
+		& button.copy {
+			position: absolute;
+			right: 0px;
+			top: -24px;
+		}
+	}
+}
+
+.pre-wrapper {
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	border: 1px solid var(--color-subtle);
+	overflow: hidden;
+}
+
 pre {
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-code);
 	line-height: 1.5;
 	tab-size: 2;
-	border-radius: var(--border-radius);
-	box-shadow: var(--shadow);
 
 	--shadow-x: 4px;
 	--shadow-blur: 4px;
 	--shadow-color: hsl(40deg 15% 5% / 1);
-	margin-block: var(--size-24);
 	display: flex;
 	scroll-timeline: --scroll-timeline inline;
 	scrollbar-color: var(--color-subtle) var(--color-body);
 	overflow: auto;
-	border: 1px solid var(--color-subtle);
 
 	&::before {
 		content: '';
@@ -421,16 +440,6 @@ pre {
 		&::selection,
 		& ::selection {
 			background: var(--color-selection-code);
-		}
-	}
-
-	&:has(button.copy) {
-		position: relative;
-
-		& button.copy {
-			position: absolute;
-			right: 0;
-			top: 0;
 		}
 	}
 }
