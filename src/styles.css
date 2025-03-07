@@ -92,7 +92,7 @@
 	--size-720: calc(var(--unit) * 720);
 	--size-800: calc(var(--unit) * 800);
 	--size-960: calc(var(--unit) * 960);
-	--transition-speed: 150ms ease-in-out;
+	--transition-speed: 100ms ease-in-out;
 	--unit: 0.0625rem;
 }
 
@@ -336,7 +336,7 @@ p {
 }
 
 .pre-root {
-	margin-block: var(--size-32) var(--size-24);
+	margin-block: var(--size-32);
 
 	&:has(button.copy) {
 		position: relative;
@@ -344,7 +344,7 @@ p {
 		& button.copy {
 			position: absolute;
 			right: 0px;
-			top: -24px;
+			top: -28px;
 		}
 	}
 }
