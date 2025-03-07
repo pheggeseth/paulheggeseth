@@ -267,8 +267,7 @@ body {
 	scrollbar-width: thin;
 }
 
-a,
-button {
+a {
 	transition: background var(--transition-speed);
 	border-radius: var(--border-radius);
 	background: none;
@@ -289,33 +288,6 @@ a {
 	&:focus-visible {
 		outline: var(--border);
 		outline-offset: -1px;
-	}
-}
-
-button {
-	color: var(--color-subtle);
-	font-family: var(--font-family-code);
-	font-weight: 400;
-
-	&:is(:hover, :focus-visible) {
-		background: var(--color-hover);
-	}
-
-	&:focus-visible {
-		outline: var(--border);
-		outline-offset: -1px;
-	}
-
-	&:has(svg:only-child) {
-		padding: var(--size-4);
-		display: inline-grid;
-		place-content: center;
-
-		& > svg {
-			height: var(--size-16);
-			width: var(--size-16);
-			display: block;
-		}
 	}
 }
 

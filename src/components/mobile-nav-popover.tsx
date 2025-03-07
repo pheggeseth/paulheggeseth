@@ -4,13 +4,14 @@ import { createPath } from '@/utils/create-path.gen';
 import { Menu } from 'react-feather';
 import { Link } from 'waku';
 import { Popover } from './popover';
+import { Button } from './ui/button';
 
 export function MobileNavPopover() {
 	return (
 		<Popover>
-			<button type="button" style={{ marginInlineEnd: -4 }}>
+			<Button type="button" style={{ marginInlineEnd: -4 }}>
 				<Menu />
-			</button>
+			</Button>
 			<Popover.Panel as="ul">
 				{({ hide }) => (
 					<>

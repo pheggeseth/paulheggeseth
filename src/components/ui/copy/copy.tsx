@@ -2,6 +2,7 @@
 import './copy.css';
 import { useEffect, useRef, useState } from 'react';
 import { Check, Clipboard } from 'react-feather';
+import { Button } from '../button';
 
 export function Copy({ text }: { text: string }) {
 	const [copied, setCopied] = useState<false | object>(false);
@@ -39,8 +40,8 @@ export function Copy({ text }: { text: string }) {
 	}, [copied]);
 
 	return (
-		<button className="copy" type="button" onClick={handleCopyWithFeedback}>
+		<Button className="copy" type="button" onClick={handleCopyWithFeedback}>
 			{copied ? <Check /> : <Clipboard />}
-		</button>
+		</Button>
 	);
 }
