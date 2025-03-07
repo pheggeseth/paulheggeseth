@@ -1,4 +1,5 @@
 'use client';
+import './copy.css';
 import { useEffect, useRef, useState } from 'react';
 import { Check, Clipboard } from 'react-feather';
 

@@ -4,122 +4,89 @@
 	border: 1px solid var(--color-subtle);
 	border-radius: var(--border-radius);
 	margin-block: var(--size-24);
-}
 
-.tabs {
-	background: var(--color-body);
-	font-family: var(--font-family-code);
-	font-size: var(--font-size-code);
-	position: relative;
+	& .tabs {
+		background: var(--color-body);
+		font-family: var(--font-family-code);
+		font-size: var(--font-size-code);
+		position: relative;
 
-	& .tab-labels {
-		display: flex;
-		border-block-end: 1px solid var(--color-subtle);
-		height: var(--size-24);
-		margin-block-start: -1px;
-
-		& label.tab-label {
-			height: calc(var(--size-24) - 1px);
-			display: flex;
-			align-items: center;
-			color: var(--color-subtle);
-			padding-inline: var(--size-8);
-			border-inline-end: 1px solid var(--color-subtle);
-			color: hsl(40, 15%, 60%);
-			font-family: var(--font-family-heading);
-			font-size: var(--font-size-subtle);
-			letter-spacing: var(--letter-spacing);
-			position: relative;
-			--focus-color: rgb(87, 84, 73);
-			transition: background var(--transition-speed);
-
-			&::after {
-				height: 1px;
-				background: transparent;
-				transition: background var(--transition-speed);
-			}
-
-			&:hover {
-				cursor: pointer;
-				background: var(--color-selection-code);
-
-				&::after {
-					height: 1px;
-					background: var(--focus-color) !important;
-				}
-			}
-
-			&:has(input:focus-visible, input[type='radio']:checked:focus-visible) {
-				background: var(--focus-color);
-
-				&::after {
-					height: 1px;
-					background: var(--focus-color);
-				}
-			}
-
-			&:has(input[type='radio']:checked) {
-				color: var(--color-surface);
-
-				&::after {
-					content: '';
-					background: var(--color-body);
-					display: block;
-					position: absolute;
-					bottom: -1px;
-					height: 2px;
-					left: 0;
-					right: 0;
-				}
-			}
-
-			& input[type='radio'] {
-				opacity: 0;
-				width: 0px;
-			}
-		}
-	}
-
-	& .tab-content {
-		display: none;
-
-		& pre {
-			margin: 0;
-			border: none;
-			box-shadow: none;
-			border-radius: 0;
-			position: unset;
-		}
-
-		& .pre-root {
-			margin: 0;
-		}
-
-		& .pre-wrapper {
-			border: none;
-			border-radius: 0;
-			box-shadow: none;
-		}
-
-		& button.copy {
-			border-radius: 0;
-			height: calc(var(--size-24) - 2px);
-			width: 23px;
-			transition: background var(--transition-speed), color
-				var(--transition-speed);
-			top: -23px !important;
-
-			&:is(:hover, :focus-visible) {
-				color: hsl(40, 15%, 60%);
-				background: var(--color-selection-code);
-				outline: none;
-			}
-		}
-	}
-
-	&:has(pre button.copy) {
 		& .tab-labels {
-			padding-inline-end: var(--size-24);
+			display: flex;
+			border-block-end: 1px solid var(--color-subtle);
+			height: var(--size-24);
+			margin-block-start: -1px;
+
+			& label.tab-label {
+				height: calc(var(--size-24) - 1px);
+				display: flex;
+				align-items: center;
+				color: var(--color-subtle);
+				padding-inline: var(--size-8);
+				border-inline-end: 1px solid var(--color-subtle);
+				color: hsl(40, 15%, 60%);
+				font-family: var(--font-family-heading);
+				font-size: var(--font-size-subtle);
+				letter-spacing: var(--letter-spacing);
+				position: relative;
+				--focus-color: rgb(87, 84, 73);
+				transition: background var(--transition-speed);
+
+				&::after {
+					height: 1px;
+					background: transparent;
+					transition: background var(--transition-speed);
+				}
+
+				&:hover {
+					cursor: pointer;
+					background: var(--color-selection-code);
+
+					&::after {
+						height: 1px;
+						background: var(--focus-color) !important;
+					}
+				}
+
+				&:has(input:focus-visible, input[type='radio']:checked:focus-visible) {
+					background: var(--focus-color);
+
+					&::after {
+						height: 1px;
+						background: var(--focus-color);
+					}
+				}
+
+				&:has(input[type='radio']:checked) {
+					color: var(--color-surface);
+
+					&::after {
+						content: '';
+						background: var(--color-body);
+						display: block;
+						position: absolute;
+						bottom: -1px;
+						height: 2px;
+						left: 0;
+						right: 0;
+					}
+				}
+
+				& input[type='radio'] {
+					opacity: 0;
+					width: 0px;
+				}
+			}
+		}
+
+		& .tab-content {
+			display: none;
+		}
+
+		&:has(.pre-root .copy) {
+			& .tab-labels {
+				padding-inline-end: var(--size-24);
+			}
 		}
 	}
 }

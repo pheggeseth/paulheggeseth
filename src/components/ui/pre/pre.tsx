@@ -1,3 +1,4 @@
+import './pre.css';
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { type ComponentProps, Fragment, type ReactElement } from 'react';
 import { jsxDEV } from 'react/jsx-dev-runtime';
@@ -29,7 +30,9 @@ export async function Pre(props: {
 				return (
 					<div className="pre-root">
 						<div className="pre-wrapper">
-							<pre {...preProps}>{children}</pre>
+							<pre {...preProps} className="pre">
+								{children}
+							</pre>
 						</div>
 						<Copy text={codeString} />
 					</div>

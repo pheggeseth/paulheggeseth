@@ -1,0 +1,146 @@
+.pre-root {
+	margin-block: var(--size-32);
+
+	&:has(.copy) {
+		position: relative;
+	}
+
+	& .pre-wrapper {
+		border-radius: var(--border-radius);
+		box-shadow: var(--shadow);
+		border: 1px solid var(--color-subtle);
+		overflow: hidden;
+
+		&:has(.pre:focus-visible) {
+			outline: 1px solid var(--color-body);
+			outline-offset: 2px;
+		}
+
+		& .pre {
+			font-family: var(--font-family-code);
+			font-size: var(--font-size-code);
+			line-height: 1.5;
+			tab-size: 2;
+
+			--shadow-x: 4px;
+			--shadow-blur: 4px;
+			--shadow-color: hsl(40deg 15% 5% / 1);
+			display: flex;
+			scroll-timeline: --scroll-timeline inline;
+			scrollbar-color: var(--color-subtle) var(--color-body);
+			overflow: auto;
+
+			&:focus-visible {
+				outline: none;
+			}
+
+			&::before {
+				content: '';
+				animation: reveal linear both;
+				animation-range: 8px 16px;
+				animation-timeline: --scroll-timeline;
+				display: block;
+				position: sticky;
+				left: -8px;
+				width: 8px;
+				flex: none;
+				margin-inline-end: -8px;
+				box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+				opacity: 0;
+			}
+
+			&::after {
+				content: '';
+				animation: reveal linear both;
+				animation-direction: reverse;
+				animation-range: calc(100% - 16px) calc(100% - 8px);
+				animation-timeline: --scroll-timeline;
+				display: block;
+				position: sticky;
+				right: -8px;
+				width: 8px;
+				flex: none;
+				margin-inline-start: -8px;
+				box-shadow: calc(var(--shadow-x) * -1) 0 var(--shadow-blur)
+					var(--shadow-color);
+				opacity: 0;
+			}
+
+			&:has(.line-numbers) {
+				&::before {
+					display: none;
+				}
+			}
+
+			& .line-numbers {
+				position: sticky;
+				left: 0;
+				background: var(--color-body);
+				padding: 8px;
+				text-align: end;
+				color: var(--color-subtle);
+				user-select: none;
+
+				&::before {
+					content: '';
+					animation: reveal linear both;
+					animation-range: 0px 8px;
+					animation-timeline: --scroll-timeline;
+					display: block;
+					position: absolute;
+					inset: 0;
+					width: 100%;
+					flex: none;
+					box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
+					opacity: 0;
+				}
+			}
+
+			& code {
+				font-family: var(--font-family-code);
+				font-size: var(--font-size-code);
+				padding: 8px;
+
+				&::selection,
+				& ::selection {
+					background: var(--color-selection-code);
+				}
+			}
+		}
+	}
+}
+
+.tab-content:has(.pre-root) {
+	& .pre-root {
+		margin: 0;
+
+		& .pre-wrapper {
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+
+			& .pre {
+				margin: 0;
+				border: none;
+				box-shadow: none;
+				border-radius: 0;
+				position: unset;
+			}
+		}
+
+		& .copy {
+			border-radius: 0;
+			height: calc(var(--size-24) - 2px);
+			width: 23px;
+			transition: background var(--transition-speed), color
+				var(--transition-speed);
+			top: -23px;
+
+			&:is(:hover, :focus-visible) {
+				color: hsl(40, 15%, 60%);
+				background: var(--color-selection-code);
+				outline: none;
+			}
+		}
+	}
+}

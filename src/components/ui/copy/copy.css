@@ -1,0 +1,7 @@
+.pre-root:has(.copy) {
+	& .copy {
+		position: absolute;
+		right: 0px;
+		top: -28px;
+	}
+}
