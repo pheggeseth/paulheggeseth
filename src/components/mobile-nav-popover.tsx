@@ -2,9 +2,9 @@
 
 import { createPath } from '@/utils/create-path.gen';
 import { Menu } from 'react-feather';
-import { Popover } from './popover';
 import { Button } from './ui/button';
 import { Link } from './ui/link';
+import { Popover } from './ui/popover';
 
 export function MobileNavPopover() {
 	return (
