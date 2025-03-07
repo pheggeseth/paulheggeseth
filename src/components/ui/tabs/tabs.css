@@ -10,6 +10,7 @@
 	background: var(--color-body);
 	font-family: var(--font-family-code);
 	font-size: var(--font-size-code);
+	position: relative;
 
 	& .tab-labels {
 		display: flex;
@@ -18,6 +19,7 @@
 		margin-block-start: -1px;
 
 		& label.tab-label {
+			height: calc(var(--size-24) - 1px);
 			display: flex;
 			align-items: center;
 			color: var(--color-subtle);
@@ -29,13 +31,20 @@
 			letter-spacing: var(--letter-spacing);
 			position: relative;
 			--focus-color: rgb(87, 84, 73);
+			transition: background var(--transition-speed);
+
+			&::after {
+				height: 1px;
+				background: transparent;
+				transition: background var(--transition-speed);
+			}
 
 			&:hover {
 				cursor: pointer;
 				background: var(--color-selection-code);
 
 				&::after {
-					height: 2px;
+					height: 1px;
 					background: var(--focus-color) !important;
 				}
 			}
@@ -44,7 +53,7 @@
 				background: var(--focus-color);
 
 				&::after {
-					height: 2px;
+					height: 1px;
 					background: var(--focus-color);
 				}
 			}
@@ -79,6 +88,23 @@
 			border: none;
 			box-shadow: none;
 			border-radius: 0;
+			position: unset;
+
+			& button.copy {
+				border-radius: 0;
+				height: calc(var(--size-24) - 1px);
+
+				&:is(:hover, :focus-visible) {
+					background: var(--color-selection-code);
+					outline: none;
+				}
+			}
+		}
+	}
+
+	&:has(pre button.copy) {
+		& .tab-labels {
+			padding-inline-end: var(--size-24);
 		}
 	}
 }

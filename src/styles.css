@@ -423,6 +423,16 @@ pre {
 			background: var(--color-selection-code);
 		}
 	}
+
+	&:has(button.copy) {
+		position: relative;
+
+		& button.copy {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
 }
 
 ol,

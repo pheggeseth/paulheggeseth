@@ -4,6 +4,7 @@ description: "Some info about the post. Here is more info about this post. Here 
 publicationDate: [2025, 3, 1]
 ---
 import { Tabs } from '../components/ui/tabs';
+import { Copy } from '../components/ui/copy';
 
 <Tabs>
 ```ts lines name="file.ts"
@@ -19,6 +20,16 @@ function thing(str: string, num: number) {
 const hello = 'world';
 ```
 </Tabs>
+
+```ts lines name="file.ts"
+function thing(str: string, num: number) {
+	const test = 'test';
+	const num2 = 123;
+	const bool = false;
+
+	console.log(test);
+}
+```
 
 ## Some heading
 

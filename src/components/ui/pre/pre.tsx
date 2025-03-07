@@ -2,6 +2,7 @@ import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { type ComponentProps, Fragment, type ReactElement } from 'react';
 import { jsxDEV } from 'react/jsx-dev-runtime';
 import { jsx, jsxs } from 'react/jsx-runtime';
+import { Copy } from '../copy';
 import { getCodeHastFromProps } from './get-code-hast-from-props';
 
 export async function Pre(props: {
@@ -15,6 +16,8 @@ export async function Pre(props: {
 		return <pre>{props.children}</pre>;
 	}
 
+	const codeString = String(props.children.props.children);
+
 	return toJsxRuntime(codeHast, {
 		Fragment,
 		jsx,
@@ -22,8 +25,13 @@ export async function Pre(props: {
 		jsxDEV,
 		development: process.env.NODE_ENV === 'development',
 		components: {
-			pre: (preProps) => {
-				return <pre {...preProps} />;
+			pre: ({ children, ...preProps }) => {
+				return (
+					<pre {...preProps}>
+						<Copy text={codeString} />
+						{children}
+					</pre>
+				);
 			},
 		},
 	});

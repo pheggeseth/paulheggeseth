@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Check, Clipboard } from 'react-feather';
 
-export function Copy() {
+export function Copy({ text }: { text: string }) {
 	const [copied, setCopied] = useState<false | object>(false);
 
 	function handleSuccess() {
@@ -14,10 +14,7 @@ export function Copy() {
 	}
 
 	function handleCopyWithFeedback() {
-		navigator.clipboard
-			.writeText('Hello, world!')
-			.then(handleSuccess)
-			.catch(handleError);
+		navigator.clipboard.writeText(text).then(handleSuccess).catch(handleError);
 	}
 
 	const timeoutIdRef = useRef<NodeJS.Timeout | null>(null);
@@ -41,10 +38,8 @@ export function Copy() {
 	}, [copied]);
 
 	return (
-		<div>
-			<button type="button" onClick={handleCopyWithFeedback}>
-				{copied ? <Check /> : <Clipboard />}
-			</button>
-		</div>
+		<button className="copy" type="button" onClick={handleCopyWithFeedback}>
+			{copied ? <Check /> : <Clipboard />}
+		</button>
 	);
 }
