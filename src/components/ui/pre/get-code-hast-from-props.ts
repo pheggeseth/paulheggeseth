@@ -3,13 +3,17 @@ import type { ComponentProps, ReactElement } from 'react';
 import { type BundledLanguage, codeToHast } from 'shiki/bundle/full';
 import { theme } from './theme';
 
-export async function getHastFromProps(props: {
+export async function getCodeHastFromProps(props: {
 	children: ReactElement<ComponentProps<'code'>, 'code'>;
 	'line-numbers'?: boolean;
 }) {
-	const codeString = String(props.children.props.children);
 	const lang = props.children.props.className?.match(/language-(.+)/)?.[1];
-	ensureLang(lang);
+
+	if (!isSupportedLanguage(lang)) {
+		return null;
+	}
+
+	const codeString = String(props.children.props.children);
 
 	const root = (await codeToHast(codeString, {
 		lang,
@@ -36,10 +40,8 @@ export async function getHastFromProps(props: {
 const supportedLanguages = ['ts'] as const satisfies BundledLanguage[];
 type SupportedLanguage = (typeof supportedLanguages)[number];
 
-function ensureLang(value: unknown): asserts value is SupportedLanguage {
-	if (!supportedLanguages.includes(value as SupportedLanguage)) {
-		throw new Error(`unexpected code language "${value}"`);
-	}
+function isSupportedLanguage(value: unknown): value is SupportedLanguage {
+	return supportedLanguages.includes(value as SupportedLanguage);
 }
 
 type PreRoot = HastRoot & {
