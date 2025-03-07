@@ -19,6 +19,8 @@
 	--color-body: hsl(var(--color-black));
 	--color-border: hsl(var(--color-black) / 25%);
 	--color-hover: hsl(var(--color-brown) / 10%);
+	--color-selection: var(--color-hover);
+	--color-selection-code: hsl(40deg, 100%, 97%, 15%);
 	--color-subtle: hsl(var(--color-brown));
 	--color-surface-values: var(--hue) 100% 97%;
 	--color-surface: hsl(var(--color-surface-values));
@@ -31,7 +33,7 @@
 	--font-size-subtle: var(--size-12);
 	--font-subtle: 300 var(--font-size-subtle) var(--font-family-code);
 	--hue: 40deg;
-	--letter-spacing-body: 0.02rem;
+	--letter-spacing: 0.02em;
 	--shadow-color: var(--color-black);
 	/* --shadow:
 		0px 0.5px 0.4px hsl(var(--shadow-color) / 0.26),
@@ -178,6 +180,7 @@ body {
 					font-family: var(--font-family-code);
 					font-size: var(--font-size-body);
 					font-weight: 400;
+					letter-spacing: 0.01em;
 				}
 
 				& > li {
@@ -311,12 +314,13 @@ h4,
 h5 {
 	font-family: 'Figtree', sans-serif;
 	font-optical-sizing: auto;
+	letter-spacing: var(--letter-spacing);
 }
 
 p {
 	font: var(--font-body);
 	line-height: 2rem;
-	letter-spacing: var(--letter-spacing-body);
+	letter-spacing: var(--letter-spacing);
 }
 
 pre {
@@ -381,8 +385,8 @@ pre {
 		background: var(--color-body);
 		padding: 8px;
 		text-align: end;
-		border-inline-end: 1px solid var(--color-subtle);
 		color: var(--color-subtle);
+		user-select: none;
 
 		&::before {
 			content: '';
@@ -393,7 +397,6 @@ pre {
 			position: absolute;
 			inset: 0;
 			width: 100%;
-			border-inline-end: 1px solid transparent;
 			flex: none;
 			box-shadow: var(--shadow-x) 0 var(--shadow-blur) var(--shadow-color);
 			opacity: 0;
@@ -401,11 +404,11 @@ pre {
 	}
 
 	& code {
-		padding: 8px 12px;
+		padding: 8px;
 
 		&::selection,
 		& ::selection {
-			background: hsl(40deg, 100%, 97%, 15%);
+			background: var(--color-selection-code);
 		}
 	}
 }
@@ -416,7 +419,7 @@ ul {
 }
 
 *::selection {
-	background: var(--color-hover);
+	background: var(--color-selection);
 }
 
 /* tablet and larger */

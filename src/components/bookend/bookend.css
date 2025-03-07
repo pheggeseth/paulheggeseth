@@ -5,6 +5,7 @@
 	text-align: center;
 	line-height: 1rem;
 	user-select: none;
+	letter-spacing: var(--letter-spacing);
 
 	&[data-variant='start'] {
 		margin-block: var(--size-64) var(--size-32);
