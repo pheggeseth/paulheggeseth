@@ -8,8 +8,8 @@ import { Popover } from './popover';
 export function MobileNavPopover() {
 	return (
 		<Popover>
-			<button type="button" style={{ padding: 4, marginInlineEnd: -4 }}>
-				<Menu style={{ height: 16, width: 16, display: 'block' }} />
+			<button type="button" style={{ marginInlineEnd: -4 }}>
+				<Menu />
 			</button>
 			<Popover.Panel as="ul">
 				{({ hide }) => (

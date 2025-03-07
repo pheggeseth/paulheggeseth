@@ -42,16 +42,8 @@ export function Copy() {
 
 	return (
 		<div>
-			<button
-				type="button"
-				onClick={handleCopyWithFeedback}
-				style={{ padding: 4 }}
-			>
-				{copied ? (
-					<Check style={{ height: 16, width: 16, display: 'block' }} />
-				) : (
-					<Clipboard style={{ height: 16, width: 16, display: 'block' }} />
-				)}
+			<button type="button" onClick={handleCopyWithFeedback}>
+				{copied ? <Check /> : <Clipboard />}
 			</button>
 		</div>
 	);
