@@ -2,20 +2,24 @@ import './tabs.css';
 import { type ComponentProps, type ReactElement, useId } from 'react';
 import type { Pre } from '../pre';
 
+type Child = ReactElement<ComponentProps<typeof Pre>, typeof Pre>;
+
 export function Tabs({
 	children,
 }: {
-	children: Array<ReactElement<ComponentProps<typeof Pre>, typeof Pre>>;
+	children: Child | Array<Child>;
 }) {
 	const id = useId().slice(1, -1);
 	const tabId = (index: number) => `${id}-tab-${index}`;
 	const tabContentId = (index: number) => `${id}-tab-content-${index}`;
 
+	const childrenArray = Array.isArray(children) ? children : [children];
+
 	return (
 		<div className="tabs-wrapper">
 			<div className="tabs" id={id} role="tablist">
 				<style>
-					{`${children
+					{`${childrenArray
 						.map(
 							(_, index) =>
 								`.tabs#${id}:has(#${tabId(index)}:checked) { #${tabContentId(index)} { display: block; } }`,
@@ -24,7 +28,7 @@ export function Tabs({
 					`}
 				</style>
 				<div className="tab-labels">
-					{children.map((child, index) => (
+					{childrenArray.map((child, index) => (
 						// biome-ignore lint/a11y/useFocusableInteractive: <explanation>
 						<label
 							key={index}
@@ -44,7 +48,7 @@ export function Tabs({
 						</label>
 					))}
 				</div>
-				{children.map((child, index) => (
+				{childrenArray.map((child, index) => (
 					<div
 						key={index}
 						id={tabContentId(index)}
