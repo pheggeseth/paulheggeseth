@@ -1,0 +1,18 @@
+.footer {
+	font-family: var(--font-family-code);
+	font-size: var(--font-size-body);
+	grid-column: 1 / -1;
+	border-block-start: var(--border);
+	margin-block-start: var(--size-128);
+	line-height: 1em;
+
+	display: grid;
+	grid-template-columns: subgrid;
+
+	& > :only-child {
+		grid-column: 2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
