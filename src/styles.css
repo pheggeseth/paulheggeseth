@@ -97,8 +97,7 @@
 }
 
 html,
-body,
-#layout {
+body {
 	height: 100%;
 }
 
@@ -107,8 +106,6 @@ html {
 }
 
 body {
-	overflow-x: hidden;
-	overflow-y: auto;
 	scrollbar-color: var(--color-border) transparent;
 	scrollbar-gutter: stable;
 	scrollbar-width: thin;

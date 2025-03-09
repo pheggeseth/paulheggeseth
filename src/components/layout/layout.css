@@ -1,4 +1,7 @@
 .layout {
+	height: 100%;
+	overflow-y: auto;
+	scroll-timeline: --layout-scroll-timeline block;
 	width: min(100vw, 100%);
 	color: var(--color-body);
 	position: relative; /* helps visually hidden elements not impact scrolling */

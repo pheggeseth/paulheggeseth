@@ -19,7 +19,7 @@
 		width: 100%;
 		animation: reveal linear both;
 		animation-range: 48px 64px;
-		animation-timeline: scroll(root);
+		animation-timeline: --layout-scroll-timeline;
 		opacity: 0;
 		pointer-events: none;
 	}
