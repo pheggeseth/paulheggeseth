@@ -1,7 +1,9 @@
 .pre-root:has(.copy) {
 	& .copy {
 		position: absolute;
-		right: 0px;
-		top: -28px;
+		right: 0;
+		margin-inline-end: calc(var(--size-4) * -1);
+		margin-block-end: var(--size-4);
+		bottom: 100%;
 	}
 }
