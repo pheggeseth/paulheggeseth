@@ -35,19 +35,21 @@ export function BlogPostList({ posts }: { posts: Array<BlogPostType> }) {
 											</div>
 											<Link
 												to={createPath('/thoughts/[slug]', { slug: post.slug })}
-												aria-label={post.data.title}
+												aria-label={post.frontmatter.title}
 											>
-												<span className="title">{post.data.title}</span>
+												<span className="title">{post.frontmatter.title}</span>
 												<span className="spacer" aria-hidden />
 												<span
 													className="publication-date"
-													aria-label={`Published on ${formatDate(post.data.publicationDate)}`}
+													aria-label={`Published on ${formatDate(post.frontmatter.publicationDate)}`}
 												>
-													{formatDay(post.data.publicationDate)}
+													{formatDay(post.frontmatter.publicationDate)}
 												</span>
 											</Link>
 										</summary>
-										<p className="description">{post.data.description}</p>
+										<p className="description">
+											{post.frontmatter.description}
+										</p>
 									</details>
 								</li>
 							))}

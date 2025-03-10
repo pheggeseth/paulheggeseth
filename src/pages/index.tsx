@@ -21,8 +21,8 @@ export default async function Index() {
 		<>
 			<title>paulheggeseth.codes()</title>
 			<BlogPost
-				title={currentPost.data.title}
-				publicationDate={currentPost.data.publicationDate}
+				title={currentPost.frontmatter.title}
+				publicationDate={currentPost.frontmatter.publicationDate}
 			>
 				<MDXContent />
 			</BlogPost>

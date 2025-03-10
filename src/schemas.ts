@@ -6,7 +6,7 @@ export const dateTupleSchema = z.tuple([
 	z.number().min(1).max(31),
 ]);
 
-export const frontMatterSchema = z.object({
+export const frontmatterSchema = z.object({
 	title: z.string().min(1),
 	description: z.string().min(1).optional(),
 	publicationDate: dateTupleSchema,
@@ -15,5 +15,5 @@ export const frontMatterSchema = z.object({
 
 export const blogPostSchema = z.object({
 	slug: z.string().min(1),
-	data: frontMatterSchema,
+	frontmatter: frontmatterSchema,
 });

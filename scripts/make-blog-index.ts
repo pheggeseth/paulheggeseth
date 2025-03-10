@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { frontMatterSchema } from '@/schemas';
+import { frontmatterSchema } from '@/schemas';
+import type { BlogPostType } from '@/types';
 import { byPublicationDateDescending } from '@/utils/sort';
 import chokidar from 'chokidar';
 import matter from 'gray-matter';
@@ -10,7 +11,7 @@ const blogDir = 'src/blog-posts';
 const isDev = process.env.NODE_ENV === 'development';
 
 async function makeBlogIndex() {
-	const posts = await Promise.all(
+	const posts: BlogPostType[] = await Promise.all(
 		(await fs.readdir(blogDir))
 			.filter((fileName) => fileName.endsWith('.mdx'))
 			.map(async (fileName) => {
@@ -20,7 +21,7 @@ async function makeBlogIndex() {
 				);
 				return {
 					slug: fileName.replace('.mdx', ''),
-					data: frontMatterSchema.parse(matter(content).data),
+					frontmatter: frontmatterSchema.parse(matter(content).data),
 				};
 			}),
 	);

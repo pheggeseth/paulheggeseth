@@ -12,9 +12,9 @@ export function BlogPostPreview({
 	publicationDate,
 }: {
 	slug: BlogPostType['slug'];
-	title: BlogPostType['data']['title'];
-	description?: BlogPostType['data']['description'];
-	publicationDate: BlogPostType['data']['publicationDate'];
+	title: BlogPostType['frontmatter']['title'];
+	description?: BlogPostType['frontmatter']['description'];
+	publicationDate: BlogPostType['frontmatter']['publicationDate'];
 }) {
 	const path = createPath('/thoughts/[slug]', { slug });
 

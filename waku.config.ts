@@ -16,7 +16,7 @@ export default defineConfig({
 				mdx({
 					remarkPlugins: [
 						[remarkFrontmatter, 'yaml'],
-						[remarkMdxFrontmatter, { name: 'data' }],
+						[remarkMdxFrontmatter, { name: 'frontmatter' }],
 					],
 					rehypePlugins: [rehypeMdxCodeProps],
 					providerImportSource: '../components/mdx-components.tsx',

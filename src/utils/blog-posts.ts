@@ -1,15 +1,15 @@
 import fs from 'node:fs';
-import { blogPostSchema, frontMatterSchema } from '@/schemas';
+import { blogPostSchema, frontmatterSchema } from '@/schemas';
 import type { BlogPostType } from '@/types';
 import type { run } from '@mdx-js/mdx';
 import { z } from 'zod';
 
 export function getBlogPostPublicationYear(post: BlogPostType) {
-	return post.data.publicationDate[0];
+	return post.frontmatter.publicationDate[0];
 }
 
 export function getBlogPostPublicationDate(post: BlogPostType) {
-	return Date.UTC(...post.data.publicationDate);
+	return Date.UTC(...post.frontmatter.publicationDate);
 }
 
 let cachedPosts: BlogPostType[] | null = null;
@@ -37,6 +37,6 @@ export async function importBlogPost(slug: string) {
 
 	return {
 		MDXContent: module.default,
-		data: frontMatterSchema.parse(module.data),
+		frontmatter: frontmatterSchema.parse(module.frontmatter),
 	};
 }

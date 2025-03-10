@@ -14,12 +14,12 @@ export function RecentBlogPostList({
 			<h1>{heading}</h1>
 			<ol>
 				{posts.map((post) => (
-					<li key={post.data.publicationDate.join('-')}>
+					<li key={post.frontmatter.publicationDate.join('-')}>
 						<BlogPostPreview
 							slug={post.slug}
-							title={post.data.title}
-							description={post.data.description}
-							publicationDate={post.data.publicationDate}
+							title={post.frontmatter.title}
+							description={post.frontmatter.description}
+							publicationDate={post.frontmatter.publicationDate}
 						/>
 					</li>
 				))}
