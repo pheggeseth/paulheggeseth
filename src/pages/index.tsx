@@ -4,7 +4,7 @@ import type { GetConfig } from '@/types';
 import { getMostRecentBlogPosts, importBlogPost } from '@/utils/blog-posts';
 
 export default async function Index() {
-	const [currentPost, ...recentPosts] = await getMostRecentBlogPosts(5);
+	const [currentPost, ...recentPosts] = getMostRecentBlogPosts(5);
 
 	if (!currentPost) {
 		return (

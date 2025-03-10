@@ -7,7 +7,7 @@ import {
 } from '@/utils/blog-posts';
 
 export default async function BlogPostsListPage() {
-	const posts = await getMostRecentBlogPosts();
+	const posts = getMostRecentBlogPosts();
 
 	const postsByYear = new Map<number, typeof posts>();
 
