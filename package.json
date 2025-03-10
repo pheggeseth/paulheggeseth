@@ -4,9 +4,12 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "waku dev",
-		"dev:sync": "NODE_ENV=development tsx src/scripts/make-blog-index.ts",
-		"generate-create-path": "tsx src/scripts/generate-create-path.ts",
+		"dev": "concurrently \"npm run dev:app\" \"npm run dev:gen\"",
+		"dev:app": "waku dev",
+		"dev:gen": "NODE_ENV=development concurrently \"npm run gen:create-path\" \"npm run gen:posts-index\"",
+		"gen": "npm run gen:create-path && npm run gen:posts-index",
+		"gen:create-path": "tsx src/scripts/generate-create-path.ts",
+		"gen:posts-index": "tsx src/scripts/generate-posts-index.ts",
 		"build": "waku build",
 		"start": "waku start"
 	},
@@ -37,6 +40,7 @@
 		"@types/react": "19.0.8",
 		"@types/react-dom": "19.0.3",
 		"autoprefixer": "10.4.20",
+		"concurrently": "^9.1.2",
 		"lefthook": "1.8.5",
 		"postcss-load-config": "6.0.1",
 		"tsx": "4.19.2",
