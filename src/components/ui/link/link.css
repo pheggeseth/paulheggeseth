@@ -19,7 +19,7 @@
 	}
 }
 
-header > nav > ul > li > .link {
+.header > nav > ul > li .link {
 	padding: var(--size-4) var(--inline-padding);
 	display: block;
 }
