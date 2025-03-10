@@ -17,11 +17,11 @@ let cachedPosts: BlogPostType[] | null = null;
 export function getMostRecentBlogPosts(limit?: number) {
 	if (!cachedPosts) {
 		try {
-			const rawData = fs.readFileSync('cache/posts.json', 'utf-8');
+			const rawData = fs.readFileSync('src/posts.gen.json', 'utf-8');
 			const parsedData = JSON.parse(rawData);
 			cachedPosts = z.array(blogPostSchema).parse(parsedData);
 		} catch (error) {
-			console.error('Failed to read or parse cache/posts.json:', error);
+			console.error('Failed to read or parse src/posts.gen.json:', error);
 			cachedPosts = [];
 		}
 	}

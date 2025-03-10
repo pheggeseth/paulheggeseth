@@ -5,4 +5,4 @@ dist
 .cache
 .DS_Store
 *.pem
-cache
+src/posts.gen.json

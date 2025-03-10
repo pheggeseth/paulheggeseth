@@ -27,7 +27,7 @@ async function makeBlogIndex() {
 	);
 
 	await fs.writeFile(
-		'cache/posts.json',
+		'src/posts.gen.json',
 		JSON.stringify(posts.sort(byPublicationDateDescending), null, 2),
 	);
 }

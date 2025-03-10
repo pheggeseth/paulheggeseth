@@ -5,8 +5,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "waku dev",
-		"dev:sync": "NODE_ENV=development tsx ./scripts/make-blog-index.ts",
-		"generate-create-path": "tsx .gen/generate-create-path.ts",
+		"dev:sync": "NODE_ENV=development tsx src/scripts/make-blog-index.ts",
+		"generate-create-path": "tsx src/scripts/generate-create-path.ts",
 		"build": "waku build",
 		"start": "waku start"
 	},
